@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="src/sivu1_dialog.css">
+    <script src="src/sivu1.js" defer></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Document</title>
+</head>
+  <body>
+    <div class="support">
+      <input  type="checkbox" class="checkbox" id="checkbox">
+      <label for="checkbox" class="checkbox-label">
+        <i id="icon_sun" class="material-icons" >wb_sunny</i>
+        <i id="icon_moon" class="material-icons">brightness_3</i>
+        <span class="ball"></span>
+      </label>
+    </div>
+    <div class="topnav" id="myTopnav">
+
+      <a class="active" id="logotaus" href="Logo"><img id="logo" src="media/svg/logo.svg" alt="logo"> <h1 id="logo_text">Logo</h1></a>
+      <a href="#home" class="navi" >Home</a>
+      <a href="#news" class="navi">Menu</a>
+      <a href="#contact" class="navi">Info</a>
+      <a href="#login" class="navi"><button id="open_dialog"><i class="material-icons">account_circle</i></button></a>
+      <button id="cart" ><img class="navi" src="media/svg/cart.svg" alt="cart"></button>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()" >
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+  <div class="header">
+    <div class="textOverlay">
+      <img id="logo_hero" src="" alt="logo_hero">
+
+    </div>
+  </div>
+  <div class="gap">
+    <h2 class="gap_text">Ruokalistat</h2>
+    <p class="gap_text">Tutki ruokalistaa</p>
+    <div>
+      <button class="button-R" role="button">Salaatti</button>
+      <button class="button-R" role="button">Liha</button>
+      <button class="button-R" role="button">Kana</button>
+      <button class="button-R" role="button">Kala</button>
+      <button class="button-R" role="button">Kasvis</button>
+    </div>
+
+  </div>
+
+
+
+<div class="wrapper">
+  <div class="one">
+      <div class="imagepizza">
+
+      </div>
+
+  </div>
+  <div class="two">
+    <div class="imagepizza">
+
+    </div>
+    <div class="textpizza">
+
+    </div>
+  </div>
+  <div class="three">
+    <div class="imagepizza">
+
+    </div>
+    <div class="textpizza">
+
+    </div>
+  </div>
+  <div class="four">
+    <div class="imagepizza">
+    </div>
+    <div class="textpizza">
+
+    </div>
+  </div>
+</div>
+  <div class="row">
+    <div class="column">
+      <div class="card">
+        <div class="row"> <img class="column" id="ravintola" src="kuvat/shawnanggg-nmpW_WwwVSc-unsplash.jpg" alt="ravintola">
+          <div class="column1">
+            <h2 class="text1">About us</h2>
+            <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur id
+              cupiditate! Repellat dolores sunt aperiam officiis maxime. Minus laborum obcaecati repellat nesciunt animi
+              deserunt, natus similique tempora cupiditate eligendi. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Aliquid, at. Nemo fuga quia voluptatibus accusantium. Dolorem animi provident officiis a error. Accusantium ab rerum eveniet.
+              Totam ipsum neque reprehenderit quas?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="footer">
+    <h2>Footer</h2>
+  </div>
+<!--Dialog-->
+<dialog aria-labelledby="dialog_title" aria-describedby="dialog_description">
+  <img src="kuvat/user.png" alt="Illustration of Location Services" />
+  <h2 id="dialog_title" class="h2">Rekistöröi käyttäjä</h2>
+  <P>Minimi 3 merkkiä</P>
+
+  <!--form-->
+  <form action="" method="get" class="form-sub">
+    <div class="form-sub">
+      <label for="name">Käyttäjä nimi: </label>
+      <input
+      type="text"
+      name="name" id="name"
+      autocomplete="name"
+      required minlength="3"
+      />
+    </div>
+    <div class="form-sub">
+      <label for="email">Sähköposti: </label>
+      <input
+      type="email"
+      name="email"
+      pattern=".+@metropolia.fi"
+      id="email" required
+      autocomplete="email"
+      required minlength="3"/>
+    </div>
+    <div class="form-sub">
+      <label for="password">Salasana: </label>
+      <input
+      type="password"
+      name="password"
+      id="password" required
+      required minlength="3"
+      pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}"
+      />
+    </div>
+    <!--</div>-->
+  </form>
+  <!--form-->
+
+  <div class="flex flex-space-between">
+    <button id="close_dialog">Sulje</button>
+
+    <button type="submit" value="lähetä!" id="confirm_dialog" >Vahvista</button>
+  </div>
+</dialog>
+<!--Dialog-->
+
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+    </script>
+
+
+  </body>
+  </html>
+</body>
+</html>
