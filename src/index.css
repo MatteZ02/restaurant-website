@@ -211,8 +211,11 @@ h1{
 
 .gap_text{
   margin-bottom: 20px;
+  color: #4C3F59;
   font-family: 'Sofia Sans Condensed', sans-serif;
-  font-weight: 700;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 1.25rem; /* 83.333% */
   padding: 0;
 }
 
@@ -366,18 +369,19 @@ transform: scale(0.95);
 /* top nav starts */
 .topnav {
 overflow: hidden;
-background-color: #333;
+background-color: #ddd;
 min-width: 250px;
 height: 90px;
 font-family: "Sofia Sans Condensed", sans-serif;
-font-weight: 900;
+font-size: 10rem;
+font-weight: 600;
 
 }
 
 .topnav a {
 float: left;
 display: block;
-color: #ddd;
+color: #4C3F59;
 text-align: center;
 padding: 14px 16px;
 text-decoration: none;
@@ -424,14 +428,25 @@ border-radius: 20px;
 margin: 1%;
 }
 
+.sales{
+  width: 600px;
+  height: 490px;
+  background-color: #dadada;
+  float: left;
+  border-radius: 20px;
+  margin-top: 40px;
+  margin-left: 100px;
+}
+
 
 .wrapper {
 display: grid;
 grid-template-columns: repeat(1, 1fr);
 gap: 15px;
-grid-auto-rows: minmax(250px, auto);
+grid-auto-rows: minmax(150px, auto);
+width: 400px;
 margin-top: 20px;
-min-width: 250px;
+min-width: 100px;
 padding: 20px;
 }
 .one {
@@ -463,23 +478,21 @@ background-color :#ccc;
 
 border-radius: 10px;
 }
+.five {
+  grid-column: 1;
+  grid-row: 4;
+  background-color :#ccc;
 
+  border-radius: 10px;
+  }
+.six {
+  grid-column: 1;
+  grid-row: 4;
+  background-color :#ccc;
 
-#pizza{
-image-resolution: 200px;
-margin: 10px;
-width: 200px;
-height: 200px;
-border-radius: 50%;
-}
+  border-radius: 10px;
+  }
 
-.imagepizza{
-float: left;
-}
-
-.textpizza{
-margin-left: 10px;
-}
 
 
 @media screen and (max-width: 565px) {
@@ -509,6 +522,14 @@ margin-left: 10px;
 .four{
   grid-column: 2;
   grid-row: 2;
+}
+.five{
+  grid-column: 1;
+  grid-row: 3;
+}
+.six{
+  grid-column: 2;
+  grid-row: 3;
 }
 }
 
@@ -586,30 +607,7 @@ margin-left: 10px;
   }
 }
 
-@media screen and (max-width: 1703px) {
-  #tomato {
-    right: 10%;
-    top: 1700px;
 
-  }
-}
-
-@media screen and (max-width: 565px) {
-  #tomato {
-    width: 200px;
-    right: 5%;
-    top: 2400px;
-
-  }
-}
-@media screen and (max-width: 471px) {
-  #tomato {
-    width: 200px;
-    right: 5%;
-    top: 2500px;
-
-  }
-}
 
 form.form-sub {
   display: table;
