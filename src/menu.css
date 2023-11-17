@@ -1,0 +1,371 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding: 0;
+  margin: auto;
+
+}
+
+body.dark  {background-color: #111;}
+body.dark  .topnav {background-color: #111;}
+body.dark  .gap_text {color: #fff;}
+
+
+.checkbox {
+  opacity: 0;
+  margin: 0;
+  position: absolute;
+
+}
+
+.checkbox-label {
+  background-color: #111;
+  width: 36px;
+  height: 19px;
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+
+}
+
+.checkbox-label .ball {
+  background-color: #fff;
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  left:2px;
+  top: 1px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+#icon_sun{
+  margin: 2px;
+  font-size:15px;
+  color:#f39c12;
+}
+#icon_moon{
+  margin: 2px;
+  font-size:15px;
+  color:#f3c57b;
+
+}
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(15px);
+}
+
+.support {
+
+	position: absolute;
+  margin-top: 3px;
+  margin-left: 23px;
+}
+
+#logo_text{
+
+  color: #000;
+}
+
+h1{
+  font-family: 'Sofia Sans Condensed', sans-serif;
+  padding-left: 20px;
+}
+
+
+.gap{
+  text-align: center;
+  height: auto;
+
+}
+
+
+
+#logo{
+ width: 50px;
+ margin-top: 15px;
+ float: left;
+
+}
+
+#logo_hero{
+  margin-left: 15px;
+  float: left;
+  width: 360px;
+
+}
+#logotaus{
+  background-color: white;
+  border-bottom-right-radius: 20px;
+  min-width: 300px;
+  height: 90px;
+}
+
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+  min-width: 300px;
+}
+
+.gap_text{
+  margin-bottom: 20px;
+  color: #4C3F59;
+  font-family: 'Sofia Sans Condensed', sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 1.25rem; /* 83.333% */
+  padding: 0;
+}
+
+
+
+
+#login{
+  margin-top: 0px;
+  width: 20px;
+  height: auto;
+}
+
+/* top nav starts */
+.topnav {
+overflow: hidden;
+background-color: #ddd;
+min-width: 250px;
+height: 90px;
+font-family: "Sofia Sans Condensed", sans-serif;
+font-size: 10rem;
+font-weight: 600;
+
+}
+
+.topnav a {
+float: left;
+display: block;
+color: #4C3F59;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+font-size: 17px;
+}
+
+.topnav a:hover {
+color: #7F7F7F;
+}
+
+.topnav a.active {
+color: white;
+}
+
+.topnav .icon {
+display: none;
+}
+
+
+#cart{
+  margin-top: 0px;
+  margin-right: 10px;
+  padding: 0;
+  float: right;
+}
+
+.navi{
+  margin-top: 40px;
+}
+/* menu------------------------------------------------------------------------------------------------- */
+
+.button-R {
+  align-items: center;
+  appearance: none;
+  background-clip: padding-box;
+  background-color: initial;
+  background-image: none;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  flex-direction: row;
+  flex-shrink: 0;
+  font-family: 'Sofia Sans Condensed', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  justify-content: center;
+  line-height: 24px;
+  margin: 0;
+  min-height: 64px;
+  outline: none;
+  overflow: visible;
+  padding: 19px 26px;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  width: auto;
+  word-break: keep-all;
+  z-index: 0;
+}
+
+@media (min-width: 768px) {
+  .bbutton-R {
+    padding: 19px 32px;
+  }
+}
+
+.button-R:before,
+.button-R:after {
+  border-radius: 80px;
+}
+
+.button-R:before {
+  background-color: rgba(157, 19, 249, 0.32);
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -2;
+}
+
+.button-R:after {
+  background-color: initial;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(79,9,121,1) 0%, rgba(79,0,255,1) 100%);
+  bottom: 4px;
+  content: "";
+  display: block;
+  left: 4px;
+  overflow: hidden;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  transition: all 100ms ease-out;
+  z-index: -1;
+}
+
+.button-R:hover:not(:disabled):after {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  transition-timing-function: ease-in;
+}
+
+.button-R:active:not(:disabled) {
+  color: #ccc;
+}
+
+.button-R:active:not(:disabled):after {
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+  bottom: 4px;
+  left: 4px;
+  right: 4px;
+  top: 4px;
+}
+
+.button-R:disabled {
+  cursor: default;
+  opacity: .24;
+}
+
+
+
+@media screen and (max-width: 899px) {
+.topnav a:not(:first-child) {display: none;}
+.topnav a.icon {
+  float: right;
+  display: block;
+}
+}
+
+@media screen and (max-width: 899px) {
+.topnav.responsive {position: relative;}
+.topnav.responsive .icon {
+  position: absolute;
+  left: 90%;
+  top: 0;
+}
+.topnav.responsive a {
+  float: none;
+  display: block;
+  text-align: left;
+  width: 100%;
+}
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (min-width: 900px) {
+  body {
+    width: 65%;
+
+  }
+}
+
+
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float:inline-start;
+    width: 10px;
+  }
+}
+
+
+
+
+
+form.form-sub {
+  display: table;
+
+}
+
+div.form-sub {
+  display: table-row;
+}
+
+label,
+input {
+  display: table-cell;
+  margin-bottom: 10px;
+}
+
+label {
+  padding-right: 10px;
+}
+.form-sub input{
+  margin: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid black;
+  border-left: 7px solid black;
+  border-left-color:#7F7F7F;
+  transition:  border-left-color 1.5s;
+
+}
+
+.form-sub input:invalid{
+  border-left-color: orange;
+  opacity: 60%;
+}
+
+.form-sub input:valid{
+  border-left-color: green;
+  opacity: 60%;
+}
+
