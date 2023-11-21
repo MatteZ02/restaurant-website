@@ -9,9 +9,11 @@ lerna-debug.log*
 
 node_modules
 dist
+build
 dev-dist
 dist-ssr
 *.local
+private
 
 # Editor directories and files
 .vscode/*
