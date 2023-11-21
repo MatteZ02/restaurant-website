@@ -1,0 +1,96 @@
+
+
+button {
+    
+    margin-top: 2rem;
+    width: calc(44px * var(--ratio));
+    height: 30px;
+    border-radius: calc(3px * var(--ratio));
+    border: none;
+    letter-spacing: ccalc(3 * var(--leading, 0.025em));
+    font-family: inherit;
+    color: var(--grey-color);
+    background-color: var(--light-color-bg);
+    font-size: large;
+    font-weight: 700;
+  }
+  
+  button:focus {
+    outline: none;
+    border: 0.0625rem solid transparent;
+    box-shadow: 0 0 0 0.125rem #fff, 0 0 0 0.2rem var(--dark-color-bg);
+  }
+  
+  button.cta {
+    background-color: var(--cta-color);
+    color: white;
+  }
+  
+  button.cta:focus {
+    box-shadow: 0 0 0 0.125rem #fff, 0 0 0 0.2rem var(--cta-color);
+  }
+  
+  #open_dialog {
+    margin: 0 auto;
+    
+  }
+  
+  dialog {
+    border: none !important;
+    border-radius: 20px;
+    box-shadow: 0 0 #0000, 0 0 #0000, 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 1.6rem;
+    max-width: 400px;
+  }
+  
+  dialog img {
+    display: block;
+    max-width: 75%;
+    margin: 1rem 0 auto 2rem;
+  }
+  
+  .h1 {
+    margin: 2rem 0 1rem;
+    font-weight: 900;
+    font-family: 'Sofia Sans Condensed', sans-serif;
+    
+  }
+  
+  .h2 {
+    margin: 2rem 0 1rem;
+    font-weight: 800;
+  }
+  h3{
+    font-family: 'Amatic SC', cursive;
+    font-size: 30px;
+  }
+  
+  p {
+    color: #111;
+    padding-left: 20px;
+    font-family: 'Cabin', sans-serif;
+    font-weight: 200;
+    margin:0;
+    margin-top: 10px;
+   
+  }
+  p1{
+    font-family: 'Cabin', sans-serif;
+    font-weight: 200;
+    margin:0;
+    font-size: 15px;
+    padding-left: 20px;
+  }
+  
+  .flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .flex.flex-space-between {
+    justify-content: space-between;
+  }
+  
+  .flex button {
+    margin: 5px auto;
+  }
