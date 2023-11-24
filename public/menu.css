@@ -76,14 +76,29 @@ h1{
   padding-left: 20px;
 }
 
-
 .gap{
-  text-align: center;
+  padding-left: 20px;
   height: auto;
-
+  border-bottom: 1px solid rgba(59, 59, 59, 0.30);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, rgba(0, 0, 0, 0.10) 100%);
+  padding: 10px;
 }
 
+.gap_text{
+  margin-left: 20px;
+  margin-bottom: 20px;
+  color: #4C3F59;
+  font-family: 'Sofia Sans Condensed', sans-serif;
+  font-style: normal;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.25rem; /* 83.333% */
+  padding: 0;
+}
 
+.boxgategory{
+  margin: 10px;
+}
 
 #logo{
  width: 50px;
@@ -115,15 +130,7 @@ h1{
   min-width: 300px;
 }
 
-.gap_text{
-  margin-bottom: 20px;
-  color: #4C3F59;
-  font-family: 'Sofia Sans Condensed', sans-serif;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 1.25rem; /* 83.333% */
-  padding: 0;
-}
+
 
 
 
@@ -143,6 +150,7 @@ height: 90px;
 font-family: "Sofia Sans Condensed", sans-serif;
 font-size: 10rem;
 font-weight: 600;
+border-bottom: 1px solid rgba(59, 59, 59, 0.30);
 
 }
 
@@ -282,9 +290,64 @@ display: none;
   cursor: default;
   opacity: .24;
 }
+  section #meals{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+ }
+ section #burgers{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+ }
+ /* items */
+ .item {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+       }
+#burger_meal_flex{
+	display: flex;
+	flex-wrap: nowrap;
+}
+#button_add_counter{
+	position: absolute;
+	right: 20px;
+	top: 400px;
+}
 
+   #counter {
+      font-size: 16px;
+	height: 30px;
+	position: absolute;
+	right: 20px;
+	top: 400px;
+}
+#button_remove_counter{
+	position: absolute;
+	right: 20px;
+	top: 340px;
+}
+#button_add_cart{
+	position: absolute;
+	right: 20px;
+	top: 440px;
+font-family: 'Sofia Sans Condensed', sans-serif;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+  font-weight: 800;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(79,9,121,1) 0%, rgba(79,0,255,1) 100%);
+  color: #fff;
+  cursor: pointer;
+}
 
-
+/*media*/
 @media screen and (max-width: 899px) {
 .topnav a:not(:first-child) {display: none;}
 .topnav a.icon {

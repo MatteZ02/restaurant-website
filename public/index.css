@@ -103,6 +103,7 @@ h1{
   text-align: center;
   height: auto;
 
+
 }
 
 .leftcolumn {
@@ -111,11 +112,15 @@ h1{
 }
 
 #ravintola{
+  width: 600px;
+  height: 500px;
+  background-color: #7F7F7F;
   min-width: 150px;
   max-width: 600px;
-  height: auto;
   float: left;
   padding-right: 5%;
+  margin-right: 10px;
+  border-radius: 10px;
 }
 #logo{
  width: 50px;
@@ -216,7 +221,7 @@ h1{
   font-style: normal;
   font-weight: 800;
   line-height: 1.25rem; /* 83.333% */
-  padding: 0;
+
 }
 
 .button-R {
@@ -375,6 +380,7 @@ height: 90px;
 font-family: "Sofia Sans Condensed", sans-serif;
 font-size: 10rem;
 font-weight: 600;
+border-bottom: 1px solid rgba(59, 59, 59, 0.30);
 
 }
 
