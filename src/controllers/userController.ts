@@ -10,8 +10,7 @@ const getUser = async (req: Request, res: Response, next: NextFunction) => {
 
     const { id } = req.params;
     if (!req.user) return next(new ApiError(401, "Unauthorized"));
-    if (req.user.level.id > 1 && req.user.id !== +id)
-        return next(new ApiError(403, "Unauthorized"));
+    if (req.user.level > 1 && req.user.id !== +id) return next(new ApiError(403, "Unauthorized"));
 
     const user = await getUserById(+id);
     if (!user) return next(new ApiError(404, "User not found"));
@@ -34,8 +33,7 @@ const putUser = async (req: Request, res: Response, next: NextFunction) => {
 
     const { id } = req.params;
     if (!req.user) return next(new ApiError(401, "Unauthorized"));
-    if (req.user.level.id > 1 && req.user.id !== +id)
-        return next(new ApiError(403, "Unauthorized"));
+    if (req.user.level > 1 && req.user.id !== +id) return next(new ApiError(403, "Unauthorized"));
 
     const user = req.body;
     const u = updateUser(+id, user);
@@ -49,8 +47,7 @@ const deleteUser = async (req: Request, res: Response, next: NextFunction) => {
 
     const { id } = req.params;
     if (!req.user) return next(new ApiError(401, "Unauthorized"));
-    if (req.user.level.id > 1 && req.user.id !== +id)
-        return next(new ApiError(403, "Unauthorized"));
+    if (req.user.level > 1 && req.user.id !== +id) return next(new ApiError(403, "Unauthorized"));
 
     const u = deleteUserById(+id);
     if (!u) return next(new ApiError(500, "Error deleting user"));

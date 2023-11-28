@@ -17,7 +17,7 @@ const postLogin = async (req: Request, res: Response, next: NextFunction) => {
     const token = jwt.sign(user, process.env.JWT_SECRET ?? "secret", {
         expiresIn: "1h",
     });
-    res.json({ token });
+    res.json({ token, user });
 };
 
 const getMe = (req: Request, res: Response) => {

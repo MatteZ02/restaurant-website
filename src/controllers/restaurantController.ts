@@ -24,7 +24,7 @@ const postRestaurant = async (req: Request, res: Response, next: NextFunction) =
     if (!errors.isEmpty()) return next(new ApiError(400, "Invalid restaurant data"));
 
     if (!req.user) return next(new ApiError(401, "Unauthorized"));
-    if (req.user.level.id > 1) return next(new ApiError(403, "Unauthorized"));
+    if (req.user.level > 1) return next(new ApiError(403, "Unauthorized"));
 
     const restaurant = req.body;
     const r = addRestaurant(restaurant);
@@ -37,7 +37,7 @@ const putRestaurant = async (req: Request, res: Response, next: NextFunction) =>
     if (!errors.isEmpty()) return next(new ApiError(400, "Invalid restaurant data"));
 
     if (!req.user) return next(new ApiError(401, "Unauthorized"));
-    if (req.user.level.id > 2) return next(new ApiError(403, "Unauthorized"));
+    if (req.user.level > 2) return next(new ApiError(403, "Unauthorized"));
 
     const restaurant = req.body;
     const r = updateRestaurant(+req.params.id, restaurant);
@@ -50,7 +50,7 @@ const deleteRestaurant = async (req: Request, res: Response, next: NextFunction)
     if (!errors.isEmpty()) return next(new ApiError(400, "Invalid restaurant data"));
 
     if (!req.user) return next(new ApiError(401, "Unauthorized"));
-    if (req.user.level.id > 1) return next(new ApiError(403, "Unauthorized"));
+    if (req.user.level > 1) return next(new ApiError(403, "Unauthorized"));
 
     const { id } = req.params;
     const r = deleteRestaurantById(+id);
