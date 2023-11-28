@@ -1,11 +1,11 @@
-// version 1.0.0
+// version 1.0.1
 
 declare module "restaurantApiTypes" {
     export interface Restaurant {
         id: number;
         name: string;
         address: string;
-        openingHours: string;
+        opening_hours: string;
     }
 
     export interface MenuItem {
@@ -51,6 +51,8 @@ declare module "restaurantApiTypes" {
     export interface User {
         id: number;
         username: string;
+        first_name: string;
+        last_name: string;
         email: string;
         level: UserLevel;
         phone: string | null;

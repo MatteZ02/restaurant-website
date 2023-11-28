@@ -14,7 +14,7 @@ const postLogin = async (req: Request, res: Response, next: NextFunction) => {
         next(error);
     });
     if (!user) return res.status(401).json({ error: "Invalid username or password" });
-    const token = jwt.sign({ username, id: user.id }, process.env.JWT_SECRET ?? "secret", {
+    const token = jwt.sign(user, process.env.JWT_SECRET ?? "secret", {
         expiresIn: "1h",
     });
     res.json({ token });

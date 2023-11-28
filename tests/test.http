@@ -1,0 +1,153 @@
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "admin"
+}
+
+###
+GET http://localhost:3000/api/auth/me
+Authorization: Bearer eeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInBhc3N3b3JkIjoiYWRtaW4iLCJmaXJzdF9uYW1lIjoiQWRtaW4iLCJsYXN0X25hbWUiOiJVc2VyIiwiZW1haWwiOiJhZG1pbkByZXN0YXVyYW50Lm9yZyIsImxldmVsIjoxLCJwaG9uZSI6IjU1NS01NTUtNTU1NSIsImFkZHJlc3MiOm51bGwsImlhdCI6MTcwMTE1OTQyNSwiZXhwIjoxNzAxMTYzMDI1fQ.bou-nxF56OEtcBfaw3kV5M2H8scY_xhhoedG7rJu3zw
+
+###
+GET http://localhost:3000/api/menu
+
+###
+POST http://localhost:3000/api/menu
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInBhc3N3b3JkIjoiYWRtaW4iLCJmaXJzdF9uYW1lIjoiQWRtaW4iLCJsYXN0X25hbWUiOiJVc2VyIiwiZW1haWwiOiJhZG1pbkByZXN0YXVyYW50Lm9yZyIsImxldmVsIjoxLCJwaG9uZSI6IjU1NS01NTUtNTU1NSIsImFkZHJlc3MiOm51bGwsImlhdCI6MTcwMTE1OTQyNSwiZXhwIjoxNzAxMTYzMDI1fQ.bou-nxF56OEtcBfaw3kV5M2H8scY_xhhoedG7rJu3zw
+    
+    {
+        "name": "Menu 1",
+        "description": "Menu 1 description",
+        "price": 1000,
+        "thumbnail_url": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+        "category": 1
+    }
+
+###
+PUT http://localhost:3000/api/menu/3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInBhc3N3b3JkIjoiYWRtaW4iLCJmaXJzdF9uYW1lIjoiQWRtaW4iLCJsYXN0X25hbWUiOiJVc2VyIiwiZW1haWwiOiJhZG1pbkByZXN0YXVyYW50Lm9yZyIsImxldmVsIjoxLCJwaG9uZSI6IjU1NS01NTUtNTU1NSIsImFkZHJlc3MiOm51bGwsImlhdCI6MTcwMTE1OTQyNSwiZXhwIjoxNzAxMTYzMDI1fQ.bou-nxF56OEtcBfaw3kV5M2H8scY_xhhoedG7rJu3zw
+
+    {
+        "name": "Menu 1 edited",
+        "description": "Menu 1 description",
+        "price": 1000,
+        "thumbnail_url": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+        "category": 1
+    }
+
+###
+DELETE http://localhost:3000/api/menu/4
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInBhc3N3b3JkIjoiYWRtaW4iLCJmaXJzdF9uYW1lIjoiQWRtaW4iLCJsYXN0X25hbWUiOiJVc2VyIiwiZW1haWwiOiJhZG1pbkByZXN0YXVyYW50Lm9yZyIsImxldmVsIjoxLCJwaG9uZSI6IjU1NS01NTUtNTU1NSIsImFkZHJlc3MiOm51bGwsImlhdCI6MTcwMTE1OTQyNSwiZXhwIjoxNzAxMTYzMDI1fQ.bou-nxF56OEtcBfaw3kV5M2H8scY_xhhoedG7rJu3zw
+
+###
+GET http://localhost:3000/api/order/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInBhc3N3b3JkIjoiYWRtaW4iLCJmaXJzdF9uYW1lIjoiQWRtaW4iLCJsYXN0X25hbWUiOiJVc2VyIiwiZW1haWwiOiJhZG1pbkByZXN0YXVyYW50Lm9yZyIsImxldmVsIjoxLCJwaG9uZSI6IjU1NS01NTUtNTU1NSIsImFkZHJlc3MiOm51bGwsImlhdCI6MTcwMTE1OTQyNSwiZXhwIjoxNzAxMTYzMDI1fQ.bou-nxF56OEtcBfaw3kV5M2H8scY_xhhoedG7rJu3zw
+
+###
+GET http://localhost:3000/api/restaurant
+
+###
+POST http://localhost:3000/api/restaurant
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInBhc3N3b3JkIjoiYWRtaW4iLCJmaXJzdF9uYW1lIjoiQWRtaW4iLCJsYXN0X25hbWUiOiJVc2VyIiwiZW1haWwiOiJhZG1pbkByZXN0YXVyYW50Lm9yZyIsImxldmVsIjoxLCJwaG9uZSI6IjU1NS01NTUtNTU1NSIsImFkZHJlc3MiOm51bGwsImlhdCI6MTcwMTE1OTQyNSwiZXhwIjoxNzAxMTYzMDI1fQ.bou-nxF56OEtcBfaw3kV5M2H8scY_xhhoedG7rJu3zw
+
+    {
+        "name": "Restaurant 1",
+        "address": "Restaurant 1 address",
+        "opening_hours": "08:00 - 22:00"
+    }
+
+###
+PUT http://localhost:3000/api/restaurant/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInBhc3N3b3JkIjoiYWRtaW4iLCJmaXJzdF9uYW1lIjoiQWRtaW4iLCJsYXN0X25hbWUiOiJVc2VyIiwiZW1haWwiOiJhZG1pbkByZXN0YXVyYW50Lm9yZyIsImxldmVsIjoxLCJwaG9uZSI6IjU1NS01NTUtNTU1NSIsImFkZHJlc3MiOm51bGwsImlhdCI6MTcwMTE1OTQyNSwiZXhwIjoxNzAxMTYzMDI1fQ.bou-nxF56OEtcBfaw3kV5M2H8scY_xhhoedG7rJu3zw
+
+    {
+        "name": "Restaurant 1 edited",
+        "address": "Restaurant 1 address",
+        "opening_hours": "08:00 - 22:00"
+    }
+
+###
+DELETE http://localhost:3000/api/restaurant/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInBhc3N3b3JkIjoiYWRtaW4iLCJmaXJzdF9uYW1lIjoiQWRtaW4iLCJsYXN0X25hbWUiOiJVc2VyIiwiZW1haWwiOiJhZG1pbkByZXN0YXVyYW50Lm9yZyIsImxldmVsIjoxLCJwaG9uZSI6IjU1NS01NTUtNTU1NSIsImFkZHJlc3MiOm51bGwsImlhdCI6MTcwMTE1OTQyNSwiZXhwIjoxNzAxMTYzMDI1fQ.bou-nxF56OEtcBfaw3kV5M2H8scY_xhhoedG7rJu3zw
+
+###
+GET http://localhost:3000/api/restaurant/1/order
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInBhc3N3b3JkIjoiYWRtaW4iLCJmaXJzdF9uYW1lIjoiQWRtaW4iLCJsYXN0X25hbWUiOiJVc2VyIiwiZW1haWwiOiJhZG1pbkByZXN0YXVyYW50Lm9yZyIsImxldmVsIjoxLCJwaG9uZSI6IjU1NS01NTUtNTU1NSIsImFkZHJlc3MiOm51bGwsImlhdCI6MTcwMTE1OTQyNSwiZXhwIjoxNzAxMTYzMDI1fQ.bou-nxF56OEtcBfaw3kV5M2H8scY_xhhoedG7rJu3zw
+
+###
+POST http://localhost:3000/api/restaurant/1/order
+Content-Type: application/json
+
+    {
+        "restaurant": 1,
+        "user": 1,
+        "items": [
+            {
+                "menuItem": 1,
+                "quantity": 1
+            }
+        ],
+        "status": 1
+    }
+
+###
+PUT http://localhost:3000/api/restaurant/1/order/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInBhc3N3b3JkIjoiYWRtaW4iLCJmaXJzdF9uYW1lIjoiQWRtaW4iLCJsYXN0X25hbWUiOiJVc2VyIiwiZW1haWwiOiJhZG1pbkByZXN0YXVyYW50Lm9yZyIsImxldmVsIjoxLCJwaG9uZSI6IjU1NS01NTUtNTU1NSIsImFkZHJlc3MiOm51bGwsImlhdCI6MTcwMTE1OTQyNSwiZXhwIjoxNzAxMTYzMDI1fQ.bou-nxF56OEtcBfaw3kV5M2H8scY_xhhoedG7rJu3zw
+
+    {
+        "restaurant": 1,
+        "user": 1,
+        "items": [
+            {
+                "menuItem": 1,
+                "quantity": 1
+            }
+        ],
+        "status": 2
+    }
+
+###
+POST http://localhost:3000/api/user
+Content-Type: application/json
+
+    {
+        "username": "user1",
+        "password": "user1",
+        "first_name": "user",
+        "last_name": "1",
+        "email": "user@restraurant.test",
+        "address": "User 1 address",
+        "phone": "08123456789"
+    }
+
+###
+GET http://localhost:3000/api/user/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInBhc3N3b3JkIjoiYWRtaW4iLCJmaXJzdF9uYW1lIjoiQWRtaW4iLCJsYXN0X25hbWUiOiJVc2VyIiwiZW1haWwiOiJhZG1pbkByZXN0YXVyYW50Lm9yZyIsImxldmVsIjoxLCJwaG9uZSI6IjU1NS01NTUtNTU1NSIsImFkZHJlc3MiOm51bGwsImlhdCI6MTcwMTE1OTQyNSwiZXhwIjoxNzAxMTYzMDI1fQ.bou-nxF56OEtcBfaw3kV5M2H8scY_xhhoedG7rJu3zw
+
+###
+PUT http://localhost:3000/api/user/3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInBhc3N3b3JkIjoiYWRtaW4iLCJmaXJzdF9uYW1lIjoiQWRtaW4iLCJsYXN0X25hbWUiOiJVc2VyIiwiZW1haWwiOiJhZG1pbkByZXN0YXVyYW50Lm9yZyIsImxldmVsIjoxLCJwaG9uZSI6IjU1NS01NTUtNTU1NSIsImFkZHJlc3MiOm51bGwsImlhdCI6MTcwMTE1OTQyNSwiZXhwIjoxNzAxMTYzMDI1fQ.bou-nxF56OEtcBfaw3kV5M2H8scY_xhhoedG7rJu3zw
+
+    {
+        "username": "user1 edited",
+        "password": "user1",
+        "first_name": "user",
+        "last_name": "edited",
+        "email": "user@restraurant.test",
+        "address": "User 1 address",
+        "phone": "08123456789"
+    }
+
+###
+DELETE http://localhost:3000/api/user/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInBhc3N3b3JkIjoiYWRtaW4iLCJmaXJzdF9uYW1lIjoiQWRtaW4iLCJsYXN0X25hbWUiOiJVc2VyIiwiZW1haWwiOiJhZG1pbkByZXN0YXVyYW50Lm9yZyIsImxldmVsIjoxLCJwaG9uZSI6IjU1NS01NTUtNTU1NSIsImFkZHJlc3MiOm51bGwsImlhdCI6MTcwMTE1OTQyNSwiZXhwIjoxNzAxMTYzMDI1fQ.bou-nxF56OEtcBfaw3kV5M2H8scY_xhhoedG7rJu3zw

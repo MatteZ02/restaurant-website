@@ -18,19 +18,11 @@ userRouter
 
 userRouter
     .route("/:id")
-    .get(
-        body("username").trim().isLength({ min: 3, max: 20 }),
-        body("password").trim().isLength({ min: 3, max: 20 }),
-        body("email").trim().isEmail(),
-        body("phone").optional().trim().isMobilePhone("any"),
-        body("address").optional().trim().isLength({ min: 3, max: 100 }),
-        authenticateToken,
-        getUser
-    )
+    .get(authenticateToken, getUser)
     .put(
-        body("username").trim().isLength({ min: 3, max: 20 }),
-        body("password").trim().isLength({ min: 3, max: 20 }),
-        body("email").trim().isEmail(),
+        body("username").optional().trim().isLength({ min: 3, max: 20 }),
+        body("password").optional().trim().isLength({ min: 3, max: 20 }),
+        body("email").optional().trim().isEmail(),
         body("phone").optional().trim().isMobilePhone("any"),
         body("address").optional().trim().isLength({ min: 3, max: 100 }),
         authenticateToken,

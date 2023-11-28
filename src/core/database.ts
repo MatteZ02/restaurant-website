@@ -31,6 +31,7 @@ class Database {
         try {
             const query = `SELECT * FROM ${table}${id ? " WHERE id = ?" : ""}`;
             const [rows] = await pool.execute(query, id ? [id] : []);
+
             // @ts-ignore
             return rows.length ? rows : null;
         } catch (error) {

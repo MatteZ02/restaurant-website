@@ -11,7 +11,6 @@ const authenticateToken = (req: Request, res: Response, next: NextFunction) => {
 
     try {
         if (!token) throw new ApiError(403, "Token Invalid");
-        if (!req.user) throw new ApiError(403, "Token Invalid");
         req.user = jwt.verify(token, process.env.JWT_SECRET ?? "secret") as User;
         next();
     } catch (error) {

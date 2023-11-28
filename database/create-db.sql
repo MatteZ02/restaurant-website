@@ -2,6 +2,10 @@ DROP DATABASE IF EXISTS restaurant;
 
 CREATE DATABASE restaurant;
 
+CREATE USER 'restaurant'@'localhost' IDENTIFIED BY 'restaurant';
+GRANT ALL PRIVILEGES ON `restaurant`.* TO 'restaurant'@'localhost';
+FLUSH PRIVILEGES;
+
 USE restaurant;
 
 CREATE TABLE UserLevel (
@@ -14,6 +18,9 @@ CREATE TABLE User (
     id INT NOT NULL AUTO_INCREMENT,
     username VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
     level INT NOT NULL,
     phone VARCHAR(255) DEFAULT NULL,
     address VARCHAR(255) DEFAULT NULL,
@@ -121,3 +128,13 @@ INSERT INTO
     OrderStatus (name)
 VALUES
     ('delivered');
+
+INSERT INTO
+    MenuCategory (name)
+VALUES
+    ('burgers');
+
+INSERT INTO
+    MenuCategory (name)
+VALUES
+    ('sides');

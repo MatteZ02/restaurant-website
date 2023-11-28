@@ -13,7 +13,7 @@ menuRouter
         body("description").trim().isLength({ min: 1 }),
         body("price").isNumeric(),
         body("thumbnail_url").trim().isLength({ min: 1 }),
-        body("category").trim().isLength({ min: 1 }),
+        body("category").isNumeric(),
         authenticateToken,
         postMenu
     );
@@ -25,7 +25,7 @@ menuRouter
         body("description").trim().isLength({ min: 1 }),
         body("price").isNumeric(),
         body("thumbnail_url").trim().isLength({ min: 1 }),
-        body("category").trim().isLength({ min: 1 }),
+        body("category").isNumeric(),
         authenticateToken,
         putMenu
     )

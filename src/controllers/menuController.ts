@@ -9,6 +9,8 @@ const getMenu = async (req: Request, res: Response, next: NextFunction) => {
     if (!errors.isEmpty()) return next(new ApiError(400, "Invalid menu data"));
 
     const menu = await getFullMenu();
+    console.log(menu);
+
     if (!menu) return next(new ApiError(500, "Failed to obtain menu"));
     res.status(200).json(menu);
 };
