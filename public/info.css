@@ -61,15 +61,9 @@ body.dark  .gap_text {color: #fff;}
 }
 
 .support {
-
+  margin: 0%;
 	position: absolute;
-  margin-top: 3px;
-  margin-left: 23px;
-}
-
-#logo_text{
-
-  color: #000;
+  margin: 5px;
 }
 
 h1{
@@ -78,55 +72,27 @@ h1{
 }
 
 
-#logo{
- width: 50px;
- margin-top: 15px;
- float: left;
-
-}
-
-#logo_hero{
-  margin-left: 15px;
-  float: left;
-  width: 360px;
-
-}
-#logotaus{
-  background-color: white;
-  border-bottom-right-radius: 20px;
-  min-width: 300px;
-  height: 90px;
-}
-
-
-
 /* Footer */
+
 .footer {
   padding: 20px;
   text-align: center;
   background: #ddd;
-  margin-top: 20px;
   min-width: 300px;
 }
 
-
-#login{
-  margin-top: 0px;
-  width: 20px;
-  height: auto;
-}
 
 /* top nav starts */
 .topnav {
 overflow: hidden;
 background-color: #ddd;
 min-width: 250px;
-height: 90px;
 font-family: "Sofia Sans Condensed", sans-serif;
-font-size: 10rem;
 font-weight: 600;
-border-bottom: 1px solid rgba(59, 59, 59, 0.30);
+}
 
+.navtext{
+  margin-top: 10px;
 }
 
 .topnav a {
@@ -139,8 +105,9 @@ text-decoration: none;
 font-size: 17px;
 }
 
+
 .topnav a:hover {
-color: #7F7F7F;
+color: #ccc;
 }
 
 .topnav a.active {
@@ -151,35 +118,14 @@ color: white;
 display: none;
 }
 
-
 #cart{
-  margin-top: 0px;
-  margin-right: 10px;
+  margin-top: 0;
   padding: 0;
-  float: right;
-}
-
-.navi{
-  margin-top: 40px;
-}
-/* menu------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-@media screen and (max-width: 565px) {
- .textpizza{
   float: left;
- }
- .imagepizza{
-  margin-left:2vh;
- }
-
+  width: 70px;
+  height: auto;
 }
+
 
 
 @media screen and (max-width: 899px) {
@@ -214,7 +160,6 @@ display: none;
 }
 
 
-
 /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
 @media screen and (max-width: 400px) {
   .topnav a {
@@ -222,16 +167,6 @@ display: none;
     width: 10px;
   }
 }
-
-@media screen and (max-width: 1562px) {
-  #ravintola {
-    width: 100%;
-    padding: 10px;
-    min-width: 100%;
-  }
-}
-
-
 
 
 form.form-sub {
@@ -272,6 +207,4 @@ label {
   border-left-color: green;
   opacity: 60%;
 }
-
-
 

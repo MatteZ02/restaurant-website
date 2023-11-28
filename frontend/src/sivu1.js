@@ -50,7 +50,7 @@ if (typeof dialog.showModal !== "function") {
    * polyfill.type = "text/javascript";
    * polyfill.src = "/dist/dialog-polyfill.js";
    * document.body.append(polyfill);
-  
+
    * const polyfillStyles = document.createElement("link");
    * polyfillStyles.rel = "stylesheet";
    * polyfillStyles.href = "dialog-polyfill.css";
@@ -90,7 +90,7 @@ checkbox.addEventListener("change", () => {
         }
       });
     });
-	
+
 function jumpToMeals() {
       var middlePosition = window.innerHeight / 4;
       window.scrollTo(0, middlePosition);
