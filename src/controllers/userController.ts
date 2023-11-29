@@ -4,6 +4,7 @@ import ApiError from "../classes/ApiError";
 import { addUser, deleteUserById, getUserById, updateUser } from "../core/models/userModel";
 import Request from "../types/Request";
 import { genSaltSync, hashSync } from "bcryptjs";
+import Database from "../core/database";
 
 const getUser = async (req: Request, res: Response, next: NextFunction) => {
     const errors = validationResult(req);
@@ -23,6 +24,10 @@ const postUser = async (req: Request, res: Response, next: NextFunction) => {
     if (!errors.isEmpty()) return next(new ApiError(400, "Invalid user data"));
 
     const user = req.body;
+    const existingUser = await Database.query("SELECT * FROM user WHERE username = ?", [
+        user.username,
+    ]);
+    if (existingUser.length > 0) return next(new ApiError(400, "Username already exists"));
     const salt = genSaltSync(10);
     user.password = hashSync(user.password, salt);
     const u = addUser(user);
