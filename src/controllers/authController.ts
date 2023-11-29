@@ -1,4 +1,4 @@
-import e, { NextFunction, Response } from "express";
+import { NextFunction, Response } from "express";
 import Request from "../types/Request";
 import { validationResult } from "express-validator";
 import { login } from "../core/models/userModel";

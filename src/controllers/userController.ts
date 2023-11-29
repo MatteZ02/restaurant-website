@@ -3,6 +3,7 @@ import { validationResult } from "express-validator";
 import ApiError from "../classes/ApiError";
 import { addUser, deleteUserById, getUserById, updateUser } from "../core/models/userModel";
 import Request from "../types/Request";
+import { genSaltSync, hashSync } from "bcryptjs";
 
 const getUser = async (req: Request, res: Response, next: NextFunction) => {
     const errors = validationResult(req);
@@ -22,6 +23,8 @@ const postUser = async (req: Request, res: Response, next: NextFunction) => {
     if (!errors.isEmpty()) return next(new ApiError(400, "Invalid user data"));
 
     const user = req.body;
+    const salt = genSaltSync(10);
+    user.password = hashSync(user.password, salt);
     const u = addUser(user);
     if (!u) return next(new ApiError(500, "Error adding user"));
     res.status(201).json(u);

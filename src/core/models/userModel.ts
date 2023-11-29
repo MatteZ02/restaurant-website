@@ -1,5 +1,6 @@
-import { User, UserLevel } from "restaurantApiTypes";
+import { User } from "restaurantApiTypes";
 import Database from "../database";
+import { compare } from "bcryptjs";
 
 const isUser = (data: any): data is User =>
     data && data.username && data.email && data.level && data.phone && data.address;
@@ -38,13 +39,19 @@ const deleteUserById = async (id: number): Promise<number | null> => {
     return deleted;
 };
 
-const login = async (username: string, password: string): Promise<User | null> => {
-    const query = `SELECT * FROM user WHERE username = ? AND password = ?`;
+const login = async (
+    username: string,
+    password: string
+): Promise<Omit<User, "password"> | null> => {
+    const query = `SELECT * FROM user WHERE username = ?`;
     const [rows] = await Database.query(query, [username, password]).catch(error => {
         throw error;
     });
-    // @ts-ignore
-    return rows ? rows : null;
+    const user = rows && rows[0];
+    const match = compare(password, user.password);
+    if (!match) return null;
+    delete user.password;
+    return user ?? null;
 };
 
 export { getUserById, addUser, updateUser, deleteUserById, login };
