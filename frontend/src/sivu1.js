@@ -50,7 +50,7 @@ if (typeof dialog.showModal !== "function") {
    * polyfill.type = "text/javascript";
    * polyfill.src = "/dist/dialog-polyfill.js";
    * document.body.append(polyfill);
-  
+
    * const polyfillStyles = document.createElement("link");
    * polyfillStyles.rel = "stylesheet";
    * polyfillStyles.href = "dialog-polyfill.css";
@@ -68,9 +68,9 @@ checkbox.addEventListener("change", () => {
 })
 /* counter to cart items*/
  document.addEventListener("DOMContentLoaded", function () {
-      const counterInput = document.getElementById("counter");
-      const plusBtn = document.getElementById("button_add_counter");
-      const minusBtn = document.getElementById("button_remove_counter");
+      const counterInput = document.getElementById("counter1");
+      const plusBtn = document.getElementById("button_add_counter1");
+      const minusBtn = document.getElementById("button_remove_counter1");
 
       let itemCount = 0;
 
@@ -90,7 +90,7 @@ checkbox.addEventListener("change", () => {
         }
       });
     });
-	
+
 function jumpToMeals() {
       var middlePosition = window.innerHeight / 4;
       window.scrollTo(0, middlePosition);

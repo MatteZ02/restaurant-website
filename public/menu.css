@@ -290,54 +290,123 @@ display: none;
   cursor: default;
   opacity: .24;
 }
+
+
   section #meals{
+
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
             padding: 20px;
  }
+
  section #burgers{
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
             padding: 20px;
+
+ }
+ #meals_title{
+  font-size: 40px;
+ }
+ #burger_title{
+  font-size: 40px;
  }
  /* items */
  .item {
             background-color: #fff;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             margin: 15px;
             padding: 20px;
             width: 300px;
             text-align: center;
        }
-#burger_meal_flex{
-	display: flex;
-	flex-wrap: nowrap;
-}
-#button_add_counter{
-	position: absolute;
-	right: 20px;
-	top: 400px;
+
+
+   #counter1 {
+  font-size: 16px;
+
 }
 
-   #counter {
-      font-size: 16px;
+#button_add_cart1{
+  position: relative;
+  bottom: 20px;
+  left: 10px;
+  font-family: 'Sofia Sans Condensed', sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+  font-weight: 800;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(79,9,121,1) 0%, rgba(79,0,255,1) 100%);
+  color: #fff;
+  cursor: pointer;
+}
+/*buttons boxes positions*/
+#buttons1{
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  height: 120px;
+  width: 200px;
+  right: 280px;
+  top: 460px;
+}
+#buttons2{
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  height: 120px;
+  width: 200px;
+  right: 280px;
+  top: 650px;
+}
+#buttons3{
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  height: 120px;
+  width: 200px;
+  right: 280px;
+  top: 830px;
+}
+#buttons4{
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  height: 120px;
+  width: 200px;
+  right: 280px;
+  top: 1070px;
+}
+#buttons5{
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  height: 120px;
+  width: 200px;
+  right: 280px;
+  top: 1270px;
+}
+
+#buttons6{
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  height: 120px;
+  width: 200px;
+  right: 280px;
+  top: 1465px;
+}
+   #counter2 {
+  font-size: 16px;
 	height: 30px;
-	position: absolute;
-	right: 20px;
-	top: 400px;
-}
-#button_remove_counter{
-	position: absolute;
-	right: 20px;
-	top: 340px;
-}
-#button_add_cart{
-	position: absolute;
-	right: 20px;
-	top: 440px;
+  }
+
+#button_add_cart2{
+  position: relative;
+  bottom: 20px;
+  left: 10px;
 font-family: 'Sofia Sans Condensed', sans-serif;
  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   font-size: 20px;
@@ -346,6 +415,77 @@ font-family: 'Sofia Sans Condensed', sans-serif;
   color: #fff;
   cursor: pointer;
 }
+
+#counter3 {
+  font-size: 16px;
+	height: 30px;
+}
+
+#button_add_cart3{
+  position: relative;
+  bottom: 20px;
+  left: 10px;
+  font-family: 'Sofia Sans Condensed', sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+  font-weight: 800;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(79,9,121,1) 0%, rgba(79,0,255,1) 100%);
+  color: #fff;
+  cursor: pointer;
+}
+
+#counter4 {
+  font-size: 16px;
+	height: 30px;
+}
+
+#button_add_cart4{
+  position: relative;
+  bottom: 20px;
+  left: 10px;
+  font-family: 'Sofia Sans Condensed', sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+  font-weight: 800;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(79,9,121,1) 0%, rgba(79,0,255,1) 100%);
+  color: #fff;
+  cursor: pointer;
+}
+#counter5 {
+  font-size: 16px;
+	height: 30px;
+}
+
+#button_add_cart5{
+  position: relative;
+  bottom: 20px;
+  left: 10px;
+  font-family: 'Sofia Sans Condensed', sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+  font-weight: 800;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(79,9,121,1) 0%, rgba(79,0,255,1) 100%);
+  color: #fff;
+  cursor: pointer;
+}
+#counter6 {
+  font-size: 16px;
+	height: 30px;
+}
+
+#button_add_cart6{
+  position: relative;
+  bottom: 20px;
+  left: 10px;
+  font-family: 'Sofia Sans Condensed', sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+  font-weight: 800;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(79,9,121,1) 0%, rgba(79,0,255,1) 100%);
+  color: #fff;
+  cursor: pointer;
+}
+
 
 /*media*/
 @media screen and (max-width: 899px) {
