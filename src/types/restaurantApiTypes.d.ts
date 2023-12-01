@@ -1,11 +1,11 @@
-// version 1.1.0
+// version 1.0.0
 
 declare module "restaurantApiTypes" {
     export interface Restaurant {
         id: number;
         name: string;
         address: string;
-        opening_hours: string;
+        openingHours: string;
     }
 
     export interface MenuItem {
@@ -18,43 +18,39 @@ declare module "restaurantApiTypes" {
         timesOrdered: number;
     }
 
-    enum MenuCategory {
-        Burger = 1,
+    export interface MenuCategory {
+        id: number;
+        name: "burgers" | "drinks" | "sides";
     }
 
     export interface Order {
         id: number;
-        restaurant: number; // restaurant id
-        user: number; // user id
-        items: number[]; // item ids
+        restaurant: Restaurant;
+        user: User;
+        items: OrderItem[];
         status: OrderStatus;
         createdAt: string;
     }
 
     export interface OrderItem {
         id: number;
-        menuItem: number; // item id
+        menuItem: MenuItem;
         quantity: number;
     }
 
-    export enum OrderStatus {
-        Pending = 1,
-        Accepted = 2,
-        Rejected = 3,
-        Delivered = 4,
+    export interface OrderStatus {
+        id: number;
+        name: "pending" | "accepted" | "rejected" | "delivered";
     }
 
-    export enum UserLevel {
-        Admin = 1,
-        Staff = 2,
-        User = 3,
+    export interface UserLevel {
+        id: 3 | 2 | 1;
+        name: "user" | "staff" | "admin";
     }
 
     export interface User {
         id: number;
         username: string;
-        first_name: string;
-        last_name: string;
         email: string;
         level: UserLevel;
         phone: string | null;
