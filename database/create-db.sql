@@ -1,9 +1,11 @@
 DROP DATABASE IF EXISTS restaurant;
 
-CREATE DATABASE restaurant;
+CREATE DATABASE restaurant CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-CREATE USER 'restaurant'@'localhost' IDENTIFIED BY 'restaurant';
-GRANT ALL PRIVILEGES ON `restaurant`.* TO 'restaurant'@'localhost';
+CREATE USER 'restaurant' @ 'localhost' IDENTIFIED BY 'password';
+
+GRANT ALL PRIVILEGES ON `restaurant`.* TO 'restaurant' @ 'localhost';
+
 FLUSH PRIVILEGES;
 
 USE restaurant;
