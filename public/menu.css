@@ -60,15 +60,9 @@ body.dark  .gap_text {color: #fff;}
 }
 
 .support {
-
+  margin: 0%;
 	position: absolute;
-  margin-top: 3px;
-  margin-left: 23px;
-}
-
-#logo_text{
-
-  color: #000;
+  margin: 5px;
 }
 
 h1{
@@ -76,35 +70,64 @@ h1{
   padding-left: 20px;
 }
 
+/* Header/Blog Title */
+.header {
+  background: rgb(255,255,255);
+  background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(25,25,25,1) 100%);
+  background-position: 100% 100%;
+  background-size: 100%;
+  height: 600px;
+  border-bottom-left-radius: 45px;
+  border-bottom-right-radius: 45px;
+  padding: 0;
+  background-repeat: no-repeat;
+  min-width: 250px;
+  background-position: right;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: baseline;
+}
+
 .gap{
-  padding-left: 20px;
+
   height: auto;
+  margin-top: 20px;
+  margin-bottom: 40px;
   border-bottom: 1px solid rgba(59, 59, 59, 0.30);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, rgba(0, 0, 0, 0.10) 100%);
-  padding: 10px;
 }
 
 .gap_text{
   margin-left: 20px;
-  margin-bottom: 20px;
-  color: #4C3F59;
+  margin-bottom: 0;
   font-family: 'Sofia Sans Condensed', sans-serif;
-  font-style: normal;
-  font-size: 20px;
-  font-weight: 800;
-  line-height: 1.25rem; /* 83.333% */
+  font-weight: 600;
+  font-size: 18px;
   padding: 0;
+  color:#4C3F59;
 }
 
-.boxgategory{
-  margin: 10px;
+.leftcolumn {
+  float: left;
+  width: 100%;
+}
+
+#ravintola{
+  background-color: #7F7F7F;
+  width: 600px;
+  height: 500px;
+  float: left;
+  padding-right: 5%;
+  border-radius: 10px;
+  margin-right: 15px;
 }
 
 #logo{
- width: 50px;
- margin-top: 15px;
- float: left;
-
+ width: 89px;
+ margin-top: 7px;
 }
 
 #logo_hero{
@@ -116,78 +139,83 @@ h1{
 #logotaus{
   background-color: white;
   border-bottom-right-radius: 20px;
-  min-width: 300px;
-  height: 90px;
+  min-width: 200px;
+  height: 58px;
 }
 
+/* Add a card effect for articles */
+.card {
+  background-color: white;
+  padding: 25px;
+  margin-top: 25px;
+  height: auto;
+  background-image: url("kuvat/output-onlinepngtools.png");
+  background-size: 300px;
+  min-width: 300px;
+}
+
+/* Clear floats after the columns */
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
 /* Footer */
 .footer {
   padding: 20px;
   text-align: center;
   background: #ddd;
-  margin-top: 20px;
   min-width: 300px;
 }
 
-
-
-
-
-
-#login{
-  margin-top: 0px;
-  width: 20px;
-  height: auto;
+.text1{
+  padding-left: 10px;
+  margin-right: 20px;
+  max-width: 800px;
+  font-family: 'Sofia Sans Condensed', sans-serif;
+  font-size: 30px;
+  color: #111;
 }
 
-/* top nav starts */
-.topnav {
-overflow: hidden;
-background-color: #ddd;
-min-width: 250px;
-height: 90px;
-font-family: "Sofia Sans Condensed", sans-serif;
-font-size: 10rem;
-font-weight: 600;
-border-bottom: 1px solid rgba(59, 59, 59, 0.30);
+.text2{
+  width: 500px;
+  padding-right: 20px;
+  margin-right: 20px;
+  max-width: 500px;
+  padding: 30px;
+  color: #111;
+}
+.textOverlay{
+  color: #ddd;
+  margin-left: 40px;
+  display: block;
+  display: flex;
+  flex-direction:column;
+  align-items:baseline;
+  justify-content: center;
+  display: block;
 
 }
 
-.topnav a {
-float: left;
-display: block;
-color: #4C3F59;
-text-align: center;
-padding: 14px 16px;
-text-decoration: none;
-font-size: 17px;
-}
-
-.topnav a:hover {
-color: #7F7F7F;
-}
-
-.topnav a.active {
-color: white;
-}
-
-.topnav .icon {
-display: none;
-}
-
-
-#cart{
-  margin-top: 0px;
-  margin-right: 10px;
+.herotext1{
+  margin-top:0;
   padding: 0;
-  float: right;
+  font-family: 'Amatic SC', cursive;
+  font-size: 40px;
+  margin-left: 15px;
+}
+.herotext2{
+  margin-top:0;
+  padding: 0;
+  font-family: 'Amatic SC', cursive;
+  font-size: 25px;
+  color: #F09819;
+  margin-left: 15px;
 }
 
-.navi{
-  margin-top: 40px;
-}
-/* menu------------------------------------------------------------------------------------------------- */
+
+
 
 .button-R {
   align-items: center;
@@ -290,123 +318,54 @@ display: none;
   cursor: default;
   opacity: .24;
 }
-
-
   section #meals{
-
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
             padding: 20px;
  }
-
  section #burgers{
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
             padding: 20px;
-
- }
- #meals_title{
-  font-size: 40px;
- }
- #burger_title{
-  font-size: 40px;
  }
  /* items */
  .item {
             background-color: #fff;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin: 15px;
             padding: 20px;
             width: 300px;
             text-align: center;
        }
-
-
-   #counter1 {
-  font-size: 16px;
-
+#burger_meal_flex{
+	display: flex;
+	flex-wrap: nowrap;
+}
+#button_add_counter{
+	position: absolute;
+	right: 20px;
+	top: 400px;
 }
 
-#button_add_cart1{
-  position: relative;
-  bottom: 20px;
-  left: 10px;
-  font-family: 'Sofia Sans Condensed', sans-serif;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  font-size: 20px;
-  font-weight: 800;
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(79,9,121,1) 0%, rgba(79,0,255,1) 100%);
-  color: #fff;
-  cursor: pointer;
-}
-/*buttons boxes positions*/
-#buttons1{
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  position: absolute;
-  height: 120px;
-  width: 200px;
-  right: 280px;
-  top: 460px;
-}
-#buttons2{
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  position: absolute;
-  height: 120px;
-  width: 200px;
-  right: 280px;
-  top: 650px;
-}
-#buttons3{
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  position: absolute;
-  height: 120px;
-  width: 200px;
-  right: 280px;
-  top: 830px;
-}
-#buttons4{
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  position: absolute;
-  height: 120px;
-  width: 200px;
-  right: 280px;
-  top: 1070px;
-}
-#buttons5{
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  position: absolute;
-  height: 120px;
-  width: 200px;
-  right: 280px;
-  top: 1270px;
-}
-
-#buttons6{
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  position: absolute;
-  height: 120px;
-  width: 200px;
-  right: 280px;
-  top: 1465px;
-}
-   #counter2 {
-  font-size: 16px;
+   #counter {
+      font-size: 16px;
 	height: 30px;
-  }
-
-#button_add_cart2{
-  position: relative;
-  bottom: 20px;
-  left: 10px;
+	position: absolute;
+	right: 20px;
+	top: 400px;
+}
+#button_remove_counter{
+	position: absolute;
+	right: 20px;
+	top: 340px;
+}
+#button_add_cart{
+	position: absolute;
+	right: 20px;
+	top: 440px;
 font-family: 'Sofia Sans Condensed', sans-serif;
  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   font-size: 20px;
@@ -416,78 +375,69 @@ font-family: 'Sofia Sans Condensed', sans-serif;
   cursor: pointer;
 }
 
-#counter3 {
-  font-size: 16px;
-	height: 30px;
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
-#button_add_cart3{
-  position: relative;
-  bottom: 20px;
-  left: 10px;
-  font-family: 'Sofia Sans Condensed', sans-serif;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  font-size: 20px;
-  font-weight: 800;
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(79,9,121,1) 0%, rgba(79,0,255,1) 100%);
-  color: #fff;
-  cursor: pointer;
+#login{
+  margin-top: 0px;
+  width: 20px;
+  height: auto;
 }
 
-#counter4 {
-  font-size: 16px;
-	height: 30px;
+/* top nav starts */
+.topnav {
+overflow: hidden;
+background-color: #ddd;
+min-width: 250px;
+font-family: "Sofia Sans Condensed", sans-serif;
+font-weight: 600;
 }
 
-#button_add_cart4{
-  position: relative;
-  bottom: 20px;
-  left: 10px;
-  font-family: 'Sofia Sans Condensed', sans-serif;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  font-size: 20px;
-  font-weight: 800;
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(79,9,121,1) 0%, rgba(79,0,255,1) 100%);
-  color: #fff;
-  cursor: pointer;
-}
-#counter5 {
-  font-size: 16px;
-	height: 30px;
+.navtext{
+  margin-top: 10px;
 }
 
-#button_add_cart5{
-  position: relative;
-  bottom: 20px;
-  left: 10px;
-  font-family: 'Sofia Sans Condensed', sans-serif;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  font-size: 20px;
-  font-weight: 800;
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(79,9,121,1) 0%, rgba(79,0,255,1) 100%);
-  color: #fff;
-  cursor: pointer;
-}
-#counter6 {
-  font-size: 16px;
-	height: 30px;
-}
-
-#button_add_cart6{
-  position: relative;
-  bottom: 20px;
-  left: 10px;
-  font-family: 'Sofia Sans Condensed', sans-serif;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  font-size: 20px;
-  font-weight: 800;
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(79,9,121,1) 0%, rgba(79,0,255,1) 100%);
-  color: #fff;
-  cursor: pointer;
+.topnav a {
+float: left;
+display: block;
+color: #4C3F59;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+font-size: 17px;
 }
 
 
-/*media*/
+.topnav a:hover {
+color: #ccc;
+}
+
+.topnav a.active {
+color: white;
+}
+
+.topnav .icon {
+display: none;
+}
+
+#cart{
+  margin-top: 0;
+  padding: 0;
+  float: left;
+  width: 70px;
+  height: auto;
+}
+
+
+
+
+
+
 @media screen and (max-width: 899px) {
 .topnav a:not(:first-child) {display: none;}
 .topnav a.icon {
@@ -519,7 +469,27 @@ font-family: 'Sofia Sans Condensed', sans-serif;
   }
 }
 
+@media screen and (max-width: 900px) {
+  #cart {
+    margin-bottom: 10px;
+    margin-left: -20px;
+  }
+}
 
+
+@media screen and (max-width: 500px) {
+  .column {
+    width: 100%;
+  }
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn {
+    width: 100%;
+    padding: 0;
+  }
+}
 
 /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
 @media screen and (max-width: 400px) {
@@ -529,7 +499,20 @@ font-family: 'Sofia Sans Condensed', sans-serif;
   }
 }
 
+@media screen and (max-width: 1562px) {
+  #ravintola {
+    width: 100%;
+    padding: 10px;
+    min-width: 100%;
+  }
+}
 
+@media screen and (max-width: 1562px) {
+  #text {
+    width: 100%;
+    height: 100%;
+  }
+}
 
 
 
@@ -571,4 +554,6 @@ label {
   border-left-color: green;
   opacity: 60%;
 }
+
+
 
