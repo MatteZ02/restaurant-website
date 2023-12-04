@@ -33,11 +33,11 @@ class RestaurantApiWrapper {
     }
 
     public async getMenu(): Promise<MenuItem[]> {
-        const req = await requestHandler.get<{ data: MenuItem[] }>("menu");
-        return req.data;
+        const req = await requestHandler.get<MenuItem[]>("menu");
+        return req;
     }
 
-    public async postMenuItem(data: Omit<MenuItem, "id">): Promise<MenuItem> {
+    public async postMenuItem(data: Omit<MenuItem, "id" | "timesOrdered">): Promise<MenuItem> {
         const req = await requestHandler.post<{ data: MenuItem }>("menu", data, {
             "Content-type": "application/json",
             Authorization: `Bearer ${this.token}`,

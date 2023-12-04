@@ -5,5 +5,39 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Admin page</title>
     </head>
-    <body></body>
+    <body> <link rel="stylesheet" href="/admin.css" />
+        <script src="../frontend/src/admin.ts" type="module"></script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="one-third">
+                <h2>Menu</h2>
+                <button id="add-menu-item">Add item</button>
+                <div id="menu-items"></div>
+            </div>
+            <div class="one-third"></div>
+            <div class="one-third"></div>
+        </div>
+        <dialog id="menu-item-modal">
+            <h2 id="menu-item-modal-header">Add menu item</h2>
+            <form id="item-form">
+                <label for="item-name">Name</label>
+                <input type="text" id="item-name" />
+                <label for="item-price">Price</label>
+                <input type="number" id="item-price" />
+                <label for="item-description">Description</label>
+                <textarea id="item-description"></textarea>
+                <label for="item-image">Image</label>
+                <input type="file" id="item-image" />
+                <label for="item-category">Category</label>
+                <select id="item-category">
+                    <option value="1">Appetizers</option>
+                    <option value="2">Main dishes</option>
+                    <option value="3">Desserts</option>
+                    <option value="4">Drinks</option>
+                </select>
+                <button type="submit" id="submit">Add</button>
+            </form>
+        </dialog>
+    </body>
 </html>
