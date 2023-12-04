@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../public/sivu1_dialog.css">
+    <script src="../frontend/src/sivu1.js" defer></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Document</title>
+</head>
+  <body>
+    <div class="support">
+      <input  type="checkbox" class="checkbox" id="checkbox">
+      <label for="checkbox" class="checkbox-label">
+        <i id="icon_sun" class="material-icons" >wb_sunny</i>
+        <i id="icon_moon" class="material-icons">brightness_3</i>
+        <span class="ball"></span>
+      </label>
+    </div>
+    <div class="topnav" id="myTopnav">
+
+      <a class="active" id="logotaus" href="Logo"><img id="logo" src="" alt="logo"></a>
+      <a href="../index.html" class="navtext">Etusivu</a>
+      <a href="menu.html" class="navtext">Menu</a>
+      <a href="../info/info.html" class="navtext">Info</a>
+      <a href="#login"><button id="open_dialog"><i class="material-icons">account_circle</i></button></a>
+      <a href="#cart"><i><img id="cart" src="../public/media/svg/cart.svg" alt="cart"></i></a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()" >
+        <i class="fa fa-bars"></i></a>
+    </div>
+
+
+    <div class="gap">
+      <p class="gap_text">categories</p>
+      <div>
+        <button role="button"> <img src="../public/media/svg/boxgategory.svg" alt="boxgategory"></button>
+        <button role="button"> <img src="../public/media/svg/boxgategory.svg" alt="boxgategory"></button>
+        <button role="button"> <img src="../public/media/svg/boxgategory.svg" alt="boxgategory"></button>
+        <button role="button"> <img src="../public/media/svg/boxgategory.svg" alt="boxgategory"></button>
+        <button role="button"> <img src="../public/media/svg/boxgategory.svg" alt="boxgategory"></button>
+      </div>
+    </div>
+    <section id = "meals">
+      <h1>Burger Meals</h1>
+      <div class = "burger_meal_flex">
+             <div class="item">
+                 <h2>Meal 1</h2>
+                 <p>Description of Meal 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                 <p>$10.99</p>
+           </div>
+       <button id="button_remove_counter">-</button>
+       <input type="text" id="counter" value="0" maxlength="4" size="4" readonly>
+       <button id="button_add_counter">+</button>
+       <button id="button_add_cart">Add to Cart</button>
+     </div>
+       <div class="item">
+                 <h2>Meal2</h2>
+                 <p>Description of Meal 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                 <p>$12.99</p>
+       </div>
+       <div class="item">
+                 <h2>Meal3</h2>
+                 <p>Description of Meal 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                 <p>$11.99</p>
+       </div>
+        </section>
+        <h1>Burgers</h1>
+        <section id = "burgers">
+        <div class = "burger_flex">
+             <div class="item">
+                 <h2>Burger 1</h2>
+                 <p>Description of Burger 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                 <p>$5.99</p>
+       </div>
+          </div>
+       <div class="item">
+                 <h2>Burger 2</h2>
+                 <p>Description of Burger 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                 <p>$5.99</p>
+                <button class="button_cart">Add to Cart</button>
+             </div>
+       <div class="item">
+                 <h2>Burger 3</h2>
+                 <p>Description of Burger 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                 <p>$5.99</p>
+                <button class="button_cart">Add to Cart</button>
+             </div>
+     </section>
+       <div class="item">
+                 <h2>Sides</h2>
+                 <p>Description of sides 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                 <p>$5.99</p>
+                  <button class="button_cart">Add to Cart</button>
+             </div>
+             <div class="item">
+                 <h2>Dip 1</h2>
+                 <p>Description of Dip 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                 <p>$3.99</p>
+                   <button class="button_cart">Add to Cart</button>
+             </div>
+
+             <div class="item">
+                 <h2>Drink 1</h2>
+                 <p>Description of Drink 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                 <p>$1.99</p>
+                  <button class="button_cart">Add to Cart</button>
+             </div>
+         </section>
+
+  <div class="footer">
+    <h2>Footer</h2>
+  </div>
+<!--Dialog-->
+<dialog aria-labelledby="dialog_title" aria-describedby="dialog_description">
+  <img src="kuvat/user.png" alt="Illustration of Location Services" />
+  <h2 id="dialog_title" class="h2">Rekistöröi käyttäjä</h2>
+  <P>Minimi 3 merkkiä</P>
+
+  <!--form-->
+  <form action="" method="get" class="form-sub">
+    <div class="form-sub">
+      <label for="name">Käyttäjä nimi: </label>
+      <input
+      type="text"
+      name="name" id="name"
+      autocomplete="name"
+      required minlength="3"
+      />
+    </div>
+    <div class="form-sub">
+      <label for="email">Sähköposti: </label>
+      <input
+      type="email"
+      name="email"
+      pattern=".+@metropolia.fi"
+      id="email" required
+      autocomplete="email"
+      required minlength="3"/>
+    </div>
+    <div class="form-sub">
+      <label for="password">Salasana: </label>
+      <input
+      type="password"
+      name="password"
+      id="password" required
+      required minlength="3"
+      pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}"
+      />
+    </div>
+    <!--</div>-->
+  </form>
+  <!--form-->
+
+  <div class="flex flex-space-between">
+    <button id="close_dialog">Sulje</button>
+
+    <button type="submit" value="lähetä!" id="confirm_dialog" >Vahvista</button>
+  </div>
+</dialog>
+<!--Dialog-->
+
+  <script>
+   function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+    </script>
+
+
+  </body>
+  </html>
+</body>
+</html>
