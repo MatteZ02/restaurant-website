@@ -1,4 +1,4 @@
-// version 1.2.0
+// version 1.2.1
 
 declare module "restaurantApiTypes" {
     export interface Restaurant {
@@ -19,6 +19,8 @@ declare module "restaurantApiTypes" {
 
     enum MenuCategory {
         Burger = 1,
+        Sides = 2,
+        Drinks = 3,
     }
 
     export interface Order {

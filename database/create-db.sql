@@ -139,3 +139,8 @@ INSERT INTO
     MenuCategory (name)
 VALUES
     ('sides');
+
+INSERT INTO
+    MenuCategory (name)
+VALUES
+    ('drinks');
