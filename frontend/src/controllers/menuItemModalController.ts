@@ -1,7 +1,10 @@
 import { MenuItem } from "restaurantApiTypes";
 import addMenuItem from "../functions/addMenuItem";
 import editMenuItem from "../functions/editMenuitem";
-import { openDialog } from "../util/dialog";
+import { closeDialog, openDialog } from "../util/dialog";
+
+const isFullMenuItem = (item: Partial<MenuItem>): item is MenuItem =>
+    !!item.name && !!item.description && !!item.price && !!item.category;
 
 const menuItemModalController = async (modal: HTMLDialogElement, oldItem?: MenuItem) => {
     openDialog(modal);
@@ -10,24 +13,32 @@ const menuItemModalController = async (modal: HTMLDialogElement, oldItem?: MenuI
     const submit = document.querySelector("#submit");
     submit?.addEventListener("click", evt => {
         evt.preventDefault();
-        modal.close();
+        closeDialog(modal);
         const name = document.querySelector("#item-name") as HTMLInputElement;
         const description = document.querySelector("#item-description") as HTMLInputElement;
         const price = document.querySelector("#item-price") as HTMLInputElement;
-        const thumbnailUrl = document.querySelector("#thumbnail-url") as HTMLInputElement; // TODO: Image upload
         const category = document.querySelector("#item-category") as HTMLInputElement;
-        const menuItem = {
-            name: name.value,
-            description: description.value,
-            price: +price.value,
-            thumbnail_url: thumbnailUrl?.value ?? "no url",
-            category: +category.value,
+        const menuItem: Partial<MenuItem> = {
+            name: name.value || undefined,
+            description: description.value || undefined,
+            price: +price.value || undefined,
+            category: +category.value || undefined,
         };
 
         const id = oldItem?.id;
 
         if (id) editMenuItem(id, menuItem);
-        else addMenuItem(menuItem);
+        else {
+            if (
+                !menuItem.name ||
+                !menuItem.description ||
+                !menuItem.price ||
+                !menuItem.category ||
+                !isFullMenuItem(menuItem)
+            )
+                return alert("Missing fields");
+            addMenuItem(menuItem);
+        }
     });
 };
 

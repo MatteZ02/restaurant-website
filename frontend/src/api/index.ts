@@ -15,21 +15,22 @@ class RestaurantApiWrapper {
         this.token = localStorage.getItem("token");
     }
 
-    public async login(username: string, password: string): Promise<UserLoginResponse> {
-        const req = await requestHandler.post<{ data: UserLoginResponse }>("auth/login", {
+    public async login(username: string, password: string): Promise<UserLoginResponse | null> {
+        const req = await requestHandler.post<UserLoginResponse>("auth/login", {
             username,
             password,
         });
-        this.token = req.data.token;
-        return req.data;
+
+        this.token = req.token;
+        return req;
     }
 
     public async getMe(token: string): Promise<ApiUser> {
-        const req = await requestHandler.get<{ data: ApiUser }>("auth/me", {
+        const req = await requestHandler.get<ApiUser>("auth/me", {
             "Content-type": "application/json",
             Authorization: `Bearer ${token}`,
         });
-        return req.data;
+        return req;
     }
 
     public async getMenu(): Promise<MenuItem[]> {
@@ -46,34 +47,34 @@ class RestaurantApiWrapper {
     }
 
     public async putMenuItem(data: Partial<MenuItem>, id: number): Promise<MenuItem> {
-        const req = await requestHandler.put<{ data: MenuItem }>(`menu/${id}`, data, {
+        const req = await requestHandler.put<MenuItem>(`menu/${id}`, data, {
             "Content-type": "application/json",
             Authorization: `Bearer ${this.token}`,
         });
-        return req.data;
+        return req;
     }
 
     public async deleteMenuItem(id: number): Promise<MenuItem> {
-        const req = await requestHandler.delete<{ data: MenuItem }>(`menu/${id}`, {
+        const req = await requestHandler.delete<MenuItem>(`menu/${id}`, {
             "Content-type": "application/json",
             Authorization: `Bearer ${this.token}`,
         });
-        return req.data;
+        return req;
     }
 
     public async getOrder(id: number): Promise<Order> {
-        const req = await requestHandler.get<{ data: Order }>(`order/${id}`, {
+        const req = await requestHandler.get<Order>(`order/${id}`, {
             "Content-type": "application/json",
             Authorization: `Bearer ${this.token}`,
         });
-        return req.data;
+        return req;
     }
 
     public async putOrder(data: Order) {
-        const req = await requestHandler.put<{ data: Order }>(`order/${data.id}`, data, {
+        const req = await requestHandler.put<Order>(`order/${data.id}`, data, {
             "Content-type": "application/json",
         });
-        return req.data;
+        return req;
     }
 
     public async getRestaurants(): Promise<Restaurant[]> {
@@ -90,19 +91,19 @@ class RestaurantApiWrapper {
     }
 
     public async postUSer(data: Omit<Omit<ApiUser, "level">, "id">): Promise<ApiUser> {
-        const req = await requestHandler.post<{ data: ApiUser }>("user", data, {
+        const req = await requestHandler.post<ApiUser>("user", data, {
             "Content-type": "application/json",
             Authorization: `Bearer ${this.token}`,
         });
-        return req.data;
+        return req;
     }
 
     public async getUser(id: number): Promise<User> {
-        const req = await requestHandler.get<{ data: ApiUser }>(`user/${id}`, {
+        const req = await requestHandler.get<ApiUser>(`user/${id}`, {
             "Content-type": "application/json",
             Authorization: `Bearer ${this.token}`,
         });
-        return new User(req.data);
+        return new User(req);
     }
 }
 

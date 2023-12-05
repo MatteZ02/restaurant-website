@@ -27,7 +27,7 @@ const postUser = async (req: Request, res: Response, next: NextFunction) => {
     const existingUser = await Database.query("SELECT * FROM user WHERE username = ?", [
         user.username,
     ]);
-    if (existingUser.length > 0) return next(new ApiError(400, "Username already exists"));
+    if (existingUser?.length > 0) return next(new ApiError(400, "Username already exists"));
     const salt = genSaltSync(10);
     user.password = hashSync(user.password, salt);
     const u = addUser(user);

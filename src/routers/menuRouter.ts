@@ -12,7 +12,6 @@ menuRouter
         body("name").trim().isLength({ min: 1 }),
         body("description").trim().isLength({ min: 1 }),
         body("price").isNumeric(),
-        body("thumbnail_url").trim().isLength({ min: 1 }),
         body("category").isNumeric(),
         authenticateToken,
         postMenu
@@ -21,11 +20,10 @@ menuRouter
 menuRouter
     .route("/:id")
     .put(
-        body("name").trim().isLength({ min: 1 }),
-        body("description").trim().isLength({ min: 1 }),
-        body("price").isNumeric(),
-        body("thumbnail_url").trim().isLength({ min: 1 }),
-        body("category").isNumeric(),
+        body("name").trim().isLength({ min: 1 }).optional(),
+        body("description").trim().isLength({ min: 1 }).optional(),
+        body("price").isNumeric().optional(),
+        body("category").isNumeric().optional(),
         authenticateToken,
         putMenu
     )

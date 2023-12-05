@@ -22,7 +22,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hb
         "name": "Menu 1",
         "description": "Menu 1 description",
         "price": 1000,
-        "thumbnail_url": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
         "category": 1
     }
 
@@ -35,7 +34,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hb
         "name": "Menu 1 edited",
         "description": "Menu 1 description",
         "price": 1000,
-        "thumbnail_url": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
         "category": 1
     }
 
@@ -120,13 +118,11 @@ POST http://localhost:3000/api/user
 Content-Type: application/json
 
     {
-        "username": "user1",
-        "password": "user1",
-        "first_name": "user",
-        "last_name": "1",
-        "email": "user@restraurant.test",
-        "address": "User 1 address",
-        "phone": "08123456789"
+        "username": "admin",
+        "password": "admin",
+        "first_name": "admin",
+        "last_name": "user",
+        "email": "admin@restraurant.admin"
     }
 
 ###

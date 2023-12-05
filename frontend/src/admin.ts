@@ -1,26 +1,38 @@
 import RestaurantApiWrapper from "./api";
 import menuItemModalController from "./controllers/menuItemModalController";
 
-if (!localStorage.getItem("token"))
-    window.location.href = `/?login=true&redirect=${window.location.href}`;
-
 const restaurantApiWrapper = new RestaurantApiWrapper();
-
-const menuItemModal = document.querySelector("#menu-item-modal");
-
-const addMenuItemButton = document.querySelector("#add-menu-item");
-addMenuItemButton?.addEventListener("click", evt => {
-    evt.preventDefault();
-    menuItemModalController(menuItemModal as HTMLDialogElement);
-});
+const redir = `/?login=true&redirect=${window.location.href}`;
+const token = localStorage.getItem("token");
 
 const deleteMenuItem = async (id: string) => {
     const res = await restaurantApiWrapper.deleteMenuItem(+id);
+    if (!res) {
+        alert("Failed to delete menu item");
+        return;
+    } else {
+        alert("Successfully deleted menu item");
+        window.location.reload();
+    }
 };
 
 const menu = document.querySelector("#menu-items");
 
 (async () => {
+    if (!token) return (window.location.href = redir);
+
+    const user = await restaurantApiWrapper.getMe(token);
+
+    if (!user || user.level > 2) return (window.location.href = redir);
+
+    const menuItemModal = document.querySelector("#menu-item-modal");
+
+    const addMenuItemButton = document.querySelector("#add-menu-item");
+    addMenuItemButton?.addEventListener("click", evt => {
+        evt.preventDefault();
+        menuItemModalController(menuItemModal as HTMLDialogElement);
+    });
+
     const menuItems = await restaurantApiWrapper.getMenu();
 
     for (const item in menuItems) {
@@ -39,9 +51,6 @@ const menu = document.querySelector("#menu-items");
         const menuItemPrice = document.createElement("p");
         menuItemPrice.innerText = menuItem.price.toString();
 
-        const menuItemThumbnail = document.createElement("img");
-        menuItemThumbnail.src = menuItem.thumbnail_url;
-
         const menuItemCategory = document.createElement("p");
         menuItemCategory.innerText = menuItem.category.toString();
 
@@ -59,7 +68,6 @@ const menu = document.querySelector("#menu-items");
         menuItemElement.appendChild(menuItemName);
         menuItemElement.appendChild(menuItemDescription);
         menuItemElement.appendChild(menuItemPrice);
-        menuItemElement.appendChild(menuItemThumbnail);
         menuItemElement.appendChild(menuItemCategory);
         menuItemElement.appendChild(menuItemEdit);
         menuItemElement.appendChild(menuItemDelete);
