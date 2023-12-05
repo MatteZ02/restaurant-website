@@ -163,41 +163,41 @@
 </div>
 <!--Dialog-->
 <dialog aria-labelledby="dialog_title" aria-describedby="dialog_description">
-<img src="media/kuvat/user.png" alt="Illustration of Location Services" />
-<h2 id="dialog_title" class="h2">sign in</h2>
-<P>Minimi 3 merkkiä</P>
-<!--form-->
-<form action="" method="get" class="form-sub">
-  <div class="form-sub">
-    <label for="name">näyttäjä nimi </label>
-    <input
-    type="text"
-    name="name" id="name"
-    autocomplete="name"
-    required minlength="3"
-    />
-  </div>
-  <div class="form-sub">
-    <label for="password">Salasana: </label>
-    <input
-    type="password"
-    name="password"
-    id="password" required
-    required minlength="3"
-    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}"
-    />
-  </div>
-  <!--</div>-->
-</form>
-<!--form-->
+  <img src="media/kuvat/user.png" alt="Illustration of Location Services" />
+  <h2 id="dialog_title" class="h2">sign in</h2>
+  <P>Minimi 3 merkkiä</P>
+  <!--form-->
+  <form action="" method="get" class="form-sub">
+    <div class="form-sub">
+      <label for="name">Käyttäjänimi </label>
+      <input
+      type="text"
+      name="name" id="name"
+      autocomplete="name"
+      required minlength="3"
+      />
+    </div>
+    <div class="form-sub">
+      <label for="password">Salasana:</label>
+      <input
+      type="password"
+      name="password"
+      id="password" required
+      required minlength="3"
+      pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}"
+      />
+    </div>
+    <!--</div>-->
+  </form>
+  <!--form-->
 
-<div class="flex flex-space-between">
-  <button id="close_dialog">Sulje</button>
-  <button type="submit" value="lähetä!" id="confirm_dialog" >Vahvista</button>
-</div>
-<button id="close_dialog">Reiskisteröidy!</button>
-</dialog>
-<!--Dialog-->
+  <div class="flex flex-space-between">
+    <button id="close_dialog">Sulje</button>
+    <button type="submit" value="lähetä!" id="confirm_dialog" >Vahvista</button>
+  </div>
+  <button id="open_dialog2">Reiskisteröidy!</button>
+  </dialog>
+  <!--Dialog-->
 
 <script>
   function myFunction() {

@@ -10,46 +10,128 @@ const elements = dialog.querySelectorAll(
 const firstElement = elements[0];
 const lastElement = elements[elements.length - 1];
 
-/*const trapFocus = (e) => {
-  if (e.key === "Tab") {
-    const tabForwards = !e.shiftKey && document.activeElement === lastElement;
-    const tabBackwards = e.shiftKey && document.activeElement === firstElement;
-    if (tabForwards) {
-      // only TAB is pressed, not SHIFT simultaneously
-      // Prevent default behavior of keydown on TAB (i.e. focus next element)
-      e.preventDefault();
-      firstElement.focus();
-    } else if (tabBackwards) {
-      // TAB and SHIFT are pressed simultaneously
-      e.preventDefault();
-      lastElement.focus();
-    }
-  }
+const openDialog = () => {
+    dialog.showModal();
+    dialog.addEventListener("keydown", trapFocus);
 };
-*/
 
-if (typeof dialog.showModal !== "function") {
-    /**
-   * How to add polyfill outside CodePen conditionally
-   * let polyfill = document.createElement("script");
-   * polyfill.type = "text/javascript";
-   * polyfill.src = "/dist/dialog-polyfill.js";
-   * document.body.append(polyfill);
+const closeDialog = e => {
+    e.preventDefault();
+    dialog.close();
+    dialog.removeEventListener("keydown", trapFocus);
+    openDialogBtn.focus();
+};
 
-   * const polyfillStyles = document.createElement("link");
-   * polyfillStyles.rel = "stylesheet";
-   * polyfillStyles.href = "dialog-polyfill.css";
-   * document.head.append(polyfillStyles);
-   **/
+openDialogBtn.addEventListener("click", openDialog);
+closeDialogBtn.addEventListener("click", closeDialog);
 
-    // Register polyfill on dialog element once the script has loaded
-    dialogPolyfill.registerDialog(dialog);
-}
+document.getElementById("open_dialog2").addEventListener("click", function () {
+    // Close the current dialog
+    document.getElementById("close_dialog").click();
+
+    // Create a new dialog element
+    var newDialog = document.createElement("dialog2");
+    newDialog.setAttribute("aria-labelledby", "dialog_title");
+    newDialog.setAttribute("aria-describedby", "dialog_description");
+
+    // Set the content of the new dialog
+    newDialog.innerHTML = `
+    <!--Dialog-->
+    <dialog2 aria-labelledby="dialog_title" aria-describedby="dialog_description">
+      <img src="media/kuvat/user.png" alt="Illustration of Location Services" />
+      <h2 id="dialog_title" class="h2">Rekistöröidy</h2>
+      <p>Minimum 3 characters</p>
+      <!--form-->
+      <form action="" method="get" class="form-sub">
+        <div class="form-sub">
+          <label for="Firstname">Etunimi</label>
+          <input
+            type="text"
+            name="Firstname"
+            id="Firstname"
+            autocomplete="given-name"
+            required minlength="3"
+          />
+        </div>
+        <div class="form-sub">
+          <label for="Lastname">Sukunimi</label>
+          <input
+            type="text"
+            name="Lastname"
+            id="Lastname"
+            autocomplete="family-name"
+            required minlength="3"
+          />
+        </div>
+        <div class="form-sub">
+          <label for="name">Näyttäjänimi</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            autocomplete="username"
+            required minlength="3"
+          />
+        </div>
+        <div class="form-sub">
+          <label for="password">Salasana:</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            required minlength="3"
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}"
+          />
+        </div>
+        <div class="form-sub">
+          <label for="phone">Puhelinnumero:</label>
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            autocomplete="tel"
+            minlength="3"
+          />
+        </div>
+        <div class="form-sub">
+          <label for="address">Osoite:</label>
+          <input
+            type="text"
+            name="address"
+            id="address"
+            autocomplete="address-line1"
+            minlength="3"
+          />
+        </div>
+        <!--</div>-->
+      </form>
+      <!--form-->
+
+      <div class="flex flex-space-between">
+        <button id="close_dialog2">Sulje</button>
+        <button type="submit" value="lähetä!" id="confirm_dialog">Vahvista</button>
+      </div>
+    </dialog2>
+    <!--Dialog-->
+  `;
+
+    // Append the new dialog to the document body
+    document.body.appendChild(newDialog);
+
+    // Show the new dialog
+    newDialog.showModal();
+
+    // Event listener for the close button in the new dialog
+    newDialog.querySelector("#close_dialog2").addEventListener("click", function () {
+        newDialog.close();
+    });
+});
 
 const checkbox = document.getElementById("checkbox");
 checkbox.addEventListener("change", () => {
     document.body.classList.toggle("dark");
 });
+
 /* counter to cart items*/
 document.addEventListener("DOMContentLoaded", function () {
     const counterInput = document.getElementById("counter1");

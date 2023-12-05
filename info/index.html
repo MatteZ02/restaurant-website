@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/info.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="public/sivu1_dialog.css">
-    <script src="frontend/src/sivu1.js" defer></script>
+    <link rel="stylesheet" href="../public/sivu1_dialog.css">
+    <script src="../frontend/src/sivu1.js" defer></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Document</title>
 </head>
@@ -20,16 +20,18 @@
       </label>
     </div>
     <div class="topnav" id="myTopnav">
-      <a class="active" id="logotaus" href="Logo"><img id="logo" src="" alt="logo"></a>
-      <a href="../" class="navtext">Etusivu</a>
-      <a href="../menu/" class="navtext">Menu</a>
-      <a href="../info/" class="navtext">Info</a>
-      <a href="#login"><button id="open_dialog"><i class="material-icons">account_circle</i></button></a>
-      <a href="#cart"><i><img id="cart" src="../public/media/svg/cart.svg" alt="cart"></i></a>
+
+      <a class="active" id="logotaus" href="Logo"><img id="logo" src="" alt="logo"> <h1 id="logo_text"></h1></a>
+      <a href="../" class="navi">Home</a>
+      <a href="../menu/" class="navi">Menu</a>
+      <a href="../info/" class="navi">Info</a>
+      <a href="#login" class="navi"><button id="open_dialog"><i class="material-icons">account_circle</i></button></a>
+      <button id="cart" ><img class="navi" src="../public/media/svg/cart.svg" alt="cart"></button>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()" >
         <i class="fa fa-bars"></i>
       </a>
     </div>
+
   <div class="footer">
     <h2>Footer</h2>
   </div>
@@ -41,7 +43,7 @@
   <!--form-->
   <form action="" method="get" class="form-sub">
     <div class="form-sub">
-      <label for="name">näyttäjä nimi </label>
+      <label for="name">Käyttäjänimi </label>
       <input
       type="text"
       name="name" id="name"
@@ -50,7 +52,7 @@
       />
     </div>
     <div class="form-sub">
-      <label for="password">Salasana: </label>
+      <label for="password">Salasana:</label>
       <input
       type="password"
       name="password"
@@ -67,12 +69,13 @@
     <button id="close_dialog">Sulje</button>
     <button type="submit" value="lähetä!" id="confirm_dialog" >Vahvista</button>
   </div>
-  <button id="close_dialog">Reiskisteröidy!</button>
+  <button id="open_dialog2">Reiskisteröidy!</button>
   </dialog>
   <!--Dialog-->
 
+
   <script>
-   function myFunction() {
+    function myFunction() {
       var x = document.getElementById("myTopnav");
       if (x.className === "topnav") {
         x.className += " responsive";
