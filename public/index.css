@@ -364,8 +364,9 @@ display: none;
   margin-top: 0;
   padding: 0;
   float: left;
-  width: 70px;
-  height: auto;
+  margin: -5px;
+  width: 25px;
+  height: 30px;
 }
 
 .sales{
@@ -551,46 +552,6 @@ display: none;
   }
 }
 
-
-
-form.form-sub {
-  display: table;
-
-}
-
-div.form-sub {
-  display: table-row;
-}
-
-label,
-input {
-  display: table-cell;
-  margin-bottom: 10px;
-}
-
-label {
-  padding-right: 10px;
-}
-.form-sub input{
-  margin: 10px;
-  padding: 5px;
-  border-radius: 5px;
-  border: 1px solid black;
-  border-left: 7px solid black;
-  border-left-color:#7F7F7F;
-  transition:  border-left-color 1.5s;
-
-}
-
-.form-sub input:invalid{
-  border-left-color: orange;
-  opacity: 60%;
-}
-
-.form-sub input:valid{
-  border-left-color: green;
-  opacity: 60%;
-}
 
 
 

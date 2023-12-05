@@ -37,82 +37,83 @@ document.getElementById("open_dialog2").addEventListener("click", function () {
     // Set the content of the new dialog
     newDialog.innerHTML = `
     <!--Dialog-->
-    <dialog2 aria-labelledby="dialog_title" aria-describedby="dialog_description">
-      <img src="media/kuvat/user.png" alt="Illustration of Location Services" />
-      <h2 id="dialog_title" class="h2">Rekistöröidy</h2>
-      <p>Minimum 3 characters</p>
-      <!--form-->
-      <form action="" method="get" class="form-sub">
-        <div class="form-sub">
-          <label for="Firstname">Etunimi</label>
-          <input
-            type="text"
-            name="Firstname"
-            id="Firstname"
-            autocomplete="given-name"
-            required minlength="3"
-          />
-        </div>
-        <div class="form-sub">
-          <label for="Lastname">Sukunimi</label>
-          <input
-            type="text"
-            name="Lastname"
-            id="Lastname"
-            autocomplete="family-name"
-            required minlength="3"
-          />
-        </div>
-        <div class="form-sub">
-          <label for="name">Näyttäjänimi</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            autocomplete="username"
-            required minlength="3"
-          />
-        </div>
-        <div class="form-sub">
-          <label for="password">Salasana:</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            required minlength="3"
-            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}"
-          />
-        </div>
-        <div class="form-sub">
-          <label for="phone">Puhelinnumero:</label>
-          <input
-            type="tel"
-            name="phone"
-            id="phone"
-            autocomplete="tel"
-            minlength="3"
-          />
-        </div>
-        <div class="form-sub">
-          <label for="address">Osoite:</label>
-          <input
-            type="text"
-            name="address"
-            id="address"
-            autocomplete="address-line1"
-            minlength="3"
-          />
-        </div>
-        <!--</div>-->
-      </form>
-      <!--form-->
-
-      <div class="flex flex-space-between">
-        <button id="close_dialog2">Sulje</button>
-        <button type="submit" value="lähetä!" id="confirm_dialog">Vahvista</button>
+    <div id="register" > <dialog2 aria-labelledby="dialog_title" aria-describedby="dialog_description">
+    <img src="media/kuvat/user.png" alt="Illustration of Location Services" />
+    <h2 id="dialog_title" class="h2">Rekisteröidy</h2>
+    <p>Minimi 3 merkkiä</p>
+    <!--form-->
+    <form action="" method="get" class="form-sub">
+      <div class="form-sub">
+        <label for="Firstname">Etunimi</label>
+        <input
+          type="text"
+          name="Firstname"
+          id="Firstname"
+          autocomplete="given-name"
+          required minlength="3"
+        />
       </div>
-    </dialog2>
-    <!--Dialog-->
+      <div class="form-sub">
+        <label for="Lastname">Sukunimi</label>
+        <input
+          type="text"
+          name="Lastname"
+          id="Lastname"
+          autocomplete="family-name"
+          required minlength="3"
+        />
+      </div>
+      <div class="form-sub">
+        <label for="name">Käyttäjänimi</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          autocomplete="username"
+          required minlength="3"
+        />
+      </div>
+      <div class="form-sub">
+        <label for="password">Salasana:</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          required minlength="3"
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}"
+        />
+      </div>
+      <div class="form-sub">
+        <label for="phone">Puhelinnumero:</label>
+        <input
+          type="tel"
+          name="phone"
+          id="phone"
+          autocomplete="tel"
+          minlength="3"
+        />
+      </div>
+      <div class="form-sub">
+        <label for="address">Osoite:</label>
+        <input
+          type="text"
+          name="address"
+          id="address"
+          autocomplete="address-line1"
+          minlength="3"
+        />
+      </div>
+      <!--</div>-->
+    </form>
+    <!--form-->
+
+    <div class="flex flex-space-between">
+      <button id="close_dialog2">Sulje</button>
+      <button type="submit" value="lähetä!" id="confirm_dialog">Vahvista</button>
+    </div>
+  </dialog2>
+  <!--Dialog--></div>
+
   `;
 
     // Append the new dialog to the document body

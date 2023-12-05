@@ -122,8 +122,9 @@ display: none;
   margin-top: 0;
   padding: 0;
   float: left;
-  width: 70px;
-  height: auto;
+  margin: -5px;
+  width: 25px;
+  height: 30px;
 }
 
 
