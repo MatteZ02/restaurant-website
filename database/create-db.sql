@@ -49,7 +49,6 @@ CREATE TABLE MenuItem (
     name VARCHAR(255) NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
     description VARCHAR(255) NOT NULL,
-    thumbnail_url VARCHAR(255) NOT NULL,
     category INT NOT NULL,
     times_ordered INT NOT NULL DEFAULT 0,
     PRIMARY KEY (id),
@@ -140,3 +139,8 @@ INSERT INTO
     MenuCategory (name)
 VALUES
     ('sides');
+
+INSERT INTO
+    MenuCategory (name)
+VALUES
+    ('drinks');

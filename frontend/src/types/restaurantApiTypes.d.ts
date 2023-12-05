@@ -1,4 +1,4 @@
-// version 1.1.0
+// version 1.2.1
 
 declare module "restaurantApiTypes" {
     export interface Restaurant {
@@ -13,13 +13,14 @@ declare module "restaurantApiTypes" {
         name: string;
         description: string;
         price: number;
-        thumbnail_url: string;
         category: MenuCategory;
         timesOrdered: number;
     }
 
     enum MenuCategory {
         Burger = 1,
+        Sides = 2,
+        Drinks = 3,
     }
 
     export interface Order {
