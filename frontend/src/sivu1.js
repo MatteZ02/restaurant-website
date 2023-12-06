@@ -38,7 +38,7 @@ document.getElementById("open_dialog2").addEventListener("click", function () {
     newDialog.innerHTML = `
     <!--Dialog-->
     <div id="register" > <dialog2 aria-labelledby="dialog_title" aria-describedby="dialog_description">
-    <img src="media/kuvat/user.png" alt="Illustration of Location Services" />
+    <img src="public/media/kuvat/login.png" alt="Illustration of Location Services" />
     <h2 id="dialog_title" class="h2">Rekisteröidy</h2>
     <p>Minimi 3 merkkiä</p>
     <!--form-->

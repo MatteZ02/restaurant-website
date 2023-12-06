@@ -79,8 +79,8 @@ h1{
 
 /* Header/Blog Title */
 .header {
-  background: rgb(63,94,251);
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%);
+  background-blend-mode: multiply;
   background-position: 100% 100%;
   background-size: 100%;
   height: 600px;
@@ -272,7 +272,7 @@ h1{
 }
 
 .button-R:before {
-  background-color: rgba(249, 58, 19, .32);
+  background-color: #9f6bff;
   content: "";
   display: block;
   height: 100%;
@@ -286,7 +286,7 @@ h1{
 
 .button-R:after {
   background-color: initial;
-  background-image: linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+  background-image: linear-gradient(92.83deg, #894AFF 0, #894AFF 100%);
   bottom: 4px;
   content: "";
   display: block;
@@ -387,12 +387,20 @@ display: none;
   width: 600px;
   height: 490px;
   background-color: #dadada;
+  background-image: url("C:\Users\Noona\Documents\web_kehitysperusteet_23\sivu3\restaurant-website\public\media\kuvat\suositus (1).jpg");
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position:center;
   float: left;
   border-radius: 20px;
   margin-top: 40px;
   margin-left: 100px;
+  color: #ddd;
 }
 
+#salesP{
+  color: #ddd;
+}
 .wrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
