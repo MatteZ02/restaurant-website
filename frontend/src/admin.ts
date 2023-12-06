@@ -1,5 +1,6 @@
 import RestaurantApiWrapper from "./api";
 import menuItemModalController from "./controllers/menuItemModalController";
+import userModifyModalController from "./controllers/userModifyModalController";
 
 const restaurantApiWrapper = new RestaurantApiWrapper();
 const redir = `/?login=true&redirect=${window.location.href}`;
@@ -21,7 +22,9 @@ const menu = document.querySelector("#menu-items");
 (async () => {
     if (!token) return (window.location.href = redir);
 
-    const user = await restaurantApiWrapper.getMe(token);
+    const user = await restaurantApiWrapper.getMe(token).catch(() => {
+        window.location.href = redir;
+    });
 
     if (!user || user.level > 2) return (window.location.href = redir);
 
@@ -74,4 +77,18 @@ const menu = document.querySelector("#menu-items");
 
         menu?.appendChild(menuItemElement);
     }
+
+    const searchUserBtn = document.querySelector("#search");
+    const searchUserInput = document.querySelector("#search-user") as HTMLInputElement;
+    const userModal = document.querySelector("#user-modal");
+
+    searchUserBtn?.addEventListener("click", async evt => {
+        evt.preventDefault();
+
+        const user = await restaurantApiWrapper.getUser(+searchUserInput.value);
+
+        if (!user) return alert("User not found");
+        if (!userModal) return console.log("User modal not found");
+        userModifyModalController(userModal as HTMLDialogElement, user);
+    });
 })();

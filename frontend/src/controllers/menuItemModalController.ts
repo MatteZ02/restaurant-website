@@ -10,7 +10,7 @@ const menuItemModalController = async (modal: HTMLDialogElement, oldItem?: MenuI
     openDialog(modal);
     const heading: HTMLHeadingElement | null = document.querySelector("#menu-item-modal-header");
     if (heading) heading.innerText = oldItem ? "Edit menu item" : "Add menu item";
-    const submit = document.querySelector("#submit");
+    const submit = document.querySelector("#submit-menu-item");
     submit?.addEventListener("click", evt => {
         evt.preventDefault();
         closeDialog(modal);

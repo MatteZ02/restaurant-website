@@ -2,11 +2,11 @@ import { User } from "restaurantApiTypes";
 import Database from "../database";
 import { compare } from "bcryptjs";
 
-const isUser = (data: any): data is User =>
-    data && data.username && data.email && data.level && data.phone && data.address;
+const isUser = (data: any): data is User => data && data.username && data.email && data.level;
 const getUserById = async (id: number): Promise<User | null> => {
     const res = await Database.get("user", id);
-    const user = res && res[0];
+    if (!res) return null;
+    const user = res[0];
     return isUser(user) ? user : null;
 };
 

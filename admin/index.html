@@ -16,7 +16,12 @@
                 <button id="add-menu-item">Add item</button>
                 <div id="menu-items"></div>
             </div>
-            <div class="one-third"></div>
+            <div class="one-third">
+                <h2>Users</h2>
+                <label for="user-search">Search for users by user id</label>
+                <input type="text" id="search-user" />
+                <button id="search">Search</button>
+            </div>
             <div class="one-third"></div>
         </div>
         <dialog id="menu-item-modal">
@@ -34,8 +39,32 @@
                     <option value="2">Sides</option>
                     <option value="3">Drinks</option>
                 </select>
-                <button type="submit" id="submit">Add</button>
+                <button type="submit" id="submit-menu-item">Add</button>
             </form>
         </dialog>
-    </body>
+        <dialog id="user-modal">
+            <h2 id="user-modal-header">Edit user</h2>
+            <form id="user-form">
+                <label for="user-name">username</label>
+                <input type="text" id="username" />
+                <label for="firstname">Firstname</label>
+                <input type="text" id="firstname" />
+                <label for="lastname">Lastname</label>
+                <input type="text" id="lastname" />
+                <label for="user-email">Email</label>
+                <input type="email" id="email" />
+                <label for="user-phone">Phone</label>
+                <input type="text" id="phone" />
+                <label for="address">Address</label>
+                <input type="text" id="address" />
+                <label for="role">Role</label>
+                <select id="role">
+                    <option value="1">Admin</option>
+                    <option value="2">Staff</option>
+                    <option value="3">User</option>
+                </select>
+                <button type="submit" id="submit-user">Update</button>
+                <button id="delete-user">Delete</button>
+            </form>
+        </body>
 </html>

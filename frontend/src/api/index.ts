@@ -103,7 +103,7 @@ class RestaurantApiWrapper {
             "Content-type": "application/json",
             Authorization: `Bearer ${this.token}`,
         });
-        return new User(req);
+        return new User(req, this.token ?? undefined);
     }
 }
 
