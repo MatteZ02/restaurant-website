@@ -16,8 +16,6 @@ body.dark  .gap_text {color: #fff;}
 body.dark  .text {color: #ddd;}
 body.dark  .text1 {color: #ddd;}
 
-
-
 .checkbox {
   opacity: 0;
   margin: 0;
@@ -202,8 +200,6 @@ h1{
   display: block;
   font-weight: 400;
   font-family: 'Rubik Bubbles', serif;
-
-
 }
 
 .herotext1{
@@ -330,7 +326,6 @@ h1{
   opacity: .24;
 }
 
-
 /* Clearfix (clear floats) */
 .row::after {
   content: "";
@@ -393,7 +388,7 @@ display: none;
   width: 600px;
   height: 490px;
   background-color: #dadada;
-  background-image: url("C:\Users\Noona\Documents\web_kehitysperusteet_23\sivu3\restaurant-website\public\media\kuvat\suositus (1).jpg");
+  background-image: url("../public/media/kuvat/suositus\ \(1\)\ kopio.png");
   background-size:cover;
   background-repeat: no-repeat;
   background-position:center;
@@ -403,10 +398,14 @@ display: none;
   margin-left: 100px;
   color: #ddd;
   padding: 10%;
+  font-size: 2rem;
+  font-weight: 400;
 }
 
-#salesP{
+.salesP{
   color: #ddd;
+  font-size: 2rem;
+  font-weight: 400;
 }
 .wrapper {
   display: grid;

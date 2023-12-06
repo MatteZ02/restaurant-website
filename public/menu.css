@@ -130,6 +130,31 @@ h1{
   min-width: 300px;
 }
 
+#burger_g{
+  background-image: url("../public/media/kuvat/burger_g.png");
+  background-size: contain;
+  background-repeat:no-repeat;
+  background-position:center ;
+}
+#drinks_g{
+  background-image: url("../public/media/kuvat/drink_g.png");
+  background-size: contain;
+  background-repeat:no-repeat;
+  background-position:center ;
+}
+#fries_g{
+  background-image: url("../public/media/kuvat/fries_g.png");
+  background-size: contain;
+  background-repeat:no-repeat;
+  background-position:center ;
+}
+#dips_g{
+  background-image: url("../public/media/kuvat/dips_g.png");
+  background-size: contain;
+  background-repeat:no-repeat;
+  background-position:center ;
+}
+
 
 
 
