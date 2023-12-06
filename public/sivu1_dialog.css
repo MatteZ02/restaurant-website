@@ -146,10 +146,28 @@ button {
     max-width: 400px;
     position:fixed;
     top: 20%;
+    left: 40%;
 
 
   }
+
+
+
   #register.flex{
     display: flex;
     flex-wrap: wrap;
+
+  }
+
+  #register img {
+    display: block;
+    max-width: 75%;
+    margin: 1rem 0 auto 2rem;
+  }
+
+  @media screen and (max-width: 600px) {
+    #register {
+      top: 10%;
+      left: 10%;
+    }
   }
