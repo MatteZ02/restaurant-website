@@ -27,7 +27,7 @@ const postUser = async (req: Request, res: Response, next: NextFunction) => {
     const existingUser = await Database.query("SELECT * FROM user WHERE username = ?", [
         user.username,
     ]);
-    if (existingUser.length > 0) return next(new ApiError(400, "Username already exists"));
+    if (existingUser?.length > 0) return next(new ApiError(400, "Username already exists"));
     const salt = genSaltSync(10);
     user.password = hashSync(user.password, salt);
     const u = addUser(user);
@@ -46,7 +46,11 @@ const putUser = async (req: Request, res: Response, next: NextFunction) => {
     const user = req.body;
     const u = updateUser(+id, user);
     if (!u) return next(new ApiError(500, "Error updating user"));
-    res.status(200).json(u);
+    req.user = {
+        ...req.user,
+        ...user,
+    };
+    res.status(200).json({ message: "User updated", data: req.user });
 };
 
 const deleteUser = async (req: Request, res: Response, next: NextFunction) => {
@@ -59,7 +63,8 @@ const deleteUser = async (req: Request, res: Response, next: NextFunction) => {
 
     const u = deleteUserById(+id);
     if (!u) return next(new ApiError(500, "Error deleting user"));
-    res.status(200).json(u);
+    delete req.user;
+    res.status(200).json({ message: "User deleted" });
 };
 
 export { getUser, postUser, putUser, deleteUser };

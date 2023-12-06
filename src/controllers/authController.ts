@@ -17,12 +17,12 @@ const postLogin = async (req: Request, res: Response, next: NextFunction) => {
     const token = jwt.sign(user, process.env.JWT_SECRET ?? "secret", {
         expiresIn: "1h",
     });
-    res.json({ token, user });
+    res.status(200).json({ token, user });
 };
 
 const getMe = (req: Request, res: Response) => {
     if (!req.user) throw new ApiError(403, "Token Invalid");
-    res.json(req.user);
+    res.status(200).json(req.user);
 };
 
 export { postLogin, getMe };

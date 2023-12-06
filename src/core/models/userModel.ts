@@ -2,11 +2,11 @@ import { User } from "restaurantApiTypes";
 import Database from "../database";
 import { compare } from "bcryptjs";
 
-const isUser = (data: any): data is User =>
-    data && data.username && data.email && data.level && data.phone && data.address;
+const isUser = (data: any): data is User => data && data.username && data.email && data.level;
 const getUserById = async (id: number): Promise<User | null> => {
     const res = await Database.get("user", id);
-    const user = res && res[0];
+    if (!res) return null;
+    const user = res[0];
     return isUser(user) ? user : null;
 };
 
@@ -15,7 +15,6 @@ const addUser = async (user: Omit<User, "id" | "level">): Promise<number | null>
         ...user,
         level: 3,
     };
-    // @ts-ignore
     const id = await Database.insert("user", insertableUser).catch(error => {
         throw error;
     });
@@ -44,11 +43,14 @@ const login = async (
     password: string
 ): Promise<Omit<User, "password"> | null> => {
     const query = `SELECT * FROM user WHERE username = ?`;
-    const [rows] = await Database.query(query, [username, password]).catch(error => {
+
+    const rows = await Database.query(query, [username]).catch(error => {
         throw error;
     });
-    const user = rows && rows[0];
-    const match = compare(password, user.password);
+
+    const user = rows[0];
+    if (!user) return null;
+    const match = await compare(password, user.password);
     if (!match) return null;
     delete user.password;
     return user ?? null;
