@@ -10,8 +10,7 @@ const notFoundHandler = (req: Request, res: Response, next: NextFunction) => {
 
 const errorHandler = (error: ApiError, req: Request, res: Response, next: NextFunction) => {
     const statusCode = error.status || 500;
-    res.status(statusCode);
-    res.json({
+    res.status(statusCode).json({
         message: error.message,
         status: statusCode,
     });

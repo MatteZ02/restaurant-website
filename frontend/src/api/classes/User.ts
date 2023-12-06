@@ -27,7 +27,7 @@ class User implements ApiUser {
 
     public async update(data: Partial<ApiUser>): Promise<User> {
         const user = await requestHandler
-            .put<{ message: string; data: ApiUser }>(`user`, data, {
+            .put<{ message: string; data: ApiUser }>(`user/${this.id}`, data, {
                 "Content-type": "application/json",
                 Authorization: `Bearer ${this.token}`,
             })
@@ -37,16 +37,18 @@ class User implements ApiUser {
         return new User(user.data);
     }
 
-    public async delete(): Promise<ApiUser> {
+    public async delete(): Promise<string> {
         const req = await requestHandler
             .delete<{
                 message: string;
-                data: ApiUser;
-            }>(`user`)
+            }>(`user/${this.id}`, {
+                "Content-type": "application/json",
+                Authorization: `Bearer ${this.token}`,
+            })
             .catch(err => {
                 throw new Error(err.message);
             });
-        return req.data;
+        return req.message;
     }
 }
 
