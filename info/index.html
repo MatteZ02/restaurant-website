@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../public/sivu1_dialog.css">
     <script src="../frontend/src/sivu1.js" defer></script>
+    <script src="../frontend/src/main.ts" type="module"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <title>Document</title>
 </head>
   <body>
@@ -21,33 +23,35 @@
     </div>
     <div class="topnav" id="myTopnav">
 
-      <a class="active" id="logotaus" href="Logo"><img id="logo" src="" alt="logo"> <h1 id="logo_text"></h1></a>
-      <a href="../" class="navi">Home</a>
+      <a class="active" id="logotaus" href="/"><h1 id="logo_text">Hessun Burger</h1></a>
+      <a href="../" class="navi" >Home</a>
       <a href="../menu/" class="navi">Menu</a>
-      <a href="../info/" class="navi">Info</a>
+      <a href="/" class="navi">Info</a>
       <a href="#login" class="navi"><button id="open_dialog"><i class="material-icons">account_circle</i></button></a>
-      <a href="#cart"><button id="cart" ><img class="navi" src="public/media/svg/cart.svg" alt="cart"></button> </a>
+      <a href="#cart"><button id="cart"><img class="navi" src="../public/media/svg/cart.svg" alt="cart"></button></a>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()" >
         <i class="fa fa-bars"></i>
       </a>
     </div>
 
+
+
   <div class="footer">
     <h2>Footer</h2>
   </div>
 <!--Dialog-->
-<dialog aria-labelledby="dialog_title" aria-describedby="dialog_description">
-  <img src="media/kuvat/user.png" alt="Illustration of Location Services" />
+<dialog aria-labelledby="dialog_title" aria-describedby="dialog_description" id="login-modal">
+  <img src="public/media/kuvat/login.png" alt="Illustration of Location Services" />
   <h2 id="dialog_title" class="h2">sign in</h2>
-  <P>Minimi 3 merkkiä</P>
+  <p>Minimi 3 merkkiä</p>
   <!--form-->
-  <form action="" method="get" class="form-sub">
+  <form class="form-sub" action="POST">
     <div class="form-sub">
       <label for="name">Käyttäjänimi </label>
       <input
       type="text"
-      name="name" id="name"
-      autocomplete="name"
+      name="username" id="username"
+      autocomplete="username"
       required minlength="3"
       />
     </div>
@@ -67,9 +71,9 @@
 
   <div class="flex flex-space-between">
     <button id="close_dialog">Sulje</button>
-    <button type="submit" value="lähetä!" id="confirm_dialog" >Vahvista</button>
+    <button type="submit" value="lähetä!" id="submit" >Vahvista</button>
   </div>
-  <button id="open_dialog2">Reiskisteröidy!</button>
+  <button id="open_dialog2">Rekisteröidy!</button>
   </dialog>
   <!--Dialog-->
 
@@ -84,8 +88,6 @@
       }
     }
     </script>
-
-
   </body>
   </html>
 </body>
