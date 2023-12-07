@@ -12,6 +12,8 @@ body {
 body.dark  {background-color: #111;}
 body.dark  .topnav {background-color: #111;}
 body.dark  .gap_text {color: #fff;}
+body.dark  .navi {color: #ddd;}
+
 
 
 .checkbox {

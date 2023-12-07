@@ -106,11 +106,6 @@ h1{
   float: right;
 }
 
-.gap{
-  text-align: center;
-  height: auto;
-
-}
 
 .leftcolumn {
   float: left;
@@ -384,84 +379,248 @@ display: none;
   width: 25px;
   height: 30px;
 }
-
-.sales{
-  width: 600px;
-  height: 490px;
-  background-color: #dadada;
-  background-image: url("../public/media/kuvat/sales.png");
-  background-size:cover;
-  background-repeat: no-repeat;
-  background-position:center;
-  float: left;
-  border-radius: 20px;
-  margin-top: 40px;
-  margin-left: 100px;
-  color: #ddd;
-  padding: 10%;
-  font-size: 2rem;
-  font-weight: 400;
+.gap{
+  padding-left: 20px;
+  height: auto;
+  border-bottom: 1px solid rgba(59, 59, 59, 0.30);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, rgba(0, 0, 0, 0.10) 100%);
+  padding: 10px;
 }
 
-.salesP{
-  color: #ddd;
-  font-size: 2rem;
-  font-weight: 400;
+.gap_text{
+  margin-left: 20px;
+  margin-bottom: 20px;
+  color: #4C3F59;
+  font-family: 'Sofia Sans Condensed', sans-serif;
+  font-style: normal;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.25rem; /* 83.333% */
+  padding: 0;
 }
-.wrapper {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  grid-auto-rows: minmax(150px, auto);
-  width: 400px;
-  margin-top: 20px;
-  min-width: 100px;
-  padding: 20px;
-  margin-bottom: 11%;
 
-  }
-  .one {
-  grid-column: 1 ;
-  grid-row: 1;
-  background-color :#ccc;
-  border-radius: 10px;
+.boxgategory{
+  margin: 10px;
+}
+
+#burger_g{
   background-image: url("../public/media/kuvat/burger_g.png");
   background-size: contain;
   background-repeat:no-repeat;
   background-position:center ;
-
-  }
-  .two {
-  grid-column: 2 ;
-  grid-row: 1;
-  background-color :#ccc;
-  background-image: url("../public/media/kuvat/fries_g.png");
-  background-size: contain;
-  background-repeat:no-repeat;
-  background-position:center ;
-  box-shadow: 50%;
-  border-radius: 10px;
-  }
-  .three {
-  grid-column: 1;
-  grid-row: 2;
-  background-color :#ccc;
+}
+#drinks_g{
   background-image: url("../public/media/kuvat/drink_g.png");
   background-size: contain;
   background-repeat:no-repeat;
   background-position:center ;
-  border-radius: 10px;
-  }
-  .four {
-  grid-column: 2;
-  grid-row: 2;
-  background-color :#ccc;
+}
+#fries_g{
+  background-image: url("../public/media/kuvat/fries_g.png");
+  background-size: contain;
+  background-repeat:no-repeat;
+  background-position:center ;
+}
+#dips_g{
   background-image: url("../public/media/kuvat/dips_g.png");
   background-size: contain;
   background-repeat:no-repeat;
   background-position:center ;
-  border-radius: 10px;
-  }
+}
+
+section #meals{
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+section #burgers{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+
+}
+#meals_title{
+font-size: 40px;
+}
+#burger_title{
+font-size: 40px;
+}
+/* items */
+.item {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  margin: 15px;
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+}
+
+
+#counter1 {
+font-size: 16px;
+
+}
+
+#button_add_cart1{
+position: relative;
+bottom: 20px;
+left: 10px;
+font-family: 'Sofia Sans Condensed', sans-serif;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+font-size: 20px;
+font-weight: 800;
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(79,9,121,1) 0%, rgba(79,0,255,1) 100%);
+color: #fff;
+cursor: pointer;
+}
+/*buttons boxes positions*/
+#buttons1{
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+position: absolute;
+height: 120px;
+width: 200px;
+right: 280px;
+top: 460px;
+}
+#buttons2{
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+position: absolute;
+height: 120px;
+width: 200px;
+right: 280px;
+top: 650px;
+}
+#buttons3{
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+position: absolute;
+height: 120px;
+width: 200px;
+right: 280px;
+top: 830px;
+}
+#buttons4{
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+position: absolute;
+height: 120px;
+width: 200px;
+right: 280px;
+top: 1070px;
+}
+#buttons5{
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+position: absolute;
+height: 120px;
+width: 200px;
+right: 280px;
+top: 1270px;
+}
+
+#buttons6{
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+position: absolute;
+height: 120px;
+width: 200px;
+right: 280px;
+top: 1465px;
+}
+#counter2 {
+font-size: 16px;
+height: 30px;
+}
+
+#button_add_cart2{
+position: relative;
+bottom: 20px;
+left: 10px;
+font-family: 'Sofia Sans Condensed', sans-serif;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+font-size: 20px;
+font-weight: 800;
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(79,9,121,1) 0%, rgba(79,0,255,1) 100%);
+color: #fff;
+cursor: pointer;
+}
+
+#counter3 {
+font-size: 16px;
+height: 30px;
+}
+
+#button_add_cart3{
+position: relative;
+bottom: 20px;
+left: 10px;
+font-family: 'Sofia Sans Condensed', sans-serif;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+font-size: 20px;
+font-weight: 800;
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(79,9,121,1) 0%, rgba(79,0,255,1) 100%);
+color: #fff;
+cursor: pointer;
+}
+
+#counter4 {
+font-size: 16px;
+height: 30px;
+}
+
+#button_add_cart4{
+position: relative;
+bottom: 20px;
+left: 10px;
+font-family: 'Sofia Sans Condensed', sans-serif;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+font-size: 20px;
+font-weight: 800;
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(79,9,121,1) 0%, rgba(79,0,255,1) 100%);
+color: #fff;
+cursor: pointer;
+}
+#counter5 {
+font-size: 16px;
+height: 30px;
+}
+
+#button_add_cart5{
+position: relative;
+bottom: 20px;
+left: 10px;
+font-family: 'Sofia Sans Condensed', sans-serif;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+font-size: 20px;
+font-weight: 800;
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(79,9,121,1) 0%, rgba(79,0,255,1) 100%);
+color: #fff;
+cursor: pointer;
+}
+#counter6 {
+font-size: 16px;
+height: 30px;
+}
+
+#button_add_cart6{
+position: relative;
+bottom: 20px;
+left: 10px;
+font-family: 'Sofia Sans Condensed', sans-serif;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+font-size: 20px;
+font-weight: 800;
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(79,9,121,1) 0%, rgba(79,0,255,1) 100%);
+color: #fff;
+cursor: pointer;
+}
 
 
 @media screen and (max-width: 1692px) {
@@ -575,7 +734,3 @@ display: none;
     height: 100%;
   }
 }
-
-
-
-

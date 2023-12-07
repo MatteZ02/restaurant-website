@@ -13,7 +13,8 @@ body {
 body.dark  {background-color: #111;}
 body.dark  .topnav {background-color: #111;}
 body.dark  .gap_text {color: #fff;}
-
+body.dark  .text {color: #ddd;}
+body.dark  .text1 {color: #ddd;}
 
 .checkbox {
   opacity: 0;
@@ -71,9 +72,41 @@ h1{
   padding-left: 20px;
 }
 
+#logo_text{
+
+  color: #000;
+  font-size: 15px;
+}
+
+
+
+
+
+
+
+
+#logo{
+ width: 89px;
+ margin-top: 7px;
+}
+
+#logotaus{
+  background-color: white;
+  border-bottom-right-radius: 20px;
+  min-width: 200px;
+  height: 58px;
+}
+
+
+
+/* Clear floats after the columns */
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
 /* Footer */
-
 .footer {
   padding: 20px;
   text-align: center;
@@ -81,6 +114,12 @@ h1{
   min-width: 300px;
 }
 
+
+#login{
+  margin-top: 0px;
+  width: 20px;
+  height: auto;
+}
 
 /* top nav starts */
 .topnav {
@@ -129,6 +168,10 @@ display: none;
 
 
 
+
+
+
+
 @media screen and (max-width: 899px) {
 .topnav a:not(:first-child) {display: none;}
 .topnav a.icon {
@@ -160,6 +203,27 @@ display: none;
   }
 }
 
+@media screen and (max-width: 900px) {
+  #cart {
+    margin-bottom: 10px;
+    margin-left: -20px;
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  .column {
+    width: 100%;
+  }
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn {
+    width: 100%;
+    padding: 0;
+  }
+}
 
 /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
 @media screen and (max-width: 400px) {
@@ -170,42 +234,10 @@ display: none;
 }
 
 
-form.form-sub {
-  display: table;
-
-}
-
-div.form-sub {
-  display: table-row;
-}
-
-label,
-input {
-  display: table-cell;
-  margin-bottom: 10px;
-}
-
-label {
-  padding-right: 10px;
-}
-.form-sub input{
-  margin: 10px;
-  padding: 5px;
-  border-radius: 5px;
-  border: 1px solid black;
-  border-left: 7px solid black;
-  border-left-color:#7F7F7F;
-  transition:  border-left-color 1.5s;
-
-}
-
-.form-sub input:invalid{
-  border-left-color: orange;
-  opacity: 60%;
-}
-
-.form-sub input:valid{
-  border-left-color: green;
-  opacity: 60%;
+@media screen and (max-width: 1562px) {
+  #text {
+    width: 100%;
+    height: 100%;
+  }
 }
 
