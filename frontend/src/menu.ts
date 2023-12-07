@@ -5,6 +5,9 @@ const restaurantApiWrapper = new RestaurantApiWrapper();
 
 async () => {
     const menuItems = await restaurantApiWrapper.getMenu();
+    for (const item of menuItems) {
+        // TODO: display menu items
+    const menuItems = await restaurantApiWrapper.getMenu();
     console.log(menuItems);
     for (const item in menuItems) {
         const menuItem = menuItems[item];
