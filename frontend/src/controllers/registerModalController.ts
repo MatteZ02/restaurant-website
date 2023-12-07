@@ -4,7 +4,7 @@ import { closeDialog, openDialog } from "../util/dialog";
 const restaurantApiWrapper = new RestaurantApiWrapper();
 
 const registerModalController = (modal: HTMLDialogElement) => {
-    //openDialog(modal);
+    openDialog(modal);
     const submit = document.getElementById("confirm_dialog");
 
     if (submit)

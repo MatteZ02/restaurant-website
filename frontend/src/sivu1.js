@@ -1,30 +1,5 @@
 "use strict";
 
-const dialog = document.querySelector("dialog");
-const openDialogBtn = document.getElementById("open_dialog");
-const closeDialogBtn = document.getElementById("close_dialog");
-
-const elements = dialog.querySelectorAll(
-    'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
-);
-const firstElement = elements[0];
-const lastElement = elements[elements.length - 1];
-
-const openDialog = () => {
-    dialog.showModal();
-    dialog.addEventListener("keydown", trapFocus);
-};
-
-const closeDialog = e => {
-    e.preventDefault();
-    dialog.close();
-    dialog.removeEventListener("keydown", trapFocus);
-    openDialogBtn.focus();
-};
-
-openDialogBtn.addEventListener("click", openDialog);
-closeDialogBtn.addEventListener("click", closeDialog);
-
 const checkbox = document.getElementById("checkbox");
 checkbox.addEventListener("change", () => {
     document.body.classList.toggle("dark");
