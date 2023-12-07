@@ -24,7 +24,7 @@ const postUser = async (req: Request, res: Response, next: NextFunction) => {
     if (!errors.isEmpty()) return next(new ApiError(400, "Invalid user data"));
 
     const user = req.body;
-    const existingUser = await Database.query("SELECT * FROM user WHERE username = ?", [
+    const existingUser = await Database.query("SELECT * FROM User WHERE username = ?", [
         user.username,
     ]);
     if (existingUser?.length > 0) return next(new ApiError(400, "Username already exists"));
