@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="public/index.css">
+    <link rel="stylesheet" href="../public/cart.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="public/sivu1_dialog.css">
-    <script src="frontend/src/sivu1.js" defer></script>
+    <link rel="stylesheet" href="../public/sivu1_dialog.css">
+    <script src="../frontend/src/sivu1.js" defer></script>
     <script src="../frontend/src/main.ts" type="module"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <title>Document</title>
 </head>
   <body>
@@ -24,54 +22,39 @@
       </label>
     </div>
     <div class="topnav" id="myTopnav">
+
       <a class="active" id="logotaus" href="/"><h1 id="logo_text">Hessun Burger</h1></a>
-      <a href="/" class="navi" >Home</a>
-      <a href="menu/" class="navi">Menu</a>
-      <a href="info/" class="navi">Info</a>
+      <a href="../" class="navi" >Home</a>
+      <a href="../menu/" class="navi">Menu</a>
+      <a href="../info/" class="navi">Info</a>
       <a href="#login" class="navi"><button id="open_dialog"><i class="material-icons">account_circle</i></button></a>
-      <a href="cart/"><button id="cart" ><img class="navi" src="public/media/svg/cart.svg" alt="cart"></button> </a>
+      <a href="#cart"><button id="cart"><img class="navi" src="../public/media/svg/cart.svg" alt="cart"></button></a>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()" >
         <i class="fa fa-bars"></i>
       </a>
     </div>
-  <div class="header">
-    <div class="textOverlay">
-      <h1>Hessun Burger</h1>
-      <a href="menu/"> <button class="button-R">Tilaa !</button></a>
+
+    <div class="header">
+      <div class="textOverlay">
+        <h1>Hessun Burger</h1>
+      </div>
+      <img id="burger_hero" src="../public/media/kuvat/burger.png" alt="burgerhero">
+
     </div>
-    <img id="burger_hero" src="public/media/kuvat/burger.png" alt="burgerhero">
+    <div id = "deliver_way" >
+      <h1>Ostoskorisi</h1>
   </div>
-<div class="sales">
-  <h2>Suosituin burgeri</h2>
-  <p class="salesP">Liha burger + </p>
-  <p class="salesP">coca-cola</p>
+<div class = "shopping_cart">
+<div id = "item_cart">TUOTE</div>
+<div id = "item_buy">Kassa</div>
 </div>
-<div class="wrapper">
-  <div class="one">
-  </div>
-  <div class="two">
-  </div>
-  <div class="three">
-  </div>
-  <div class="four">
-  </div>
-</div>
-<div id="vali"></div>
-<div class="column" id="map"></div>
-  <div class="column1">
-    <h2 class="text1">Ravintola sijainti</h2>
-    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur id
-            cupiditate! Repellat dolores sunt aperiam officiis maxime. Minus laborum obcaecati repellat nesciunt animi
-            deserunt, natus similique tempora cupiditate eligendi. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            Aliquid, at. Nemo fuga quia voluptatibus accusantium. Dolorem animi provident officiis a error. Accusantium ab rerum eveniet.
-            Totam ipsum neque reprehenderit quas?</p>
-  </div>
+
   <div class="footer">
     <h2>Footer</h2>
   </div>
 <!--Dialog-->
 <dialog aria-labelledby="dialog_title" aria-describedby="dialog_description" id="login-modal">
-  <img src="public/media/kuvat/login.png" alt="Illustration of Location Services" />
+  <img src="/public/media/kuvat/login.png" alt="Illustration of Location Services" />
   <h2 id="dialog_title" class="h2">sign in</h2>
   <p>Minimi 3 merkkiä</p>
   <!--form-->
@@ -108,7 +91,7 @@
   <!--Dialog-->
 
 
-<script>
+  <script>
     function myFunction() {
       var x = document.getElementById("myTopnav");
       if (x.className === "topnav") {
@@ -117,20 +100,8 @@
         x.className = "topnav";
       }
     }
-
-const map = L.map('map').setView([60.16443512082355, 24.93697155799212], 13);
-
-const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 12,
-  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-
-  const marker = L.marker([60.171160488796886, 24.926582988937966]).addTo(map);
-
-</script>
-
-
-
+    </script>
   </body>
   </html>
-
+</body>
+</html>
