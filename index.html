@@ -9,6 +9,14 @@
     <script src="frontend/src/sivu1.js" defer></script>
     <script src="../frontend/src/main.ts" type="module"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<<<<<<< HEAD
+    <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+=======
+>>>>>>> 9f9979aca15ad0c52cf960c722992ef1db4fdbe5
     <title>Document</title>
 </head>
   <body>
@@ -56,7 +64,7 @@
   <div class="row">
     <div class="column">
       <div class="card">
-        <div class="row"> <img class="column" id="ravintola" src="media/kuvat/shawnanggg-nmpW_WwwVSc-unsplash.jpg" alt="ravintola">
+        <div id="map"> <img class="column" id="ravintola" src="media/kuvat/shawnanggg-nmpW_WwwVSc-unsplash.jpg" alt="ravintola">
           <div class="column1">
             <h2 class="text1">Ravintola sijainti</h2>
             <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur id
@@ -112,7 +120,7 @@
   <!--Dialog-->
 
 
-  <script>
+<script>
     function myFunction() {
       var x = document.getElementById("myTopnav");
       if (x.className === "topnav") {
@@ -121,7 +129,18 @@
         x.className = "topnav";
       }
     }
-    </script>
+
+const map = L.map('map').setView([60.16443512082355, 24.93697155799212], 13);
+
+const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 12,
+  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+  const marker = L.marker([60.171160488796886, 24.926582988937966]).addTo(map);
+
+</script>
+
 
 
   </body>
