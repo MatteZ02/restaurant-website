@@ -5,8 +5,8 @@ const restaurantApiWrapper = new RestaurantApiWrapper();
 const params = new URLSearchParams(window.location.search);
 
 async () => {
-    const menu = await restaurantApiWrapper.getMenu();
-    for (const item of menu) {
+    const menuItems = await restaurantApiWrapper.getMenu();
+    for (const item of menuItems) {
         // TODO: display menu items
     }
 };
