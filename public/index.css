@@ -15,6 +15,7 @@ body.dark  .topnav {background-color: #111;}
 body.dark  .gap_text {color: #fff;}
 body.dark  .text {color: #ddd;}
 body.dark  .text1 {color: #ddd;}
+body.dark  .navi {color: #ddd;}
 
 .checkbox {
   opacity: 0;
@@ -80,8 +81,8 @@ h1{
 
 /* Header/Blog Title */
 .header {
-  background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%);
-  background-blend-mode: multiply;
+  background: rgb(127,110,255);
+  background: linear-gradient(0deg, rgba(127,110,255,0) 0%, rgba(0,0,0,1) 100%);
   background-position: 100% 100%;
   background-size: 100%;
   height: 600px;
@@ -155,7 +156,7 @@ h1{
   padding: 25px;
   margin-top: 25px;
   height: auto;
-  background-image: url("kuvat/output-onlinepngtools.png");
+  background-image: url("");
   background-size: 300px;
   min-width: 300px;
 
@@ -321,7 +322,7 @@ h1{
 }
 
 .button-R:active:not(:disabled):after {
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), linear-gradient(92.83deg, #894AFF 0, #894AFF  100%);
   bottom: 4px;
   left: 4px;
   right: 4px;
@@ -395,7 +396,7 @@ display: none;
   width: 600px;
   height: 490px;
   background-color: #dadada;
-  background-image: url("../public/media/kuvat/suositus\ \(1\)\ kopio.png");
+  background-image: url("../public/media/kuvat/sales.png");
   background-size:cover;
   background-repeat: no-repeat;
   background-position:center;

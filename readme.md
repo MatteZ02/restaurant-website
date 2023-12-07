@@ -19,10 +19,10 @@ Software
 docker build -t mattez02/restaurant-website .
 
 docker run --name restaurant-website --net host -d \
-    -e DATABASE_HOST=localhost \
-    -e DATABASE_NAME=restaurant \
-    -e DATABASE_USER= \
-    -e DATABASE_PASSWORD= \
+    -e DB_HOST=localhost \
+    -e DB_NAME=restaurant \
+    -e DB_USER= \
+    -e DB_PASSWORD= \
     -e PORT=80 \
     -e JWT_SECRET= \
     --restart always \
