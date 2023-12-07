@@ -159,6 +159,7 @@ h1{
   background-image: url("");
   background-size: 300px;
   min-width: 300px;
+  float: left;
 
 }
 
@@ -207,7 +208,7 @@ h1{
   justify-content: center;
   display: block;
   font-weight: 400;
-  font-family: 'Rubik Bubbles', serif;
+  font-family: 'Sofia Sans Condensed', sans-serif;
 }
 
 .herotext1{
@@ -410,6 +411,9 @@ display: none;
   font-weight: 400;
 }
 
+.row{
+  width: 60%;
+}
 .salesP{
   color: #ddd;
   font-size: 2rem;
@@ -468,6 +472,17 @@ display: none;
   background-repeat:no-repeat;
   background-position:center ;
   border-radius: 10px;
+  }
+
+  .column{
+    width: 100%;
+  }
+  .column1{
+    margin-bottom: 20px;
+  }
+
+  #vali{
+    margin: 20px;
   }
 
 
@@ -546,7 +561,7 @@ display: none;
 }
 
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 200px) {
   .column {
     width: 100%;
   }
