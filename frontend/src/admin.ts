@@ -38,35 +38,33 @@ const menu = document.querySelector("#menu-items");
 
     const menuItems = await restaurantApiWrapper.getMenu();
 
-    for (const item in menuItems) {
-        const menuItem = menuItems[item];
-
+    for (const item of menuItems) {
         const menuItemElement = document.createElement("div");
         menuItemElement.classList.add("menu-item");
-        menuItemElement.id = menuItem.id.toString();
+        menuItemElement.id = item.id.toString();
 
         const menuItemName = document.createElement("h3");
-        menuItemName.innerText = menuItem.name;
+        menuItemName.innerText = item.name;
 
         const menuItemDescription = document.createElement("p");
-        menuItemDescription.innerText = menuItem.description;
+        menuItemDescription.innerText = item.description;
 
         const menuItemPrice = document.createElement("p");
-        menuItemPrice.innerText = menuItem.price.toString();
+        menuItemPrice.innerText = item.price.toString();
 
         const menuItemCategory = document.createElement("p");
-        menuItemCategory.innerText = menuItem.category.toString();
+        menuItemCategory.innerText = item.category.toString();
 
         const menuItemEdit = document.createElement("button");
         menuItemEdit.innerText = "Edit";
         menuItemEdit.addEventListener("click", evt => {
             evt.preventDefault();
-            menuItemModalController(menuItemModal as HTMLDialogElement, menuItem);
+            menuItemModalController(menuItemModal as HTMLDialogElement, item);
         });
 
         const menuItemDelete = document.createElement("button");
         menuItemDelete.innerText = "Delete";
-        menuItemDelete.addEventListener("click", () => deleteMenuItem(menuItem.id.toString()));
+        menuItemDelete.addEventListener("click", () => deleteMenuItem(item.id.toString()));
 
         menuItemElement.appendChild(menuItemName);
         menuItemElement.appendChild(menuItemDescription);
