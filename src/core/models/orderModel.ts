@@ -10,14 +10,14 @@ const isOrder = (data: any): data is Order[] =>
     data[0].status &&
     data[0].createdAt;
 const getOrderById = async (id: number): Promise<null | Order> => {
-    const order = await Database.get("order", id).catch(error => {
+    const order = await Database.get("Order", id).catch(error => {
         throw error;
     });
     return isOrder(order) ? order[0] : null;
 };
 
 const getRestaurantOrders = async (restaurantId: number): Promise<null | Order[]> => {
-    const orders = await Database.query(`SELECT * FROM \`order\` WHERE restaurant = ?`, [
+    const orders = await Database.query(`SELECT * FROM \`Order\` WHERE restaurant = ?`, [
         restaurantId,
     ]).catch(error => {
         throw error;
@@ -26,7 +26,7 @@ const getRestaurantOrders = async (restaurantId: number): Promise<null | Order[]
 };
 
 const getUserOrders = async (userId: number): Promise<null | Order[]> => {
-    const orders = await Database.query(`SELECT * FROM \`order\` WHERE user = ?`, [userId]).catch(
+    const orders = await Database.query(`SELECT * FROM \`Order\` WHERE user = ?`, [userId]).catch(
         error => {
             throw error;
         }
@@ -35,7 +35,7 @@ const getUserOrders = async (userId: number): Promise<null | Order[]> => {
 };
 
 const addOrder = async (order: Omit<Order, "id">): Promise<number | null> => {
-    const id = await Database.insert("order", order).catch(error => {
+    const id = await Database.insert("Order", order).catch(error => {
         throw error;
     });
     return id;
@@ -45,7 +45,7 @@ const updateOrder = async (
     id: number,
     order: Partial<Omit<Order, "id">>
 ): Promise<number | null> => {
-    const updated = await Database.update("order", id, order).catch(error => {
+    const updated = await Database.update("Order", id, order).catch(error => {
         throw error;
     });
     return updated;
