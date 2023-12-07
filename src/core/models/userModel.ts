@@ -42,7 +42,7 @@ const login = async (
     username: string,
     password: string
 ): Promise<Omit<User, "password"> | null> => {
-    const query = `SELECT * FROM user WHERE username = ?`;
+    const query = `SELECT * FROM User WHERE username = ?`;
 
     const rows = await Database.query(query, [username]).catch(error => {
         throw error;
