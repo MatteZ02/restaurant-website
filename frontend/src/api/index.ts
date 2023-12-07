@@ -9,6 +9,16 @@ import {
 import requestHandler from "./core/requestHandler";
 import User from "./classes/User";
 
+interface postApiUser extends Partial<ApiUser> {
+    username: string;
+    password: string;
+    first_name: string;
+    last_name: string;
+    email: string;
+    phone?: string;
+    address?: string;
+}
+
 class RestaurantApiWrapper {
     private token: string | null;
     constructor() {
@@ -90,7 +100,7 @@ class RestaurantApiWrapper {
         return new Restaurant(req.data);
     }
 
-    public async postUSer(data: Omit<Omit<ApiUser, "level">, "id">): Promise<ApiUser> {
+    public async postUser(data: Omit<postApiUser, "id" | "level">): Promise<ApiUser> {
         const req = await requestHandler.post<ApiUser>("user", data, {
             "Content-type": "application/json",
             Authorization: `Bearer ${this.token}`,
