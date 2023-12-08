@@ -346,36 +346,6 @@ display: none;
   height: 30px;
 }
 
-
-
-
-.shopping_cart{
-  display: grid;
-  margin: 80px auto 80px;
-  max-width: 1000px;
-  padding: 0px 16px;
-  grid-template-columns: auto 340px;
-  gap: 64px;
-}
-#deliver_way{
-  position: absolute;
-  width: 200px;
-  height: 300px;
-  right: 50%;
-  top: 600px
-}
-#item_cart{
-  width: 200px;
-  height: 300px;
-
-
-}
-.item_buy{
-  width: 200px;
-  height: 300px;
-
-}
-
 .itemcartdiv{
   width: 100%;
   height: 180px;
@@ -385,12 +355,12 @@ display: none;
   flex-wrap: nowrap;
   flex-shrink: 3;
   justify-content: center;
-  gap: 12px;
+
 }
 
-.itemcartdivimg{
-color: #000;
-font-size: 20px;
+.itemcartdivtext{
+  color: #000;
+  font-size: 20px;
 }
 
 .itemcount{
@@ -404,7 +374,7 @@ font-size: 20px;
   justify-content: center;
 }
 
-#itemcounttext{
+.itemcounttext{
   color: rgba(0, 0, 0, 0.50);
 }
 
@@ -415,9 +385,9 @@ font-size: 20px;
   height: 35px;
 }
 
-#itemcart{
+.itemcart{
   width: 100%;
-  height: auto;
+  height: 100px;
   text-align: center;
   align-items: center;
   display: flex;
@@ -425,9 +395,16 @@ font-size: 20px;
   flex-wrap: nowrap;
   justify-content: center;
   gap: 50px;
-  border-bottom: 3px solid #7c7c7c;
+  border-bottom: 3px solid #d6d6d6;
 
 }
+
+.deleteitem{
+  width: 25px;
+  height: auto;
+  margin-top: -20px;
+}
+.deleteitem:hover {opacity: 0.6}
 
 #summa{
   width: 100%;
@@ -457,7 +434,7 @@ font-size: 20px;
 }
 
 
-#addeditem{
+.addeditem{
 color: #393939;
 font-variant-numeric: lining-nums proportional-nums;
 font-size: 16px;
@@ -466,7 +443,7 @@ font-weight: 600;
 line-height: 100%;
 }
 
-#addeditemprice{
+.addeditemprice{
   color: #000;
   text-align: right;
   font-variant-numeric: lining-nums proportional-nums;
@@ -475,10 +452,15 @@ line-height: 100%;
   font-weight: 700;
 }
 
-.boxgategory{
-  float: left;
-  box-sizing: border-box;
+.addeditemamount{
+  color: #000;
+  text-align: right;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
 }
+
 
 @media screen and (max-width: 899px) {
 .topnav a:not(:first-child) {display: none;}
