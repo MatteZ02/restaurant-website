@@ -33,8 +33,11 @@ const sections: {
 
 const f = async () => {
     const menuItems = await restaurantApiWrapper.getMenu();
+    const cart = await restaurantApiWrapper.getCart();
 
     for (const item of menuItems) {
+        const cartItem = cart.items.find(cartItem => cartItem.item.id === item.id);
+
         const parentElement = document.createElement("div");
         const menuItemElement = document.createElement("div");
         menuItemElement.classList.add("item");
@@ -57,7 +60,7 @@ const f = async () => {
         buttons.appendChild(minusButton);
         const input = document.createElement("input");
         input.type = "text";
-        input.value = "0";
+        input.value = cartItem ? cartItem.quantity.toString() : "0";
         input.maxLength = 2;
         input.size = 2;
         input.readOnly = true;
