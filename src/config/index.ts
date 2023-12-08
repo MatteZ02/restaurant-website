@@ -8,4 +8,5 @@ export default {
     db_user: process.env.DB_USER ?? "user",
     db_password: process.env.DB_PASSWORD ?? "password",
     db_name: process.env.DB_NAME ?? "restaurant",
+    session_secret: process.env.SESSION_SECRET ?? "keyboard cat",
 };

@@ -10,7 +10,9 @@ type Endpoint =
     | `restaurant/${number}`
     | `restaurant/${number}/order`
     | "user"
-    | `user/${number}`;
+    | `user/${number}`
+    | `cart`
+    | `cart/${number}`;
 
 class requestHandler {
     private static readonly _url = config.apiUrl;

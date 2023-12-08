@@ -2,6 +2,7 @@ import Restaurant from "./classes/Restaurant";
 import {
     Restaurant as ApiRestaurant,
     User as ApiUser,
+    Cart,
     MenuItem,
     Order,
     UserLoginResponse,
@@ -114,6 +115,27 @@ class RestaurantApiWrapper {
             Authorization: `Bearer ${this.token}`,
         });
         return new User(req, this.token ?? undefined);
+    }
+
+    public async getCart(): Promise<Cart> {
+        const req = await requestHandler.get<Cart>("cart", {
+            "Content-type": "application/json",
+        });
+        return req;
+    }
+
+    public async postCartItem(data: MenuItem) {
+        const req = await requestHandler.post<Cart>("cart", data, {
+            "Content-type": "application/json",
+        });
+        return req;
+    }
+
+    public async deleteCartItem(itemId: number) {
+        const req = await requestHandler.delete<Cart>(`cart/${itemId}`, {
+            "Content-type": "application/json",
+        });
+        return req;
     }
 }
 
