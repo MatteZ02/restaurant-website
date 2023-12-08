@@ -79,32 +79,7 @@ h1{
   font-size: 15px;
 }
 
-/* Header/Blog Title */
-.header {
-  background: rgb(127,110,255);
-  background: linear-gradient(0deg, rgba(127,110,255,0) 0%, rgba(0,0,0,1) 100%);
-  background-position: 100% 100%;
-  background-size: 100%;
-  height: 600px;
-  border-bottom-left-radius: 45px;
-  border-bottom-right-radius: 45px;
-  padding: 0;
-  background-repeat: no-repeat;
-  min-width: 250px;
-  background-position: right;
-  background-size: cover;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: baseline;
-}
 
-#burger_hero{
-  width: 250px;
-  height: auto;
-  float: right;
-}
 
 .gap{
   text-align: center;
@@ -117,15 +92,6 @@ h1{
   width: 100%;
 }
 
-#ravintola{
-  background-color: #7F7F7F;
-  width: 600px;
-  height: 500px;
-  float: left;
-  padding-right: 5%;
-  border-radius: 10px;
-  margin-right: 15px;
-}
 
 #logo{
  width: 89px;
@@ -217,21 +183,9 @@ h1{
   font-size: 40px;
   margin-left: 15px;
 }
-.herotext2{
-  margin-top:0;
-  padding: 0;
-  font-family: 'Amatic SC', cursive;
-  font-size: 25px;
-  color: #F09819;
-  margin-left: 15px;
-}
 
-.gap_text{
-  margin-bottom: 20px;
-  font-family: 'Sofia Sans Condensed', sans-serif;
-  font-weight: 700;
-  padding: 0;
-}
+
+
 
 .button-R {
   align-items: center;
@@ -392,83 +346,8 @@ display: none;
   height: 30px;
 }
 
-.sales{
-  width: 600px;
-  height: 490px;
-  background-color: #dadada;
-  background-image: url("../public/media/kuvat/sales.png");
-  background-size:cover;
-  background-repeat: no-repeat;
-  background-position:center;
-  float: left;
-  border-radius: 20px;
-  margin-top: 40px;
-  margin-left: 100px;
-  color: #ddd;
-  padding: 10%;
-  font-size: 2rem;
-  font-weight: 400;
-}
 
-.salesP{
-  color: #ddd;
-  font-size: 2rem;
-  font-weight: 400;
-}
-.wrapper {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  grid-auto-rows: minmax(150px, auto);
-  width: 400px;
-  margin-top: 20px;
-  min-width: 100px;
-  padding: 20px;
-  margin-bottom: 11%;
 
-  }
-  .one {
-  grid-column: 1 ;
-  grid-row: 1;
-  background-color :#ccc;
-  border-radius: 10px;
-  background-image: url("../public/media/kuvat/burger_g.png");
-  background-size: contain;
-  background-repeat:no-repeat;
-  background-position:center ;
-
-  }
-  .two {
-  grid-column: 2 ;
-  grid-row: 1;
-  background-color :#ccc;
-  background-image: url("../public/media/kuvat/fries_g.png");
-  background-size: contain;
-  background-repeat:no-repeat;
-  background-position:center ;
-  box-shadow: 50%;
-  border-radius: 10px;
-  }
-  .three {
-  grid-column: 1;
-  grid-row: 2;
-  background-color :#ccc;
-  background-image: url("../public/media/kuvat/drink_g.png");
-  background-size: contain;
-  background-repeat:no-repeat;
-  background-position:center ;
-  border-radius: 10px;
-  }
-  .four {
-  grid-column: 2;
-  grid-row: 2;
-  background-color :#ccc;
-  background-image: url("../public/media/kuvat/dips_g.png");
-  background-size: contain;
-  background-repeat:no-repeat;
-  background-position:center ;
-  border-radius: 10px;
-  }
 
 .shopping_cart{
   display: grid;
@@ -492,48 +371,116 @@ display: none;
 
 
 }
-item_buy{
+.item_buy{
 
   width: 200px;
   height: 300px;
 
 }
 
-@media screen and (max-width: 1692px) {
-  .wrapper {
-    grid-template-columns: repeat(2, 1fr);
-    width: 100%;
-    height: 700px;
-    margin-top: 20px;
-    margin-bottom: 5%;
-  }
-  .two{
-    grid-column: 2;
-    grid-row: 1;
-  }
-  .three{
-    grid-column: 1;
-    grid-row: 2;
-  }
-  .four{
-    grid-column: 2;
-    grid-row: 2;
-  }
-
-  }
-
-
-@media screen and (max-width: 1692px) {
-  .sales {
-    width: 100%;
-    height: 490px;
-    float: none;
-    border-radius: 20px;
-    margin-left: 0;
-
-  }
+.itemcartdiv{
+  width: 100%;
+  height: 180px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-shrink: 3;
+  justify-content: center;
+  gap: 12px;
 }
 
+.itemcartdivimg{
+color: #000;
+font-size: 20px;
+}
+
+.itemcount{
+  width: 100%;
+  height: 20px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-shrink: 3;
+  justify-content: center;
+}
+
+#itemcounttext{
+  color: rgba(0, 0, 0, 0.50);
+}
+
+#box{
+  width: 100%;
+  height: 20px;
+  background: rgba(0, 0, 0, 0.03);
+  height: 35px;
+}
+
+#itemcart{
+  width: 100%;
+  height: auto;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 50px;
+  border-bottom: 3px solid #7c7c7c;
+
+}
+
+#summa{
+  width: 100%;
+  height: 150px;
+  background: rgba(0, 0, 0, 0.03);
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 50px;
+}
+
+.summap{
+  color:#393939;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+}
+#buy{
+  width: 100%;
+  height: 100px;
+  background: rgba(0, 0, 0, 0.03);
+  color: #FFF;
+  text-align: center;
+}
+
+
+#addeditem{
+color: #393939;
+font-variant-numeric: lining-nums proportional-nums;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: 100%;
+}
+
+#addeditemprice{
+  color: #000;
+  text-align: right;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.boxgategory{
+  float: left;
+  box-sizing: border-box;
+}
 
 @media screen and (max-width: 899px) {
 .topnav a:not(:first-child) {display: none;}
@@ -574,19 +521,8 @@ item_buy{
 }
 
 
-@media screen and (max-width: 500px) {
-  .column {
-    width: 100%;
-  }
-}
 
-/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 800px) {
-  .leftcolumn {
-    width: 100%;
-    padding: 0;
-  }
-}
+
 
 /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
 @media screen and (max-width: 400px) {
@@ -596,20 +532,6 @@ item_buy{
   }
 }
 
-@media screen and (max-width: 1562px) {
-  #ravintola {
-    width: 100%;
-    padding: 10px;
-    min-width: 100%;
-  }
-}
-
-@media screen and (max-width: 1562px) {
-  #text {
-    width: 100%;
-    height: 100%;
-  }
-}
 
 
 
