@@ -1,9 +1,7 @@
 import RestaurantApiWrapper from "./api";
-import Cart from "./classes/cart";
 import { decrease, increase } from "./functions/counter";
 
 const restaurantApiWrapper = new RestaurantApiWrapper();
-const cart = new Cart();
 
 const menu = document.getElementById("menu");
 const burgerHeader = document.createElement("h1");
@@ -47,7 +45,7 @@ const f = async () => {
         description.innerText = item.description;
         menuItemElement.appendChild(description);
         const price = document.createElement("p");
-        price.innerText = item.price.toString() + " €";
+        price.innerText = item.price + " €";
         menuItemElement.appendChild(price);
 
         parentElement.appendChild(menuItemElement);
@@ -68,14 +66,16 @@ const f = async () => {
         plusButton.innerText = "+";
         buttons.appendChild(plusButton);
 
-        plusButton.addEventListener("click", () => {
-            cart.add(item);
+        plusButton.addEventListener("click", async () => {
+            const cart = await restaurantApiWrapper.postCartItem(item);
             increase(input);
+            console.log(cart);
         });
 
-        minusButton.addEventListener("click", () => {
-            cart.remove(item);
+        minusButton.addEventListener("click", async () => {
+            const cart = await restaurantApiWrapper.deleteCartItem(item.id);
             decrease(input);
+            console.log(cart);
         });
 
         parentElement.appendChild(buttons);

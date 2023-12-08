@@ -1,4 +1,4 @@
-// version 1.2.1
+// version 1.3.1
 
 declare module "restaurantApiTypes" {
     export interface Restaurant {
@@ -12,7 +12,7 @@ declare module "restaurantApiTypes" {
         id: number;
         name: string;
         description: string;
-        price: number;
+        price: string;
         category: MenuCategory;
         timesOrdered: number;
     }
@@ -43,6 +43,16 @@ declare module "restaurantApiTypes" {
         Accepted = 2,
         Rejected = 3,
         Delivered = 4,
+    }
+
+    export interface CartItem {
+        quantity: number;
+        item: MenuItem;
+    }
+
+    export interface Cart {
+        total: number;
+        items: CartItem[];
     }
 
     export enum UserLevel {
