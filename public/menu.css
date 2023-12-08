@@ -379,6 +379,8 @@ display: none;
   width: 25px;
   height: 30px;
 }
+
+#cart:hover {opacity: 0.6}
 .gap{
   padding-left: 20px;
   height: auto;
