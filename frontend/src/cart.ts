@@ -2,18 +2,12 @@ import RestaurantApiWrapper from "./api";
 
 const restaurantApiWrapper = new RestaurantApiWrapper();
 
-/* example elemet
-<div id="items">
-  <div class="itemcart">
-    <p class="addeditem">item 1</p>
-    <p class="addeditemprice">1 €</p>
-    <p class="addeditemamount">1 kpl</p>
-    <button><img class="deleteitem" src="../public/media/svg/Delete-button.svg" alt="deleteitem"></button>
-  </div>
-  */
-
 const f = async () => {
     const cart = await restaurantApiWrapper.getCart();
+
+    const itemCount = document.getElementById("itemcounttext");
+    if (itemCount)
+        itemCount.innerText = cart.items.reduce((acc, item) => acc + item.quantity, 0) + " items";
 
     const items = document.getElementById("items");
 
@@ -30,7 +24,7 @@ const f = async () => {
         itemElement.appendChild(price);
         const amount = document.createElement("div");
         amount.classList.add("addeditemamount");
-        amount.innerText = item.quantity + " kpl";
+        amount.innerText = item.quantity + " items";
         itemElement.appendChild(amount);
         const deleteButton = document.createElement("button");
         const deleteImage = document.createElement("img");
@@ -43,15 +37,18 @@ const f = async () => {
 
         deleteButton.addEventListener("click", async () => {
             const updatedCart = await restaurantApiWrapper.deleteCartItem(item.item.id);
+            if (itemCount)
+                itemCount.innerText =
+                    cart.items.reduce((acc, item) => acc + item.quantity, 0) + " items";
             const updatedItem = updatedCart.items.find(
                 cartItem => cartItem.item.id === item.item.id
             );
             if (!updatedItem) return;
-            if (updatedItem?.quantity === 0) {
+            if (updatedItem.quantity === 0) {
                 itemElement.remove();
             }
             (+item.item.price * item.quantity).toFixed(2) + " €";
-            amount.innerText = updatedItem.quantity + " kpl";
+            amount.innerText = updatedItem.quantity + " items";
         });
     }
 
