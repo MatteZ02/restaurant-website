@@ -1,6 +1,7 @@
 import express from "express";
 import ViteExpress from "vite-express";
 import cookieParser from "cookie-parser";
+import session from "express-session";
 import config from "./config";
 import router from "./routers/router";
 import authrouter from "./routers/authRouter";
@@ -8,7 +9,7 @@ import menuRouter from "./routers/menuRouter";
 import restaurantRouter from "./routers/restaurantRouter";
 import userRouter from "./routers/userRouter";
 import cartRouter from "./routers/cartRouter";
-import session from "express-session";
+import orderRouter from "./routers/orderRouter.";
 
 const app = express();
 
@@ -28,7 +29,7 @@ app.use("/", router);
 app.use("/api/auth", authrouter);
 app.use("/api/menu", menuRouter);
 app.use("/api/cart", cartRouter);
-//app.use("/api/order"); // TODO
+app.use("/api/order", orderRouter);
 app.use("/api/restaurant", restaurantRouter);
 app.use("/api/user", userRouter);
 

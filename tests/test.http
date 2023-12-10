@@ -43,10 +43,6 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInBhc3N3b3JkIjoiYWRtaW4iLCJmaXJzdF9uYW1lIjoiQWRtaW4iLCJsYXN0X25hbWUiOiJVc2VyIiwiZW1haWwiOiJhZG1pbkByZXN0YXVyYW50Lm9yZyIsImxldmVsIjoxLCJwaG9uZSI6IjU1NS01NTUtNTU1NSIsImFkZHJlc3MiOm51bGwsImlhdCI6MTcwMTE1OTQyNSwiZXhwIjoxNzAxMTYzMDI1fQ.bou-nxF56OEtcBfaw3kV5M2H8scY_xhhoedG7rJu3zw
 
 ###
-GET http://localhost:3000/api/order/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInBhc3N3b3JkIjoiYWRtaW4iLCJmaXJzdF9uYW1lIjoiQWRtaW4iLCJsYXN0X25hbWUiOiJVc2VyIiwiZW1haWwiOiJhZG1pbkByZXN0YXVyYW50Lm9yZyIsImxldmVsIjoxLCJwaG9uZSI6IjU1NS01NTUtNTU1NSIsImFkZHJlc3MiOm51bGwsImlhdCI6MTcwMTE1OTQyNSwiZXhwIjoxNzAxMTYzMDI1fQ.bou-nxF56OEtcBfaw3kV5M2H8scY_xhhoedG7rJu3zw
-
-###
 GET http://localhost:3000/api/restaurant
 
 ###
@@ -77,43 +73,39 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInBhc3N3b3JkIjoiYWRtaW4iLCJmaXJzdF9uYW1lIjoiQWRtaW4iLCJsYXN0X25hbWUiOiJVc2VyIiwiZW1haWwiOiJhZG1pbkByZXN0YXVyYW50Lm9yZyIsImxldmVsIjoxLCJwaG9uZSI6IjU1NS01NTUtNTU1NSIsImFkZHJlc3MiOm51bGwsImlhdCI6MTcwMTE1OTQyNSwiZXhwIjoxNzAxMTYzMDI1fQ.bou-nxF56OEtcBfaw3kV5M2H8scY_xhhoedG7rJu3zw
 
 ###
-GET http://localhost:3000/api/restaurant/1/order
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInBhc3N3b3JkIjoiYWRtaW4iLCJmaXJzdF9uYW1lIjoiQWRtaW4iLCJsYXN0X25hbWUiOiJVc2VyIiwiZW1haWwiOiJhZG1pbkByZXN0YXVyYW50Lm9yZyIsImxldmVsIjoxLCJwaG9uZSI6IjU1NS01NTUtNTU1NSIsImFkZHJlc3MiOm51bGwsImlhdCI6MTcwMTE1OTQyNSwiZXhwIjoxNzAxMTYzMDI1fQ.bou-nxF56OEtcBfaw3kV5M2H8scY_xhhoedG7rJu3zw
+GET http://localhost:3000/api/order
 
 ###
-POST http://localhost:3000/api/restaurant/1/order
+
+GET http://localhost:3000/api/order/2
+
+###
+POST http://localhost:3000/api/order
 Content-Type: application/json
 
     {
-        "restaurant": 1,
         "user": 1,
         "items": [
             {
-                "menuItem": 1,
+                "item": 1,
                 "quantity": 1
             }
         ],
-        "status": 1
+        "order_status": 1
     }
 
 ###
-PUT http://localhost:3000/api/restaurant/1/order/1
+
+PATCH http://localhost:3000/api/order/2
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInBhc3N3b3JkIjoiYWRtaW4iLCJmaXJzdF9uYW1lIjoiQWRtaW4iLCJsYXN0X25hbWUiOiJVc2VyIiwiZW1haWwiOiJhZG1pbkByZXN0YXVyYW50Lm9yZyIsImxldmVsIjoxLCJwaG9uZSI6IjU1NS01NTUtNTU1NSIsImFkZHJlc3MiOm51bGwsImlhdCI6MTcwMTE1OTQyNSwiZXhwIjoxNzAxMTYzMDI1fQ.bou-nxF56OEtcBfaw3kV5M2H8scY_xhhoedG7rJu3zw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImZpcnN0X25hbWUiOiJBZG1pbiIsImxhc3RfbmFtZSI6IlVzZXIiLCJlbWFpbCI6ImFkbWluQHJlc3RhdXJhbnQuYWRtaW4iLCJsZXZlbCI6MSwicGhvbmUiOm51bGwsImFkZHJlc3MiOm51bGwsImlhdCI6MTcwMjIzNTY3MywiZXhwIjoxNzAyMjM5MjczfQ.GJrbop39wm6TO0QPGutZHcm0JsGr9NDX_jXGatQDec4
 
     {
-        "restaurant": 1,
-        "user": 1,
-        "items": [
-            {
-                "menuItem": 1,
-                "quantity": 1
-            }
-        ],
-        "status": 2
+        "order_status": 2
     }
 
 ###
+
 POST http://localhost:3000/api/user
 Content-Type: application/json
 

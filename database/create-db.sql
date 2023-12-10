@@ -2,9 +2,9 @@ DROP DATABASE IF EXISTS restaurant;
 
 CREATE DATABASE restaurant CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-CREATE USER 'restaurant' @ 'localhost' IDENTIFIED BY 'password';
+CREATE USER 'restaurant' @'localhost' IDENTIFIED BY 'password';
 
-GRANT ALL PRIVILEGES ON `restaurant`.* TO 'restaurant' @ 'localhost';
+GRANT ALL PRIVILEGES ON `restaurant`.* TO 'restaurant' @'localhost';
 
 FLUSH PRIVILEGES;
 
@@ -58,8 +58,15 @@ CREATE TABLE MenuItem (
 CREATE TABLE OrderItem (
     id INT NOT NULL AUTO_INCREMENT,
     item INT NOT NULL,
+    quantity INT NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (item) REFERENCES MenuItem(id)
+);
+
+CREATE TABLE OrderItems (
+    id INT NOT NULL AUTO_INCREMENT,
+    items VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE OrderStatus (
@@ -71,29 +78,13 @@ CREATE TABLE OrderStatus (
 CREATE TABLE `Order` (
     id INT NOT NULL AUTO_INCREMENT,
     user INT NOT NULL,
-    restaurant INT NOT NULL,
-    status INT NOT NULL,
+    order_status INT NOT NULL,
     items INT NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (user) REFERENCES User(id),
-    FOREIGN KEY (restaurant) REFERENCES Restaurant(id),
-    FOREIGN KEY (status) REFERENCES OrderStatus(id)
+    FOREIGN KEY (order_status) REFERENCES OrderStatus(id),
+    FOREIGN KEY (items) REFERENCES OrderItems(id)
 );
-
-CREATE TABLE OrderItems (
-    id INT NOT NULL AUTO_INCREMENT,
-    `order` INT NOT NULL,
-    item INT NOT NULL,
-    quantity INT NOT NULL,
-    PRIMARY KEY (id),
-    FOREIGN KEY (`order`) REFERENCES `Order`(id),
-    FOREIGN KEY (item) REFERENCES OrderItem(id)
-);
-
-ALTER TABLE
-    `Order`
-ADD
-    FOREIGN KEY (items) REFERENCES OrderItems(id);
 
 INSERT INTO
     UserLevel (name)

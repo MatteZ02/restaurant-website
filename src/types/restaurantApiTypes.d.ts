@@ -1,4 +1,4 @@
-// version 1.3.1
+// version 1.4.0
 
 declare module "restaurantApiTypes" {
     export interface Restaurant {
@@ -25,16 +25,14 @@ declare module "restaurantApiTypes" {
 
     export interface Order {
         id: number;
-        restaurant: number; // restaurant id
         user: number; // user id
-        items: number[]; // item ids
-        status: OrderStatus;
-        createdAt: string;
+        items: OrderItem[];
+        order_status: OrderStatus;
     }
 
     export interface OrderItem {
         id: number;
-        menuItem: number; // item id
+        item: number; // item id
         quantity: number;
     }
 

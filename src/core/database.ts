@@ -1,7 +1,22 @@
 import mysql from "mysql2/promise";
-import dotenv from "dotenv";
-import { MenuItem, Order, Restaurant, User } from "restaurantApiTypes";
+import { MenuItem, Order, OrderItem, OrderStatus, Restaurant, User } from "restaurantApiTypes";
 import config from "../config";
+
+export interface DatabaseOrder {
+    user: number;
+    items: number;
+    order_status: OrderStatus;
+}
+
+type InsetDataType =
+    | Omit<Restaurant, "id">
+    | Omit<MenuItem, "id">
+    | Omit<DatabaseOrder, "id">
+    | { items: string }
+    | Omit<OrderItem, "id">
+    | Omit<User, "id">;
+
+type UpdateDataType = Partial<InsetDataType>;
 
 const pool = mysql.createPool({
     host: config.db_host,
@@ -13,21 +28,11 @@ const pool = mysql.createPool({
     queueLimit: 0,
 });
 
-type InsetDataType =
-    | Omit<Restaurant, "id">
-    | Omit<MenuItem, "id">
-    | Omit<Order, "id">
-    | Omit<User, "id">;
-
-type UpdateDataType = Partial<InsetDataType>;
-
-dotenv.config();
-
 class Database {
     static async get(
         table: string,
         id?: number
-    ): Promise<null | User[] | Restaurant[] | MenuItem[] | Order[]> {
+    ): Promise<null | User[] | Restaurant[] | MenuItem[] | DatabaseOrder[]> {
         try {
             const query = `SELECT * FROM ${table}${id ? " WHERE id = ?" : ""}`;
             const [rows] = await pool.execute(query, id ? [id] : []);
