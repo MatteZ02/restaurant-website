@@ -41,6 +41,10 @@ button {
     padding: 1.6rem;
     max-width: 400px;
     position: absolute;
+    max-height: 900px;
+    /* position: -webkit-sticky;
+    position: sticky;
+    bottom: 10em;*/
   }
 
   dialog img {
@@ -142,15 +146,14 @@ button {
     border: none !important;
     border-radius: 20px;
     box-shadow: 0 0 #0000, 0 0 #0000, 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    padding: 1.6rem;
-    max-width: 400px;
-    position:fixed;
+    padding: 0.6rem;
+    max-width: 700px;
+    height: 42em;
     top: 20%;
     left: 40%;
-
+    margin: 0px;
 
   }
-
 
 
   #register.flex{
@@ -163,6 +166,7 @@ button {
     display: block;
     max-width: 75%;
     margin: 1rem 0 auto 2rem;
+
   }
 
   @media screen and (max-width: 600px) {
