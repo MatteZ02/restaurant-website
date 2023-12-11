@@ -2,6 +2,7 @@ import { Router } from "express";
 import { deleteUser, getUser, postUser, putUser } from "../controllers/userController";
 import { body } from "express-validator";
 import authenticateToken from "../middleware/authentication";
+import { getUsersOrders } from "../controllers/orderController";
 
 const userRouter = Router();
 
@@ -29,5 +30,7 @@ userRouter
         putUser
     )
     .delete(authenticateToken, deleteUser);
+
+userRouter.route("/:id/orders").get(authenticateToken, getUsersOrders);
 
 export default userRouter;
