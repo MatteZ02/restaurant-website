@@ -148,28 +148,26 @@ dialog form input[type="submit"]:hover {
   justify-content: center;
   gap: 20px;
 }
-#items{
+.items{
 color: #000;
 }
 
-#quantity{
+.quantity{
 color: #000;
 }
 
-.button {
-
+.nappi{
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 5px 5px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+  background-color:#04AA6D;
 }
+.nappi2 {background-color: #008CBA;}
+.nappi3 {background-color: #f44336;}
 
-.button2 {background-color: #008CBA;}
-.button3 {background-color: #f44336;}
-.button4 {background-color: #e7e7e7; color: black;}
-.button5 {background-color: #555555;}
