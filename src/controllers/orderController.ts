@@ -94,7 +94,7 @@ const postOrder = async (req: Request, res: Response, next: NextFunction) => {
 
     const order = await addOrder({ ...o, items }).catch(noop);
     if (!order) return next(new ApiError(500, "Error adding order"));
-    res.status(201).json(o);
+    res.status(201).json({ ...o, id: order });
 };
 
 const patchOrder = async (req: Request, res: Response, next: NextFunction) => {

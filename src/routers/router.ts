@@ -1,9 +1,12 @@
-import { Response, Router } from "express";
+import { NextFunction, Response, Router } from "express";
 import Request from "../types/Request";
 import config from "../config";
 import Stripe from "stripe";
 import { stripe } from "..";
 import bodyParser from "body-parser";
+import { postOrder } from "../controllers/orderController";
+import requestHandler from "../util/requestHandler";
+import { Order } from "restaurantApiTypes";
 
 const router = Router();
 
@@ -138,5 +141,22 @@ router.post(
         res.sendStatus(200);
     }
 );
+
+router.get("/success", async (req: Request, res: Response, next: NextFunction) => {
+    const { payment_intent_client_secret } = req.query;
+    const cart = req.session.cart;
+    if (!cart) return res.redirect("/cart/");
+    const order = {
+        user: req.user?.id ?? 1, // Orders will default to the admin user with id of 1.
+        items: cart.map(item => ({ item: item.item.id, quantity: item.quantity })),
+        order_status: 1,
+    };
+
+    const o = await requestHandler.post<Order>("order", order, {
+        "Content-type": "application/json",
+    });
+    if (!o) return res.redirect("/cart/");
+    res.redirect(`/order/${o.id}`);
+});
 
 export default router;

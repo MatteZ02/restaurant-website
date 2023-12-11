@@ -126,7 +126,6 @@ class RestaurantApiWrapper {
     public async getOrders(): Promise<Order[]> {
         const req = await requestHandler.get<Order[]>("order", {
             "Content-type": "application/json",
-            Authorization: `Bearer ${this.token}`,
         });
         return req;
     }
@@ -134,7 +133,6 @@ class RestaurantApiWrapper {
     public async getOrderById(id: number): Promise<Order> {
         const req = await requestHandler.get<Order>(`order/${id}`, {
             "Content-type": "application/json",
-            Authorization: `Bearer ${this.token}`,
         });
         return req;
     }
@@ -142,7 +140,6 @@ class RestaurantApiWrapper {
     public async postOrder(data: Order): Promise<Order> {
         const req = await requestHandler.post<Order>("order", data, {
             "Content-type": "application/json",
-            Authorization: `Bearer ${this.token}`,
         });
         return req;
     }
