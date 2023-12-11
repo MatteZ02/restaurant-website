@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="public/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="public/sivu1_dialog.css">
-    <script src="frontend/src/sivu1.js" defer></script>
+
     <script src="../frontend/src/main.ts" type="module"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -64,17 +64,16 @@
     <p class="text">la-su 11-20</p>
   </div>
   <div class="footer">
-    <h2>Footer</h2>
+    <h2></h2>
   </div>
 <!--Dialog-->
 <dialog aria-labelledby="dialog_title" aria-describedby="dialog_description" id="login-modal">
-  <img src="public/media/kuvat/login.png" alt="Illustration of Location Services" />
   <h2 id="dialog_title" class="h2">sign in</h2>
-  <p>Minimi 3 merkkiä</p>
+  <p>Minimum 3 characters</p>
   <!--form-->
   <form class="form-sub" action="POST">
     <div class="form-sub">
-      <label for="name">Käyttäjänimi </label>
+      <label for="name">Username </label>
       <input
       type="text"
       name="username" id="username"
@@ -83,7 +82,7 @@
       />
     </div>
     <div class="form-sub">
-      <label for="password">Salasana:</label>
+      <label for="password">Password:</label>
       <input
       type="password"
       name="password"
@@ -97,10 +96,10 @@
   <!--form-->
 
   <div class="flex flex-space-between">
-    <button id="close_dialog">Sulje</button>
-    <button type="submit" value="lähetä!" id="submit" >Vahvista</button>
+    <button id="close_dialog">Close</button>
+    <button type="submit" value="lähetä!" id="submit" >Confirm</button>
   </div>
-  <button id="open_dialog2">Rekisteröidy!</button>
+  <button id="open_dialog2">register!</button>
   </dialog>
   <!--Dialog-->
 
