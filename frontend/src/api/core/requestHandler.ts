@@ -5,12 +5,13 @@ type Endpoint =
     | "auth/me"
     | "menu"
     | `menu/${number}`
+    | "order"
     | `order/${number}`
     | "restaurant"
     | `restaurant/${number}`
-    | `restaurant/${number}/order`
     | "user"
     | `user/${number}`
+    | `user/${number}/orders`
     | `cart`
     | `cart/${number}`;
 
@@ -55,6 +56,22 @@ class requestHandler {
     ): Promise<T> {
         const options: RequestInit = {
             method: "PUT",
+            headers,
+            body: JSON.stringify(body),
+        };
+        const req = await this.fetch<T>(this._url + endpoint, options).catch(err => {
+            throw new Error(err);
+        });
+        return req;
+    }
+
+    public static async patch<T>(
+        endpoint: Endpoint,
+        body: any | FormData,
+        headers: HeadersInit = { "Content-Type": "application/json" }
+    ): Promise<T> {
+        const options: RequestInit = {
+            method: "PATCH",
             headers,
             body: JSON.stringify(body),
         };

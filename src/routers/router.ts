@@ -5,12 +5,9 @@ import Stripe from "stripe";
 import { stripe } from "..";
 import bodyParser from "body-parser";
 
-/*eslint new-cap: ["error", { "capIsNew": false }]*/
-
 const router = Router();
 
-router.get("/config", (_: Request, res: Response): void => {
-    // Serve checkout page.
+router.get("/stripe-config", (_: Request, res: Response): void => {
     res.send({
         publishableKey: config.stripe_pubhlishable_key,
     });
@@ -66,8 +63,6 @@ router.post("/create-payment-intent", async (req: Request, res: Response): Promi
 
     try {
         const paymentIntent: Stripe.PaymentIntent = await stripe.paymentIntents.create(params);
-
-        console.log(paymentIntent);
 
         // Send publishable key and PaymentIntent client_secret to client.
         res.send({
