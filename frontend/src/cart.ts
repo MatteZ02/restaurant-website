@@ -54,6 +54,9 @@ const f = async () => {
 
     const total = document.getElementById("totalprice");
     if (total) total.innerText = cart.total.toFixed(2) + " €";
+
+    const checkoutButton = document.getElementById("checkout");
+    checkoutButton?.addEventListener("click", async () => {});
 };
 
 f();

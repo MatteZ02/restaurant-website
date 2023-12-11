@@ -136,3 +136,15 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hb
 ###
 DELETE http://localhost:3000/api/user/3
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInBhc3N3b3JkIjoiYWRtaW4iLCJmaXJzdF9uYW1lIjoiQWRtaW4iLCJsYXN0X25hbWUiOiJVc2VyIiwiZW1haWwiOiJhZG1pbkByZXN0YXVyYW50Lm9yZyIsImxldmVsIjoxLCJwaG9uZSI6IjU1NS01NTUtNTU1NSIsImFkZHJlc3MiOm51bGwsImlhdCI6MTcwMTE1OTQyNSwiZXhwIjoxNzAxMTYzMDI1fQ.bou-nxF56OEtcBfaw3kV5M2H8scY_xhhoedG7rJu3zw
+
+###
+POST http://localhost:3000/create-payment-intent
+Content-Type: application/json
+
+    {
+        "currency": "eur",
+        "payment_method_type": "card"
+    }
+
+###
+GET http://localhost:3000/payment/next?payment_intent=pi_3OM9ThFudbKHDD9f1wlxUHF3
