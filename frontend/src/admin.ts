@@ -1,13 +1,7 @@
 import RestaurantApiWrapper from "./api";
 import menuItemModalController from "./controllers/menuItemModalController";
 import userModifyModalController from "./controllers/userModifyModalController";
-
-enum OrderStatus {
-    Pending = 1,
-    Accepted = 2,
-    Rejected = 3,
-    Delivered = 4,
-}
+import getOrderStatus, { OrderStatus } from "./util/getOrderStatus";
 
 const restaurantApiWrapper = new RestaurantApiWrapper();
 const redir = `/?login=true&redirect=${window.location.href}`;
@@ -21,19 +15,6 @@ const deleteMenuItem = async (id: string) => {
     } else {
         alert("Successfully deleted menu item");
         window.location.reload();
-    }
-};
-
-const getOrderStatus = (status: OrderStatus) => {
-    switch (status) {
-        case OrderStatus.Accepted:
-            return "Accepted";
-        case OrderStatus.Delivered:
-            return "Delivered";
-        case OrderStatus.Pending:
-            return "Pending";
-        case OrderStatus.Rejected:
-            return "Rejected";
     }
 };
 

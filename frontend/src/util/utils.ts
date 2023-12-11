@@ -16,3 +16,5 @@ const addDashboardLinks = (message: string) => {
         `<a href="${piDashboardBase}/$1" target="_blank">$1</a>`
     );
 };
+
+export { addMessage, addDashboardLinks };

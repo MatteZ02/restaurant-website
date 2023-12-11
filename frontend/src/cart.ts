@@ -1,5 +1,6 @@
 import RestaurantApiWrapper from "./api";
 import { openDialog } from "./util/dialog";
+import { addMessage } from "./util/utils";
 
 const restaurantApiWrapper = new RestaurantApiWrapper();
 
@@ -58,13 +59,12 @@ const f = async () => {
 
     const checkoutButton = document.getElementById("checkout");
     checkoutButton?.addEventListener("click", async () => {
+        if (cart.items.length === 0) return alert("Your cart is empty!");
+
         const dialog = document.getElementsByClassName("cardDialog");
         openDialog(dialog[0] as HTMLDialogElement);
         const { publishableKey } = await fetch("/stripe-config").then(r => r.json());
-        if (!publishableKey) {
-            alert("No publishable key returned from the server. Please check `.env` and try again");
-            alert("Please set your Stripe publishable API key in the .env file");
-        }
+        if (!publishableKey) console.log("Error: Missing Stripe publishable key");
 
         // @ts-ignore
         const stripe = Stripe(publishableKey, {
@@ -105,7 +105,7 @@ const f = async () => {
             }).then(r => r.json());
 
             if (backendError) {
-                alert(backendError.message);
+                addMessage(backendError.message);
 
                 // reenable the form.
                 submitted = false;
@@ -113,7 +113,7 @@ const f = async () => {
                 return;
             }
 
-            alert(`Client secret returned.`);
+            addMessage(`Client secret returned.`);
 
             const nameInput = document.querySelector("#name") as HTMLInputElement;
             if (!nameInput) return;
@@ -134,7 +134,7 @@ const f = async () => {
             );
 
             if (stripeError) {
-                alert(stripeError.message);
+                addMessage(stripeError.message);
 
                 // reenable the form.
                 submitted = false;
@@ -142,7 +142,8 @@ const f = async () => {
                 return;
             }
 
-            alert(`Payment ${paymentIntent.status}: ${paymentIntent.id}`);
+            addMessage(`Payment ${paymentIntent.status}: ${paymentIntent.id}`);
+            window.location.href = "/success/";
         });
     });
 };

@@ -3,6 +3,7 @@ dotenv.config();
 dotenv.config({ path: "../../.env" });
 
 export default {
+    apiUrl: process.env.API_URL ?? "http://localhost:3000/api/",
     port: +(process.env.PORT ?? 3000),
     db_host: process.env.DB_HOST ?? "localhost",
     db_user: process.env.DB_USER ?? "user",
