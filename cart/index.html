@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../public/cart.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../public/sivu1_dialog.css">
+    <script src="https://js.stripe.com/v3/"></script>
     <script src="../frontend/src/sivu1.js" defer></script>
     <script src="../frontend/src/main.ts" type="module"></script>
     <script src="../frontend/src/cart.ts" type="module"></script>
@@ -56,8 +57,25 @@
     <h2></h2>
   </div>
 <!--Dialog for card -->
-  <dialog open class="cardDialog">
-    <p>tähän tulee jotain!</p>
+  <dialog class="cardDialog">
+    <form id="payment-form">
+      <label for="name">
+        Name
+      </label>
+      <input id="name" placeholder="Jenny Rosen" value="Jenny Rosen" required />
+
+      <label for="card-element">
+        Card
+      </label>
+      <div id="card-element">
+        <!-- Elements will create input elements here -->
+      </div>
+
+      <!-- We'll put the error messages in this element -->
+      <div id="card-errors" role="alert"></div>
+
+      <button id="submit">Pay</button>
+    </form>
     <form method="dialog">
       <button>close</button>
     </form>
