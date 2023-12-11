@@ -479,6 +479,19 @@ line-height: 100%;
 }
 
 
+
+.cardDialog{
+  background-color: white;
+  border: none !important;
+  border-radius: 20px;
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  padding: 1.6rem;
+  max-width: 400px;
+  position:fixed;
+  top: 20%;
+}
+
+
 @media screen and (max-width: 899px) {
 .topnav a:not(:first-child) {display: none;}
 .topnav a.icon {
