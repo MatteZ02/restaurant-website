@@ -1,4 +1,5 @@
 import RestaurantApiWrapper from "./api";
+import createPaymentIntent from "./functions/createPaymentIntent";
 import { openDialog } from "./util/dialog";
 import { noop } from "./util/utils";
 
@@ -88,16 +89,7 @@ const f = async () => {
             if (!button) return;
             button.disabled = true;
 
-            const { error: backendError, clientSecret } = await fetch("/create-payment-intent", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    currency: "usd",
-                    paymentMethodType: "card",
-                }),
-            }).then(r => r.json());
+            const { error: backendError, clientSecret } = await createPaymentIntent();
 
             if (backendError) {
                 console.log(backendError.message);
