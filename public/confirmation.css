@@ -168,8 +168,22 @@ display: none;
 
 #cart:hover {opacity: 0.6}
 
+#confirmed_box{
+  height: 200px;
+  width: 500px;
+  display: flex;
+  flex-wrap: nowrap;
+  margin-top: 50px;
+  margin-left: 30%;
+  border: 2px solid #4C3F59;
 
 
+}
+#confirmed_box h1{
+margin-top: 1px;
+
+
+}
 
 
 @media screen and (max-width: 899px) {
