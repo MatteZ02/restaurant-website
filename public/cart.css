@@ -4,7 +4,7 @@
 }
 
 body {
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Sofia Sans Condensed', sans-serif;
   padding: 0;
   margin: auto;
 
@@ -16,7 +16,17 @@ body.dark  .gap_text {color: #fff;}
 body.dark  .text {color: #ddd;}
 body.dark  .text1 {color: #ddd;}
 body.dark  .navi {color: #ddd;}
-
+body.dark  .itemcartdiv {background-color: #979696;}
+body.dark  #itemcounttext {color: #ddd;}
+body.dark  .addeditem {color: #868686;}
+body.dark  .addeditemamount {color: #868686;}
+body.dark  .addeditemprice {color: #868686;}
+body.dark  #box {background-color: #111;}
+body.dark  #summa {background-color: #343434;}
+body.dark  .summap {color: #ddd;}
+body.dark  #buy {background-color: #343434;}
+body.dark  .itemcart {  border-bottom: 3px solid #bdbdbd;}
+body.dark  .itemcount {  background-color: #343434;}
 
 .checkbox {
   opacity: 0;
@@ -358,7 +368,7 @@ display: none;
   flex-wrap: nowrap;
   flex-shrink: 3;
   justify-content: center;
-  background-color: #ddd;
+  background-color: #ececec;
 
 }
 
@@ -377,7 +387,7 @@ display: none;
   flex-shrink: 3;
   justify-content: center;
   color: #000;
-  background-color: #fff;
+  background-color: #ccc;
 }
 
 .itemcounttext{
