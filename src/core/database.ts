@@ -3,6 +3,7 @@ import { MenuItem, Order, OrderItem, OrderStatus, Restaurant, User } from "resta
 import config from "../config";
 
 export interface DatabaseOrder {
+    id: number;
     user: number;
     items: number;
     order_status: OrderStatus;
