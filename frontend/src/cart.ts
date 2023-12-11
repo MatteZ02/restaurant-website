@@ -1,4 +1,6 @@
 import RestaurantApiWrapper from "./api";
+import { openDialog } from "./util/dialog";
+import { addMessage } from "./util/utils";
 
 const restaurantApiWrapper = new RestaurantApiWrapper();
 
@@ -54,6 +56,96 @@ const f = async () => {
 
     const total = document.getElementById("totalprice");
     if (total) total.innerText = cart.total.toFixed(2) + " €";
+
+    const checkoutButton = document.getElementById("checkout");
+    checkoutButton?.addEventListener("click", async () => {
+        if (cart.items.length === 0) return alert("Your cart is empty!");
+
+        const dialog = document.getElementsByClassName("cardDialog");
+        openDialog(dialog[0] as HTMLDialogElement);
+        const { publishableKey } = await fetch("/stripe-config").then(r => r.json());
+        if (!publishableKey) console.log("Error: Missing Stripe publishable key");
+
+        // @ts-ignore
+        const stripe = Stripe(publishableKey, {
+            apiVersion: "2023-10-16",
+        });
+
+        const elements = stripe.elements();
+        const card = elements.create("card");
+        card.mount("#card-element");
+
+        // When the form is submitted...
+        const form = document.getElementById("payment-form");
+        if (!form) return;
+        let submitted = false;
+        form.addEventListener("submit", async e => {
+            e.preventDefault();
+
+            // Disable double submission of the form
+            if (submitted) {
+                return;
+            }
+            submitted = true;
+            const button = form.querySelector("button");
+            if (!button) return;
+            button.disabled = true;
+
+            // Make a call to the server to create a new
+            // payment intent and store its client_secret.
+            const { error: backendError, clientSecret } = await fetch("/create-payment-intent", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    currency: "usd",
+                    paymentMethodType: "card",
+                }),
+            }).then(r => r.json());
+
+            if (backendError) {
+                addMessage(backendError.message);
+
+                // reenable the form.
+                submitted = false;
+                button.disabled = false;
+                return;
+            }
+
+            addMessage(`Client secret returned.`);
+
+            const nameInput = document.querySelector("#name") as HTMLInputElement;
+            if (!nameInput) return;
+
+            // Confirm the card payment given the clientSecret
+            // from the payment intent that was just created on
+            // the server.
+            const { error: stripeError, paymentIntent } = await stripe.confirmCardPayment(
+                clientSecret,
+                {
+                    payment_method: {
+                        card: card,
+                        billing_details: {
+                            name: nameInput.value,
+                        },
+                    },
+                }
+            );
+
+            if (stripeError) {
+                addMessage(stripeError.message);
+
+                // reenable the form.
+                submitted = false;
+                button.disabled = false;
+                return;
+            }
+
+            addMessage(`Payment ${paymentIntent.status}: ${paymentIntent.id}`);
+            window.location.href = "/success/";
+        });
+    });
 };
 
 f();

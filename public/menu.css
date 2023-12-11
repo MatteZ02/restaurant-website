@@ -4,10 +4,9 @@
 }
 
 body {
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Sofia Sans Condensed', sans-serif;
   padding: 0;
   margin: auto;
-
 }
 
 body.dark  {background-color: #111;}
@@ -32,7 +31,6 @@ body.dark  .navi {color: #ddd;}
   position: relative;
   cursor: pointer;
   display: flex;
-
 }
 
 .checkbox-label .ball {
@@ -55,7 +53,6 @@ body.dark  .navi {color: #ddd;}
   margin: 2px;
   font-size:15px;
   color:#f3c57b;
-
 }
 
 .checkbox:checked + .checkbox-label .ball {
@@ -74,7 +71,6 @@ h1{
 }
 
 #logo_text{
-
   color: #000;
   font-size: 15px;
 }
@@ -221,106 +217,6 @@ h1{
   padding: 0;
 }
 
-.button-R {
-  align-items: center;
-  appearance: none;
-  background-clip: padding-box;
-  background-color: initial;
-  background-image: none;
-  border-style: none;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  flex-direction: row;
-  flex-shrink: 0;
-  font-family: 'Sofia Sans Condensed', sans-serif;
-  font-size: 20px;
-  font-weight: 800;
-  justify-content: center;
-  line-height: 24px;
-  margin: 0;
-  min-height: 64px;
-  outline: none;
-  overflow: visible;
-  padding: 19px 26px;
-  pointer-events: auto;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  text-transform: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: middle;
-  width: auto;
-  word-break: keep-all;
-  z-index: 0;
-}
-
-@media (min-width: 768px) {
-  .bbutton-R {
-    padding: 19px 32px;
-  }
-}
-
-.button-R:before,
-.button-R:after {
-  border-radius: 80px;
-}
-
-.button-R:before {
-  background-color: #9f6bff;
-  content: "";
-  display: block;
-  height: 100%;
-  left: 0;
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: -2;
-}
-
-.button-R:after {
-  background-color: initial;
-  background-image: linear-gradient(92.83deg, #894AFF 0, #894AFF 100%);
-  bottom: 4px;
-  content: "";
-  display: block;
-  left: 4px;
-  overflow: hidden;
-  position: absolute;
-  right: 4px;
-  top: 4px;
-  transition: all 100ms ease-out;
-  z-index: -1;
-}
-
-.button-R:hover:not(:disabled):after {
-  bottom: 0;
-  left: 0;
-  right: 0;
-  top: 0;
-  transition-timing-function: ease-in;
-}
-
-.button-R:active:not(:disabled) {
-  color: #ccc;
-}
-
-.button-R:active:not(:disabled):after {
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), linear-gradient(92.83deg, #894AFF 0, #894AFF  100%);
-  bottom: 4px;
-  left: 4px;
-  right: 4px;
-  top: 4px;
-}
-
-.button-R:disabled {
-  cursor: default;
-  opacity: .24;
-}
 
 /* Clearfix (clear floats) */
 .row::after {
@@ -431,7 +327,6 @@ display: none;
 }
 
 section #meals{
-
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -644,6 +539,64 @@ cursor: pointer;
   font-size: 1em;
   font-weight: 400;
 }
+
+
+.buttons{
+  width: 100px;
+  height: 20px;
+  float: right;
+  margin-top: -100px;
+}
+
+/* burgers */
+
+#burgers div{
+  border-bottom: 5px solid #ddd;
+  border-bottom-style: dashed;
+}
+
+#burgers div .item{
+  border-bottom: 5px solid #fff;
+  width: 50%;
+}
+
+#burgers div .buttons{
+  border-bottom: 5px solid #fff;
+}
+
+/* sides*/
+
+#sides div{
+  border-bottom: 5px solid #ddd;
+  border-bottom-style: dashed;
+}
+
+#sides div .item{
+  border-bottom: 5px solid #fff;
+  width: 50%;
+}
+
+#sides div .buttons{
+  border-bottom: 5px solid #fff;
+}
+
+/* drinks */
+
+#drinks div{
+  border-bottom: 5px solid #ddd;
+  border-bottom-style: dashed;
+}
+
+#drinks div .item{
+  border-bottom: 5px solid #fff;
+  width: 50%;
+}
+
+#drinks div .buttons{
+  border-bottom: 5px solid #fff;
+}
+
+
 
 @media screen and (max-width: 1692px) {
   .wrapper {

@@ -46,13 +46,12 @@ if (registerBtn)
         registerModal.innerHTML = `
     <!--Dialog-->
     <div id="register" > <dialog2 aria-labelledby="dialog_title" aria-describedby="dialog_description">
-    <img src="public/media/kuvat/login.png" alt="Illustration of Location Services" />
-    <h2 id="dialog_title" class="h2">Rekisteröidy</h2>
-    <p>Minimi 3 merkkiä</p>
+    <h2 id="dialog_title" class="h2">register</h2>
+    <p>Minimum 3 characters</p>
     <!--form-->
     <form action="" method="get" class="form-sub">
       <div class="form-sub">
-        <label for="Firstname">Etunimi</label>
+        <label for="Firstname">Firstname</label>
         <input
           type="text"
           name="Firstname"
@@ -62,7 +61,7 @@ if (registerBtn)
         />
       </div>
       <div class="form-sub">
-        <label for="Lastname">Sukunimi</label>
+        <label for="Lastname">Lastname</label>
         <input
           type="text"
           name="Lastname"
@@ -72,7 +71,7 @@ if (registerBtn)
         />
       </div>
       <div class="form-sub">
-        <label for="name">Käyttäjänimi</label>
+        <label for="name">Username</label>
         <input
           type="text"
           name="name"
@@ -82,7 +81,7 @@ if (registerBtn)
         />
       </div>
       <div class="form-sub">
-        <label for="password">Salasana:</label>
+        <label for="password">Password:</label>
         <input
           type="password"
           name="password"
@@ -92,7 +91,7 @@ if (registerBtn)
         />
       </div>
       <div class="form-sub">
-      <label for="name">Sähköposti</label>
+      <label for="name">E-mail</label>
       <input
         type="text"
         name="email"
@@ -102,7 +101,7 @@ if (registerBtn)
       />
     </div>
       <div class="form-sub">
-        <label for="phone">Puhelinnumero:</label>
+        <label for="phone">phone number:</label>
         <input
           type="tel"
           name="phone"
@@ -112,7 +111,7 @@ if (registerBtn)
         />
       </div>
       <div class="form-sub">
-        <label for="address">Osoite:</label>
+        <label for="address">address:</label>
         <input
           type="text"
           name="address"
@@ -126,8 +125,8 @@ if (registerBtn)
     <!--form-->
 
     <div class="flex flex-space-between">
-      <button id="close_dialog2">Sulje</button>
-      <button type="submit" value="lähetä!" id="confirm_dialog">Vahvista</button>
+      <button id="close_dialog2">Close</button>
+      <button type="submit" value="lähetä!" id="confirm_dialog">Confirm</button>
     </div>
   </dialog2>
   <!--Dialog--></div>

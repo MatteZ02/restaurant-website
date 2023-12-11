@@ -76,9 +76,8 @@ button {
     font-family: 'Cabin', sans-serif;
     font-weight: 200;
     margin:0;
-
-
   }
+
   p1{
     font-family: 'Cabin', sans-serif;
     font-weight: 200;
@@ -140,7 +139,6 @@ button {
     opacity: 60%;
   }
 
-
   #register{
     background-color: white;
     border: none !important;
@@ -151,15 +149,11 @@ button {
     height: 42em;
     top: 20%;
     left: 40%;
-    margin: 0px;
-
   }
-
 
   #register.flex{
     display: flex;
     flex-wrap: wrap;
-
   }
 
   #register img {

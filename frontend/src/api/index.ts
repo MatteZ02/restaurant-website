@@ -73,21 +73,6 @@ class RestaurantApiWrapper {
         return req;
     }
 
-    public async getOrder(id: number): Promise<Order> {
-        const req = await requestHandler.get<Order>(`order/${id}`, {
-            "Content-type": "application/json",
-            Authorization: `Bearer ${this.token}`,
-        });
-        return req;
-    }
-
-    public async putOrder(data: Order) {
-        const req = await requestHandler.put<Order>(`order/${data.id}`, data, {
-            "Content-type": "application/json",
-        });
-        return req;
-    }
-
     public async getRestaurants(): Promise<Restaurant[]> {
         const req = await requestHandler.get<{ data: ApiRestaurant[] }>("restaurant");
         return req.data.map(restaurant => new Restaurant(restaurant));
@@ -134,6 +119,35 @@ class RestaurantApiWrapper {
     public async deleteCartItem(itemId: number) {
         const req = await requestHandler.delete<Cart>(`cart/${itemId}`, {
             "Content-type": "application/json",
+        });
+        return req;
+    }
+
+    public async getOrders(): Promise<Order[]> {
+        const req = await requestHandler.get<Order[]>("order", {
+            "Content-type": "application/json",
+        });
+        return req;
+    }
+
+    public async getOrderById(id: number): Promise<Order> {
+        const req = await requestHandler.get<Order>(`order/${id}`, {
+            "Content-type": "application/json",
+        });
+        return req;
+    }
+
+    public async postOrder(data: Order): Promise<Order> {
+        const req = await requestHandler.post<Order>("order", data, {
+            "Content-type": "application/json",
+        });
+        return req;
+    }
+
+    public async patchOrder(id: number, data: Partial<Order>): Promise<Order> {
+        const req = await requestHandler.patch<Order>(`order/${id}`, data, {
+            "Content-type": "application/json",
+            Authorization: `Bearer ${this.token}`,
         });
         return req;
     }

@@ -6,7 +6,7 @@
 }
 
 .wrapper .one-third {
-    grid-column: 1 / 2;
+
     background-color: rgb(199, 199, 199);
 }
 
@@ -102,3 +102,72 @@ dialog form input[type="submit"]:hover {
     background-color: rgb(90, 90, 90);
     color: #fff;
 }
+
+.orderinfo{
+  width: 100%;
+  height: auto;
+  margin: 10px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 20px;
+
+}
+.orderID{
+  width: auto;
+  height: 20px;
+  border-style: dotted;
+  border-color:  rgb(116, 116, 116);
+
+}
+.userID{
+  width: auto;
+  height: 20px;
+  border-style: dotted;
+  border-color:  rgb(116, 116, 116);
+
+}
+.orderstatus{
+  width: auto;
+  height: 20px;
+  border-style: dotted;
+  border-color:  rgb(116, 116, 116);
+
+}
+
+.orderitems{
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 20px;
+}
+.items{
+color: #000;
+}
+
+.quantity{
+color: #000;
+}
+
+.nappi{
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  background-color:#04AA6D;
+}
+.nappi2 {background-color: #008CBA;}
+.nappi3 {background-color: #f44336;}
+

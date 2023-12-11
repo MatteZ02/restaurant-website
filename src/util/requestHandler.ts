@@ -1,5 +1,6 @@
-import config from "../../config";
+import config from "../config";
 
+type HeadersInit = [string, string][] | Record<string, string> | Headers;
 type Endpoint =
     | "auth/login"
     | "auth/me"
@@ -97,7 +98,7 @@ class requestHandler {
 
     private static async fetch<T>(url: string, options?: RequestInit): Promise<T> {
         const req = await fetch(url, options);
-        const json = await req.json();
+        const json: any = await req.json();
         if (req.status < 200 || req.status > 299) throw new Error(json.message);
 
         return json;
