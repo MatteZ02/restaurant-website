@@ -9,4 +9,7 @@ export default {
     db_password: process.env.DB_PASSWORD ?? "password",
     db_name: process.env.DB_NAME ?? "restaurant",
     session_secret: process.env.SESSION_SECRET ?? "keyboard cat",
+    stripe_secret_key: process.env.STRIPE_SECRET_KEY,
+    stripe_pubhlishable_key: process.env.STRIPE_PUBLISHABLE_KEY,
+    stripe_webhook_secret: process.env.STRIPE_WEBHOOK_SECRET,
 };

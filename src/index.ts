@@ -10,10 +10,24 @@ import restaurantRouter from "./routers/restaurantRouter";
 import userRouter from "./routers/userRouter";
 import cartRouter from "./routers/cartRouter";
 import orderRouter from "./routers/orderRouter.";
+import Stripe from "stripe";
+
+const stripe = new Stripe(config.stripe_secret_key as string, {
+    apiVersion: "2023-10-16",
+    appInfo: {
+        // For sample support and debugging, not required for production:
+        name: "restaurant-website",
+        url: "https://github.com/MatteZ02/restaurant-website",
+        version: "0.1.0",
+    },
+    typescript: true,
+});
 
 const app = express();
 
-app.use(express.json());
+app.use((req: express.Request, res: express.Response, next: express.NextFunction): void =>
+    req.originalUrl === "/webhook" ? next() : express.json()(req, res, next)
+);
 app.use(express.urlencoded({ extended: true }));
 app.use(
     session({
@@ -34,3 +48,5 @@ app.use("/api/restaurant", restaurantRouter);
 app.use("/api/user", userRouter);
 
 ViteExpress.listen(app, config.port, () => console.log(`Server listening on port ${config.port}`));
+
+export { stripe };
