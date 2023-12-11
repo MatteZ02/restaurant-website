@@ -21,7 +21,7 @@ const menuItemModalController = async (modal: HTMLDialogElement, oldItem?: MenuI
         const menuItem: Partial<MenuItem> = {
             name: name.value || undefined,
             description: description.value || undefined,
-            price: +price.value || undefined,
+            price: price.value || undefined,
             category: +category.value || undefined,
         };
 

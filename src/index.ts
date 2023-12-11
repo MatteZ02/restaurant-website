@@ -15,7 +15,6 @@ import Stripe from "stripe";
 const stripe = new Stripe(config.stripe_secret_key as string, {
     apiVersion: "2023-10-16",
     appInfo: {
-        // For sample support and debugging, not required for production:
         name: "restaurant-website",
         url: "https://github.com/MatteZ02/restaurant-website",
         version: "0.1.0",

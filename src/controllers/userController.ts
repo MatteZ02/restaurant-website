@@ -31,7 +31,7 @@ const postUser = async (req: Request, res: Response, next: NextFunction) => {
     if (existingUser?.length > 0) return next(new ApiError(400, "Username already exists"));
     const salt = genSaltSync(10);
     user.password = hashSync(user.password, salt);
-    const u = addUser(user);
+    const u = addUser(user).catch(noop);
     if (!u) return next(new ApiError(500, "Error adding user"));
     res.status(201).json(u);
 };

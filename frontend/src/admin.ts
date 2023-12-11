@@ -2,13 +2,14 @@ import RestaurantApiWrapper from "./api";
 import menuItemModalController from "./controllers/menuItemModalController";
 import userModifyModalController from "./controllers/userModifyModalController";
 import getOrderStatus, { OrderStatus } from "./util/getOrderStatus";
+import { noop } from "./util/utils";
 
 const restaurantApiWrapper = new RestaurantApiWrapper();
 const redir = `/?login=true&redirect=${window.location.href}`;
 const token = localStorage.getItem("token");
 
 const deleteMenuItem = async (id: string) => {
-    const res = await restaurantApiWrapper.deleteMenuItem(+id);
+    const res = await restaurantApiWrapper.deleteMenuItem(+id).catch(noop);
     if (!res) {
         alert("Failed to delete menu item");
         return;
@@ -37,7 +38,13 @@ const menu = document.querySelector("#menu-items");
         menuItemModalController(menuItemModal as HTMLDialogElement);
     });
 
-    const menuItems = await restaurantApiWrapper.getMenu();
+    const menuItems = await restaurantApiWrapper.getMenu().catch(noop);
+    if (!menuItems) {
+        const menuFail = document.createElement("p");
+        menuFail.innerText = "Failed to load menu items";
+        menu?.appendChild(menuFail);
+        return;
+    }
 
     for (const item of menuItems) {
         const menuItemElement = document.createElement("div");
@@ -86,15 +93,21 @@ const menu = document.querySelector("#menu-items");
     searchUserBtn?.addEventListener("click", async evt => {
         evt.preventDefault();
 
-        const user = await restaurantApiWrapper.getUser(+searchUserInput.value);
+        const user = await restaurantApiWrapper.getUser(+searchUserInput.value).catch(noop);
 
         if (!user) return alert("User not found");
         if (!userModal) return console.log("User modal not found");
         userModifyModalController(userModal as HTMLDialogElement, user);
     });
 
-    const orders = await restaurantApiWrapper.getOrders();
+    const orders = await restaurantApiWrapper.getOrders().catch(noop);
     const ordersElement = document.querySelector("#orders");
+    if (!orders) {
+        const ordersFail = document.createElement("p");
+        ordersFail.innerText = "Failed to load orders";
+        ordersElement?.appendChild(ordersFail);
+        return;
+    }
     for (const order of orders.filter(
         order => order.order_status === (OrderStatus.Pending || OrderStatus.Accepted)
     )) {
@@ -149,9 +162,11 @@ const menu = document.querySelector("#menu-items");
         acceptButton.classList.add("nappi");
         acceptButton.innerText = "Accept";
         acceptButton.addEventListener("click", async () => {
-            const res = await restaurantApiWrapper.patchOrder(order.id, {
-                order_status: OrderStatus.Accepted,
-            });
+            const res = await restaurantApiWrapper
+                .patchOrder(order.id, {
+                    order_status: OrderStatus.Accepted,
+                })
+                .catch(noop);
             if (!res) return alert("Failed to accept order");
             alert("Successfully accepted order");
             window.location.reload();
@@ -162,9 +177,11 @@ const menu = document.querySelector("#menu-items");
         deliveredButton.classList.add("nappi2");
         deliveredButton.innerText = "Delivered";
         deliveredButton.addEventListener("click", async () => {
-            const res = await restaurantApiWrapper.patchOrder(order.id, {
-                order_status: OrderStatus.Delivered,
-            });
+            const res = await restaurantApiWrapper
+                .patchOrder(order.id, {
+                    order_status: OrderStatus.Delivered,
+                })
+                .catch(noop);
             if (!res) return alert("Failed to deliver order");
             alert("Successfully delivered order");
             window.location.reload();
@@ -175,9 +192,11 @@ const menu = document.querySelector("#menu-items");
         rejectButton.classList.add("nappi3");
         rejectButton.innerText = "Reject";
         rejectButton.addEventListener("click", async () => {
-            const res = await restaurantApiWrapper.patchOrder(order.id, {
-                order_status: OrderStatus.Rejected,
-            });
+            const res = await restaurantApiWrapper
+                .patchOrder(order.id, {
+                    order_status: OrderStatus.Rejected,
+                })
+                .catch(noop);
             if (!res) return alert("Failed to reject order");
             alert("Successfully rejected order");
             window.location.reload();

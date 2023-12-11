@@ -1,5 +1,6 @@
 import RestaurantApiWrapper from "./api";
 import { decrease, increase } from "./functions/counter";
+import { noop } from "./util/utils";
 
 const restaurantApiWrapper = new RestaurantApiWrapper();
 
@@ -32,8 +33,15 @@ const sections: {
 };
 
 const f = async () => {
-    const menuItems = await restaurantApiWrapper.getMenu();
-    const cart = await restaurantApiWrapper.getCart();
+    const menuItems = await restaurantApiWrapper.getMenu().catch(noop);
+    const cart = await restaurantApiWrapper.getCart().catch(noop);
+
+    if (!menuItems || !cart) {
+        const menuFail = document.createElement("p");
+        menuFail.innerText = "Failed to load menu items";
+        menu?.appendChild(menuFail);
+        return;
+    }
 
     for (const item of menuItems) {
         const cartItem = cart.items.find(cartItem => cartItem.item.id === item.id);
@@ -70,15 +78,15 @@ const f = async () => {
         buttons.appendChild(plusButton);
 
         plusButton.addEventListener("click", async () => {
-            const cart = await restaurantApiWrapper.postCartItem(item);
+            const cart = await restaurantApiWrapper.postCartItem(item).catch(noop);
+            if (!cart) return;
             increase(input);
-            console.log(cart);
         });
 
         minusButton.addEventListener("click", async () => {
             const cart = await restaurantApiWrapper.deleteCartItem(item.id);
+            if (!cart) return;
             decrease(input);
-            console.log(cart);
         });
 
         parentElement.appendChild(buttons);

@@ -15,7 +15,6 @@ const getRestaurant = async (req: Request, res: Response, next: NextFunction) =>
     if (!errors.isEmpty()) return next(new ApiError(400, "Invalid restaurant data"));
 
     const restaurants = await getRestaurants().catch(noop);
-
     if (!restaurants) return next(new ApiError(500, "Failed to obtain restaurants"));
     res.status(200).json(restaurants);
 };

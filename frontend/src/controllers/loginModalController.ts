@@ -1,5 +1,6 @@
 import { closeDialog, openDialog } from "../util/dialog";
 import RestaurantApiWrapper from "../api";
+import { noop } from "../util/utils";
 
 const restaurantApiWrapper = new RestaurantApiWrapper();
 
@@ -12,7 +13,7 @@ const loginModalController = (modal: HTMLDialogElement, redir?: string) => {
         const username = document.querySelector("#username") as HTMLInputElement;
         const password = document.querySelector("#password") as HTMLInputElement;
 
-        const res = await restaurantApiWrapper.login(username.value, password.value);
+        const res = await restaurantApiWrapper.login(username.value, password.value).catch(noop);
         if (!res) {
             alert("Login failed");
             return;

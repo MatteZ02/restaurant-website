@@ -1,11 +1,12 @@
 import RestaurantApiWrapper from "./api";
 import getOrderStatus from "./util/getOrderStatus";
+import { noop } from "./util/utils";
 
 const restaurantApiWrapper = new RestaurantApiWrapper();
 const f = async () => {
     const orderId = window.location.pathname.split("/")[2];
     if (!orderId) return window.location.replace("/");
-    const order = await restaurantApiWrapper.getOrderById(+orderId);
+    const order = await restaurantApiWrapper.getOrderById(+orderId).catch(noop);
     if (!order) return window.location.replace("/");
     const confirmationHeader = document.getElementById("order-confirmation");
     if (confirmationHeader)

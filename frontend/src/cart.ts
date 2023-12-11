@@ -1,11 +1,12 @@
 import RestaurantApiWrapper from "./api";
 import { openDialog } from "./util/dialog";
-import { addMessage } from "./util/utils";
+import { noop } from "./util/utils";
 
 const restaurantApiWrapper = new RestaurantApiWrapper();
 
 const f = async () => {
-    const cart = await restaurantApiWrapper.getCart();
+    const cart = await restaurantApiWrapper.getCart().catch(noop);
+    if (!cart) return;
 
     const itemCount = document.getElementById("itemcounttext");
     if (itemCount)
@@ -75,24 +76,18 @@ const f = async () => {
         const card = elements.create("card");
         card.mount("#card-element");
 
-        // When the form is submitted...
         const form = document.getElementById("payment-form");
         if (!form) return;
         let submitted = false;
         form.addEventListener("submit", async e => {
             e.preventDefault();
 
-            // Disable double submission of the form
-            if (submitted) {
-                return;
-            }
+            if (submitted) return;
             submitted = true;
             const button = form.querySelector("button");
             if (!button) return;
             button.disabled = true;
 
-            // Make a call to the server to create a new
-            // payment intent and store its client_secret.
             const { error: backendError, clientSecret } = await fetch("/create-payment-intent", {
                 method: "POST",
                 headers: {
@@ -105,22 +100,15 @@ const f = async () => {
             }).then(r => r.json());
 
             if (backendError) {
-                addMessage(backendError.message);
-
-                // reenable the form.
+                console.log(backendError.message);
                 submitted = false;
                 button.disabled = false;
                 return;
             }
 
-            addMessage(`Client secret returned.`);
-
             const nameInput = document.querySelector("#name") as HTMLInputElement;
             if (!nameInput) return;
 
-            // Confirm the card payment given the clientSecret
-            // from the payment intent that was just created on
-            // the server.
             const { error: stripeError, paymentIntent } = await stripe.confirmCardPayment(
                 clientSecret,
                 {
@@ -134,15 +122,13 @@ const f = async () => {
             );
 
             if (stripeError) {
-                addMessage(stripeError.message);
-
-                // reenable the form.
+                console.log(stripeError.message);
                 submitted = false;
                 button.disabled = false;
                 return;
             }
 
-            addMessage(`Payment ${paymentIntent.status}: ${paymentIntent.id}`);
+            console.log(`Payment ${paymentIntent.status}: ${paymentIntent.id}`);
             window.location.href = "/success/";
         });
     });
