@@ -28,8 +28,6 @@ const getUserOrders = async (userId: number): Promise<null | DatabaseOrder[]> =>
 };
 
 const getOrderItems = async (id: number): Promise<null | { id: number; items: string }> => {
-    console.log(id);
-
     const items = await Database.query(`SELECT * FROM OrderItems WHERE id = ?`, [id]).catch(
         error => {
             throw error;
@@ -39,8 +37,6 @@ const getOrderItems = async (id: number): Promise<null | { id: number; items: st
 };
 
 const getOrderItem = async (id: number): Promise<null | OrderItem> => {
-    console.log(id);
-
     const items = await Database.query(`SELECT * FROM OrderItem WHERE id = ?`, [id]).catch(
         error => {
             throw error;
