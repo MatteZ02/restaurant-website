@@ -356,8 +356,11 @@ h1 {
     height: 30px;
 }
 
+
+
 #cart:hover {
     opacity: 0.6;
+
 }
 
 .itemcartdiv {
@@ -415,12 +418,16 @@ h1 {
 }
 
 .deleteitem {
-    width: 25px;
+    width: 30px;
     height: auto;
-    margin-top: -20px;
+    margin-top: -30px;
+    background-image: url(../public/media/svg/deleteclosed.svg);
 }
 .deleteitem:hover {
-    opacity: 0.6;
+    width: 30px;
+    height: auto;
+    background-image: url(../public/media/svg/deleteopen.svg);
+
 }
 
 #summa {
