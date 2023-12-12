@@ -302,12 +302,18 @@ h1 {
 
 /* top nav starts */
 .topnav {
-    overflow: hidden;
-    background-color: #ddd;
-    min-width: 250px;
-    font-family: "Sofia Sans Condensed", sans-serif;
-    font-weight: 600;
-}
+  overflow: hidden;
+  background-color: #ddd;
+  min-width: 250px;
+  font-family: "Sofia Sans Condensed", sans-serif;
+  font-weight: 600;
+  }
+
+  #fixed{
+  z-index: 100;
+  position: fixed;
+  width: 65%;
+  }
 
 .navtext {
     margin-top: 10px;
@@ -528,4 +534,10 @@ h1 {
         float: inline-start;
         width: 10px;
     }
+}
+@media screen and (max-width: 900px) {
+  #fixed {
+    width: 100%;
+
+  }
 }

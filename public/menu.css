@@ -204,6 +204,7 @@ h1{
   display: block;
   font-weight: 400;
   font-family: 'Rubik Bubbles', serif;
+  z-index: 10;
 }
 
 .herotext1{
@@ -245,12 +246,18 @@ h1{
 
 /* top nav starts */
 .topnav {
-overflow: hidden;
-background-color: #ddd;
-min-width: 250px;
-font-family: "Sofia Sans Condensed", sans-serif;
-font-weight: 600;
-}
+  overflow: hidden;
+  background-color: #ddd;
+  min-width: 250px;
+  font-family: "Sofia Sans Condensed", sans-serif;
+  font-weight: 600;
+  }
+
+  #fixed{
+  z-index: 100;
+  position: fixed;
+  width: 65%;
+  }
 
 .navtext{
   margin-top: 10px;
@@ -715,6 +722,13 @@ cursor: pointer;
   #text {
     width: 100%;
     height: 100%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  #fixed {
+    width: 100%;
+
   }
 }
 
