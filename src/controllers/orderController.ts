@@ -15,8 +15,10 @@ import {
 } from "../core/models/orderModel";
 import { noop } from "../util/util";
 import { Order } from "restaurantApiTypes";
+import { debug, wsServer } from "..";
 
 const getOrder = async (req: Request, res: Response, next: NextFunction) => {
+    debug.log("get /order/:id");
     const errors = validationResult(req);
     if (!errors.isEmpty()) return next(new ApiError(400, "Invalid order data"));
 
@@ -35,6 +37,7 @@ const getOrder = async (req: Request, res: Response, next: NextFunction) => {
 };
 
 const getOrders = async (req: Request, res: Response, next: NextFunction) => {
+    debug.log("get /order");
     const errors = validationResult(req);
     if (!errors.isEmpty()) return next(new ApiError(400, "Invalid order data"));
 
@@ -56,6 +59,7 @@ const getOrders = async (req: Request, res: Response, next: NextFunction) => {
 };
 
 const getUsersOrders = async (req: Request, res: Response, next: NextFunction) => {
+    debug.log("get /order/user/:id");
     const errors = validationResult(req);
     if (!errors.isEmpty()) return next(new ApiError(400, "Invalid order data"));
 
@@ -78,6 +82,7 @@ const getUsersOrders = async (req: Request, res: Response, next: NextFunction) =
 };
 
 const postOrder = async (req: Request, res: Response, next: NextFunction) => {
+    debug.log("post /order");
     const errors = validationResult(req);
     if (!errors.isEmpty()) return next(new ApiError(400, "Invalid order data"));
 
@@ -94,10 +99,12 @@ const postOrder = async (req: Request, res: Response, next: NextFunction) => {
 
     const order = await addOrder({ ...o, items }).catch(noop);
     if (!order) return next(new ApiError(500, "Error adding order"));
+    wsServer.socketManager.sendNewOrder({ ...o, id: order });
     res.status(201).json({ ...o, id: order });
 };
 
 const patchOrder = async (req: Request, res: Response, next: NextFunction) => {
+    debug.log("patch /order/:id");
     const errors = validationResult(req);
     if (!errors.isEmpty()) return next(new ApiError(400, "Invalid order data"));
 
@@ -105,7 +112,9 @@ const patchOrder = async (req: Request, res: Response, next: NextFunction) => {
     const order = req.body;
     const o = await updateOrder(+id, order).catch(noop);
     if (!o) return next(new ApiError(500, "Error updating order"));
-    res.status(200).json(o);
+    const newOrder = await getOrderById(+id).catch(noop);
+    wsServer.socketManager.sendOrderUpdate(+id, newOrder ?? order);
+    res.status(200).json(newOrder ?? order);
 };
 
 export { getOrder, getOrders, patchOrder, postOrder, getUsersOrders };

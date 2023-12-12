@@ -2,7 +2,7 @@ import { NextFunction, Response, Router } from "express";
 import Request from "../types/Request";
 import config from "../config";
 import Stripe from "stripe";
-import { stripe } from "..";
+import { debug, stripe } from "..";
 import bodyParser from "body-parser";
 import requestHandler from "../util/requestHandler";
 import { Order } from "restaurantApiTypes";
@@ -10,12 +10,14 @@ import { Order } from "restaurantApiTypes";
 const router = Router();
 
 router.get("/stripe-config", (_: Request, res: Response): void => {
+    debug.log("get /stripe-config");
     res.send({
         publishableKey: config.stripe_pubhlishable_key,
     });
 });
 
 router.post("/create-payment-intent", async (req: Request, res: Response): Promise<void> => {
+    debug.log("post /create-payment-intent");
     const {
         currency,
         paymentMethodType,
@@ -26,7 +28,10 @@ router.post("/create-payment-intent", async (req: Request, res: Response): Promi
         return;
     }
     const params: Stripe.PaymentIntentCreateParams = {
-        amount: req.session.cart.reduce((acc, item) => acc + +item.item.price * item.quantity, 0),
+        amount:
+            +req.session.cart
+                .reduce((acc, item) => acc + +item.item.price * item.quantity, 0)
+                .toFixed(2) * 100,
         currency,
         payment_method_types: paymentMethodType === "link" ? ["link", "card"] : [paymentMethodType],
     };
@@ -70,6 +75,7 @@ router.post("/create-payment-intent", async (req: Request, res: Response): Promi
 });
 
 router.get("/payment/next", async (req, res) => {
+    debug.log("get /payment/next");
     const paymentIntent: any = req.query.payment_intent;
     const intent = await stripe.paymentIntents.retrieve(paymentIntent, {
         expand: ["payment_method"],
@@ -82,6 +88,7 @@ router.post(
     "/webhook",
     bodyParser.raw({ type: "application/json" }),
     async (req: Request, res: Response): Promise<void> => {
+        debug.log("post /webhook");
         let event: Stripe.Event;
 
         const headers = req.headers["stripe-signature"];
@@ -120,6 +127,7 @@ router.post(
 );
 
 router.get("/success", async (req: Request, res: Response, next: NextFunction) => {
+    debug.log("get /success");
     const { payment_intent_client_secret } = req.query;
     const cart = req.session.cart;
     if (!cart) return res.redirect("/cart/");

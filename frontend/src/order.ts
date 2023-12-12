@@ -1,6 +1,8 @@
+import { Order } from "restaurantApiTypes";
 import RestaurantApiWrapper from "./api";
 import getOrderStatus from "./util/getOrderStatus";
 import { noop } from "./util/utils";
+import config from "./config";
 
 const restaurantApiWrapper = new RestaurantApiWrapper();
 const f = async () => {
@@ -11,6 +13,17 @@ const f = async () => {
     const confirmationHeader = document.getElementById("order-confirmation");
     if (confirmationHeader)
         confirmationHeader.innerText = `Order status: ${getOrderStatus(order.order_status)}`;
+
+    const socket = new WebSocket(config.socketUrl);
+    socket.onopen = () => {
+        socket.send(JSON.stringify({ orderId }));
+    };
+
+    socket.onmessage = (event: MessageEvent) => {
+        const order: Order | Partial<Order> = JSON.parse(event.data);
+        if (confirmationHeader && order.order_status)
+            confirmationHeader.innerText = `Order status: ${getOrderStatus(order.order_status)}`;
+    };
 };
 
 f();
