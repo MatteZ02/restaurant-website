@@ -55,4 +55,4 @@ app.use("/api/user", userRouter);
 
 ViteExpress.listen(app, config.port, () => debug.info(`Server listening on port ${config.port}`));
 
-export { stripe, server as wsServer, debug };
+export { app, stripe, server as wsServer, debug };
