@@ -28,10 +28,14 @@ const postUser = async (req: Request, res: Response, next: NextFunction) => {
     if (!errors.isEmpty()) return next(new ApiError(400, "Invalid user data"));
 
     const user = req.body;
-    const existingUser = await Database.query("SELECT * FROM User WHERE username = ?", [
+    const existingUsername = await Database.query("SELECT * FROM User WHERE username = ?", [
         user.username,
     ]).catch(noop);
-    if (existingUser?.length > 0) return next(new ApiError(400, "Username already exists"));
+    if (existingUsername?.length > 0) return next(new ApiError(400, "Username already exists"));
+    const existingEmail = await Database.query("SELECT * FROM User WHERE email = ?", [
+        user.email,
+    ]).catch(noop);
+    if (existingEmail?.length > 0) return next(new ApiError(400, "Email already exists"));
     const salt = genSaltSync(10);
     user.password = hashSync(user.password, salt);
     const u = addUser(user).catch(noop);
