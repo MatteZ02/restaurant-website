@@ -48,8 +48,7 @@ const deleteCart = (req: Request, res: Response, next: NextFunction) => {
     const { id } = req.params;
     const existingItem = cart.find(cartItem => cartItem.item.id === +id);
     if (!existingItem) return;
-
-    if (existingItem.quantity > 0) existingItem.quantity--;
+    if (existingItem.quantity > 1) existingItem.quantity--;
     else cart.splice(cart.indexOf(existingItem), 1);
 
     res.status(200).json({

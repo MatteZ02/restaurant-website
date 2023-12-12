@@ -14,6 +14,7 @@ const f = async () => {
         itemCount.innerText = cart.items.reduce((acc, item) => acc + item.quantity, 0) + " items";
 
     const items = document.getElementById("items");
+    const total = document.getElementById("totalprice");
 
     for (const item of cart.items) {
         const itemElement = document.createElement("div");
@@ -41,22 +42,20 @@ const f = async () => {
 
         deleteButton.addEventListener("click", async () => {
             const updatedCart = await restaurantApiWrapper.deleteCartItem(item.item.id);
+            if (total) total.innerText = updatedCart.total.toFixed(2) + " €";
             if (itemCount)
                 itemCount.innerText =
-                    cart.items.reduce((acc, item) => acc + item.quantity, 0) + " items";
+                    updatedCart.items.reduce((acc, item) => acc + item.quantity, 0) + " items";
             const updatedItem = updatedCart.items.find(
                 cartItem => cartItem.item.id === item.item.id
             );
-            if (!updatedItem) return;
-            if (updatedItem.quantity === 0) {
-                itemElement.remove();
-            }
-            (+item.item.price * item.quantity).toFixed(2) + " €";
+            if (!updatedItem) return itemElement.remove();
+            (+updatedItem.item.price * updatedItem.quantity).toFixed(2) + " €";
+            price.innerText = (+updatedItem.item.price * updatedItem.quantity).toFixed(2) + " €";
             amount.innerText = updatedItem.quantity + " items";
         });
     }
 
-    const total = document.getElementById("totalprice");
     if (total) total.innerText = cart.total.toFixed(2) + " €";
 
     const checkoutButton = document.getElementById("checkout");
