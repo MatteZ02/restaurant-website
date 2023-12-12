@@ -64,7 +64,12 @@ const f = async () => {
         const buttons = document.createElement("div");
         buttons.classList.add("buttons");
         const minusButton = document.createElement("button");
-        minusButton.innerText = "-";
+        const minusimage= document.createElement("img");
+        minusimage.classList.add("minusButtons");
+        minusimage.src = "../public/media/svg/minus.svg";
+        minusimage.alt = "minus";
+        minusButton.appendChild(minusimage);
+        buttons.appendChild(minusButton);
         buttons.appendChild(minusButton);
         const input = document.createElement("input");
         input.type = "text";
@@ -74,7 +79,11 @@ const f = async () => {
         input.readOnly = true;
         buttons.appendChild(input);
         const plusButton = document.createElement("button");
-        plusButton.innerText = "+";
+        const plusimage= document.createElement("img");
+        plusimage.classList.add("plusButtons");
+        plusimage.src = "../public/media/svg/plus.svg";
+        plusimage.alt = "plus";
+        plusButton.appendChild(plusimage);
         buttons.appendChild(plusButton);
 
         plusButton.addEventListener("click", async () => {

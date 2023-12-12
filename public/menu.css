@@ -16,7 +16,7 @@ body.dark  .gap_text {color: #fff;}
 body.dark  .text {color: #ddd;}
 body.dark  .text1 {color: #ddd;}
 body.dark  .navi {color: #ddd;}
-body.dark  #meals_title {color: #ddd;}
+body.dark  #meals_title {color: rgb(127,110,255);}
 body.dark  #menu {color: #ddd;}
 body.dark  .item {background-color: #7F7F7F;}
 body.dark  #drinks div .buttons { border-bottom: 5px solid #111;}
@@ -33,12 +33,10 @@ body.dark  .footer { background-color: #111;}
   height: auto;
   }
 
-
 .checkbox {
   opacity: 0;
   margin: 0;
   position: absolute;
-
 }
 
 .checkbox-label {
@@ -368,6 +366,8 @@ section #burgers{
 }
 #meals_title{
 font-size: 40px;
+color: #894495;
+font-family: 'Sofia Sans Condensed', sans-serif;
 }
 #burger_title{
 font-size: 40px;
@@ -620,6 +620,16 @@ cursor: pointer;
 
 #drinks div .buttons{
   border-bottom: 5px solid #fff;
+}
+
+.plusButtons{
+  width: 15px;
+  height: auto;
+}
+.minusButtons{
+  width: 15px;
+  height: auto;
+
 }
 
 
