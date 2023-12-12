@@ -11,6 +11,11 @@ import userRouter from "./routers/userRouter";
 import cartRouter from "./routers/cartRouter";
 import orderRouter from "./routers/orderRouter.";
 import Stripe from "stripe";
+import Server from "./core/Server";
+import debux from "debux";
+
+const debug = debux();
+debug.info("Initializing server");
 
 const stripe = new Stripe(config.stripe_secret_key as string, {
     apiVersion: "2023-10-16",
@@ -21,6 +26,8 @@ const stripe = new Stripe(config.stripe_secret_key as string, {
     },
     typescript: true,
 });
+
+const server = new Server();
 
 const app = express();
 
@@ -46,6 +53,6 @@ app.use("/api/order", orderRouter);
 app.use("/api/restaurant", restaurantRouter);
 app.use("/api/user", userRouter);
 
-ViteExpress.listen(app, config.port, () => console.log(`Server listening on port ${config.port}`));
+ViteExpress.listen(app, config.port, () => debug.info(`Server listening on port ${config.port}`));
 
-export { stripe };
+export { stripe, server as wsServer, debug };

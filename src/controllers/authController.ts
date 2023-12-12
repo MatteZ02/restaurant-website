@@ -5,8 +5,10 @@ import { login } from "../core/models/userModel";
 import jwt from "jsonwebtoken";
 import ApiError from "../classes/ApiError";
 import { noop } from "../util/util";
+import { debug } from "..";
 
 const postLogin = async (req: Request, res: Response, next: NextFunction) => {
+    debug.log("postLogin");
     const errors = validationResult(req);
     if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
 
@@ -20,6 +22,7 @@ const postLogin = async (req: Request, res: Response, next: NextFunction) => {
 };
 
 const getMe = (req: Request, res: Response) => {
+    debug.log("getMe");
     if (!req.user) throw new ApiError(403, "Token Invalid");
     res.status(200).json(req.user);
 };

@@ -6,8 +6,10 @@ import Request from "../types/Request";
 import { genSaltSync, hashSync } from "bcryptjs";
 import Database from "../core/database";
 import { noop } from "../util/util";
+import { debug } from "..";
 
 const getUser = async (req: Request, res: Response, next: NextFunction) => {
+    debug.log("getUser");
     const errors = validationResult(req);
     if (!errors.isEmpty()) return next(new ApiError(400, "Invalid user data"));
 
@@ -21,6 +23,7 @@ const getUser = async (req: Request, res: Response, next: NextFunction) => {
 };
 
 const postUser = async (req: Request, res: Response, next: NextFunction) => {
+    debug.log("postUser");
     const errors = validationResult(req);
     if (!errors.isEmpty()) return next(new ApiError(400, "Invalid user data"));
 
@@ -37,6 +40,7 @@ const postUser = async (req: Request, res: Response, next: NextFunction) => {
 };
 
 const putUser = async (req: Request, res: Response, next: NextFunction) => {
+    debug.log("putUser");
     const errors = validationResult(req);
     if (!errors.isEmpty()) return next(new ApiError(400, "Invalid user data"));
 
@@ -55,6 +59,7 @@ const putUser = async (req: Request, res: Response, next: NextFunction) => {
 };
 
 const deleteUser = async (req: Request, res: Response, next: NextFunction) => {
+    debug.log("deleteUser");
     const errors = validationResult(req);
     if (!errors.isEmpty()) return next(new ApiError(400, "Invalid user data"));
 

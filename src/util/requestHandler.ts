@@ -18,7 +18,6 @@ type Endpoint =
 
 class requestHandler {
     private static readonly _url = config.apiUrl;
-    constructor() {}
 
     public static async get<T>(
         endpoint: Endpoint,
