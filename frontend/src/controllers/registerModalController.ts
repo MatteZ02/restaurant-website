@@ -35,7 +35,7 @@ const registerModalController = (modal: HTMLDialogElement) => {
 
             const user = await restaurantApiWrapper.postUser(userData).catch(noop);
             if (!user) {
-                alert("Registration failed");
+                alert("Registration failed"); // TODO: Proper registration error display
                 return;
             }
 

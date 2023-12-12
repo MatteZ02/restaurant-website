@@ -37,7 +37,7 @@ const f = async () => {
     const cart = await restaurantApiWrapper.getCart().catch(noop);
 
     if (!menuItems || !cart) {
-        const menuFail = document.createElement("p");
+        const menuFail = document.createElement("p"); // TODO: Implement clear ui
         menuFail.innerText = "Failed to load menu items";
         menu?.appendChild(menuFail);
         return;
@@ -84,7 +84,7 @@ const f = async () => {
         });
 
         minusButton.addEventListener("click", async () => {
-            const cart = await restaurantApiWrapper.deleteCartItem(item.id);
+            const cart = await restaurantApiWrapper.deleteCartItem(item.id).catch(noop);
             if (!cart) return;
             decrease(input);
         });

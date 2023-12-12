@@ -15,7 +15,7 @@ const loginModalController = (modal: HTMLDialogElement, redir?: string) => {
 
         const res = await restaurantApiWrapper.login(username.value, password.value).catch(noop);
         if (!res) {
-            alert("Login failed");
+            alert("Login failed"); // TODO: Proper login error display
             return;
         }
         localStorage.setItem("token", res.token);

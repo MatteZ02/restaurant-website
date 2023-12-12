@@ -89,7 +89,9 @@ const f = async () => {
             if (!button) return;
             button.disabled = true;
 
-            const { error: backendError, clientSecret } = await createPaymentIntent();
+            const payment = await createPaymentIntent();
+            if (!payment) return console.log("Error: Failed to create payment intent"); // TODO: Proper error display
+            const { error: backendError, clientSecret } = payment;
 
             if (backendError) {
                 console.log(backendError.message);
