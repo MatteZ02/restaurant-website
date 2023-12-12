@@ -177,6 +177,12 @@ h1 {
     font-family: "Rubik Bubbles", serif;
 }
 
+#nav_logo{
+  width: 160px;
+  height: auto;
+  }
+
+
 .herotext1 {
     margin-top: 0;
     padding: 0;

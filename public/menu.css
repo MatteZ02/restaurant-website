@@ -1,6 +1,7 @@
 
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -26,6 +27,11 @@ body.dark  #sides div .item { border-bottom: 5px solid #7F7F7F;}
 body.dark  #burgers div .item { border-bottom: 5px solid #7F7F7F;}
 body.dark  .footer { background-color: #111;}
 
+
+#nav_logo{
+  width: 160px;
+  height: auto;
+  }
 
 
 .checkbox {
@@ -302,6 +308,7 @@ display: none;
   border-bottom: 1px solid rgba(59, 59, 59, 0.30);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, rgba(0, 0, 0, 0.10) 100%);
   padding: 10px;
+  padding-top: 20px;
 }
 
 .gap_text{
