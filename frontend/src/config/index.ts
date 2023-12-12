@@ -1,4 +1,4 @@
 export default {
-    apiUrl: "http://localhost:3000/api/",
-    socketUrl: "ws://localhost:8080",
+    apiUrl: "http://restaurant-web.northeurope.cloudapp.azure.com/api/",
+    socketUrl: "ws://restaurant-web.northeurope.cloudapp.azure.com:8080",
 };
