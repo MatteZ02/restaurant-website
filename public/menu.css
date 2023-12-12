@@ -15,6 +15,18 @@ body.dark  .gap_text {color: #fff;}
 body.dark  .text {color: #ddd;}
 body.dark  .text1 {color: #ddd;}
 body.dark  .navi {color: #ddd;}
+body.dark  #meals_title {color: #ddd;}
+body.dark  #menu {color: #ddd;}
+body.dark  .item {background-color: #7F7F7F;}
+body.dark  #drinks div .buttons { border-bottom: 5px solid #111;}
+body.dark  #sides div .buttons { border-bottom: 5px solid #111;}
+body.dark  #burgers div .buttons { border-bottom: 5px solid #111;}
+body.dark  #drinks div .item { border-bottom: 5px solid #7F7F7F;}
+body.dark  #sides div .item { border-bottom: 5px solid #7F7F7F;}
+body.dark  #burgers div .item { border-bottom: 5px solid #7F7F7F;}
+body.dark  .footer { background-color: #111;}
+
+
 
 .checkbox {
   opacity: 0;

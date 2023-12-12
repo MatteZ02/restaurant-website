@@ -16,6 +16,7 @@ body.dark  .gap_text {color: #fff;}
 body.dark  .text {color: #ddd;}
 body.dark  .text1 {color: #ddd;}
 body.dark  .navi {color: #ddd;}
+body.dark  .footer { background-color: #111;}
 
 .checkbox {
   opacity: 0;
