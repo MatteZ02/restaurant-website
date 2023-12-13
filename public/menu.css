@@ -492,9 +492,35 @@ input{
   border-bottom: 5px solid #fff;
 }
 
+.errordialog{
+  position: fixed;
+  top: 10%;
+  z-index: 100;
+  background-color: #dc8383;
+  color: #fff;
+}
 
+.errordialog p{
+  color: #fff;
+}
 
+.cartdialog{
+  position: fixed;
+  top: 85%;
+  left: 55%;
+  z-index: 100;
+  background-color: rgb(127,110,255);;
+  color: #fff;
+  text-decoration: none;
+}
 
+.cartB{
+  margin: 0;
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+
+}
 
 @media screen and (max-width: 1692px) {
   .wrapper {
