@@ -506,8 +506,9 @@ display: none;
     height:20px;
   }
 
-element{
-  border-radius: 30px;
+#map{
+  border-radius: 30px !important;
+  z-index: 2 !important;
 }
 
 
