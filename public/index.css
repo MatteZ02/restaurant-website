@@ -425,6 +425,7 @@ display: none;
   border-radius: 20px;
   margin-top: 40px;
   margin-left: 100px;
+  margin-bottom:20px;
   color: #fff;
   padding: 10%;
   font-size: 2rem;
@@ -568,6 +569,7 @@ element{
   text-align: left;
   width: 100%;
 }
+
 }
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
@@ -580,6 +582,7 @@ element{
 
 @media screen and (max-width: 900px) {
   #cart {
+
     margin-bottom: 10px;
     margin-left: -20px;
   }
