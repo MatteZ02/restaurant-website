@@ -294,10 +294,9 @@ display: none;
   margin-top: 0;
   padding: 0;
   float: left;
-  margin: -5px;
   width: 25px;
   height: 30px;
-
+  margin-top: 10px;
 }
 
 #cart:hover {opacity: 0.6}
@@ -564,12 +563,11 @@ input{
 
 @media screen and (max-width: 900px) {
   #cart {
+    margin-top: -5px;
     margin-bottom: 10px;
     margin-left: -20px;
   }
 }
-
-
 
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */

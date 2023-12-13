@@ -161,9 +161,9 @@ display: none;
   margin-top: 0;
   padding: 0;
   float: left;
-  margin: -5px;
   width: 25px;
   height: 30px;
+  margin-top: 10px;
 }
 
 #cart:hover {opacity: 0.6}
@@ -219,6 +219,7 @@ margin-top: 1px;
 
 @media screen and (max-width: 900px) {
   #cart {
+    margin-top: -5px;
     margin-bottom: 10px;
     margin-left: -20px;
   }
