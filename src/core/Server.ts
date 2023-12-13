@@ -9,7 +9,7 @@ class Server extends ws.Server {
     public readonly socketManager = new SocketManager(this.connectionManager);
     constructor() {
         debug.log("Server created");
-        super({ port: 8080 });
+        super({ host: "0.0.0.0", port: 8080 });
         this.on("listening", () => debug.info("WebSocket Server listening on port 8080"));
         this.on("connection", (socket, req) => {
             debug.log(`Received connection from ${req.socket.remoteAddress}`);
