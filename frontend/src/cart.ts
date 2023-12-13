@@ -1,5 +1,6 @@
 import RestaurantApiWrapper from "./api";
 import createPaymentIntent from "./functions/createPaymentIntent";
+import displayErrorModal from "./functions/displayErrorModal";
 import { openDialog } from "./util/dialog";
 import { noop } from "./util/utils";
 
@@ -60,7 +61,7 @@ const f = async () => {
 
     const checkoutButton = document.getElementById("checkout");
     checkoutButton?.addEventListener("click", async () => {
-        if (cart.items.length === 0) return alert("Your cart is empty!");
+        if (cart.items.length === 0) return displayErrorModal("Cart is empty");
 
         const dialog = document.getElementsByClassName("cardDialog");
         openDialog(dialog[0] as HTMLDialogElement);
@@ -89,7 +90,7 @@ const f = async () => {
             button.disabled = true;
 
             const payment = await createPaymentIntent();
-            if (!payment) return console.log("Error: Failed to create payment intent"); // TODO: Proper error display
+            if (!payment) return displayErrorModal("Incorrect payment details");
             const { error: backendError, clientSecret } = payment;
 
             if (backendError) {
