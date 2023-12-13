@@ -55,7 +55,7 @@ const f = async () => {
         const description = document.createElement("p");
         description.innerText = item.description;
         menuItemElement.appendChild(description);
-        const price = document.createElement("p");
+        const price = document.createElement("pprice");
         price.innerText = item.price + " €";
         menuItemElement.appendChild(price);
 

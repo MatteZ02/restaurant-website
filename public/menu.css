@@ -382,168 +382,11 @@ font-size: 40px;
   width: 300px;
   text-align: center;
 }
+input{
+  height: 40px;
 
-
-#counter1 {
-font-size: 16px;
-
-}
-
-#button_add_cart1{
-position: relative;
-bottom: 20px;
-left: 10px;
-font-family: 'Sofia Sans Condensed', sans-serif;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-font-size: 20px;
-font-weight: 800;
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(79,9,121,1) 0%, rgba(79,0,255,1) 100%);
-color: #fff;
-cursor: pointer;
 }
 /*buttons boxes positions*/
-#buttons1{
-border-radius: 8px;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-position: absolute;
-height: 120px;
-width: 200px;
-right: 280px;
-top: 460px;
-}
-#buttons2{
-border-radius: 8px;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-position: absolute;
-height: 120px;
-width: 200px;
-right: 280px;
-top: 650px;
-}
-#buttons3{
-border-radius: 8px;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-position: absolute;
-height: 120px;
-width: 200px;
-right: 280px;
-top: 830px;
-}
-#buttons4{
-border-radius: 8px;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-position: absolute;
-height: 120px;
-width: 200px;
-right: 280px;
-top: 1070px;
-}
-#buttons5{
-border-radius: 8px;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-position: absolute;
-height: 120px;
-width: 200px;
-right: 280px;
-top: 1270px;
-}
-
-#buttons6{
-border-radius: 8px;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-position: absolute;
-height: 120px;
-width: 200px;
-right: 280px;
-top: 1465px;
-}
-#counter2 {
-font-size: 16px;
-height: 30px;
-}
-
-#button_add_cart2{
-position: relative;
-bottom: 20px;
-left: 10px;
-font-family: 'Sofia Sans Condensed', sans-serif;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-font-size: 20px;
-font-weight: 800;
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(79,9,121,1) 0%, rgba(79,0,255,1) 100%);
-color: #fff;
-cursor: pointer;
-}
-
-#counter3 {
-font-size: 16px;
-height: 30px;
-}
-
-#button_add_cart3{
-position: relative;
-bottom: 20px;
-left: 10px;
-font-family: 'Sofia Sans Condensed', sans-serif;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-font-size: 20px;
-font-weight: 800;
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(79,9,121,1) 0%, rgba(79,0,255,1) 100%);
-color: #fff;
-cursor: pointer;
-}
-
-#counter4 {
-font-size: 16px;
-height: 30px;
-}
-
-#button_add_cart4{
-position: relative;
-bottom: 20px;
-left: 10px;
-font-family: 'Sofia Sans Condensed', sans-serif;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-font-size: 20px;
-font-weight: 800;
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(79,9,121,1) 0%, rgba(79,0,255,1) 100%);
-color: #fff;
-cursor: pointer;
-}
-#counter5 {
-font-size: 16px;
-height: 30px;
-}
-
-#button_add_cart5{
-position: relative;
-bottom: 20px;
-left: 10px;
-font-family: 'Sofia Sans Condensed', sans-serif;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-font-size: 20px;
-font-weight: 800;
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(79,9,121,1) 0%, rgba(79,0,255,1) 100%);
-color: #fff;
-cursor: pointer;
-}
-#counter6 {
-font-size: 16px;
-height: 30px;
-}
-
-#button_add_cart6{
-position: relative;
-bottom: 20px;
-left: 10px;
-font-family: 'Sofia Sans Condensed', sans-serif;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-font-size: 20px;
-font-weight: 800;
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(79,9,121,1) 0%, rgba(79,0,255,1) 100%);
-color: #fff;
-cursor: pointer;
-}
 .menu-item {
   display: block;
   padding: 10px;
@@ -559,6 +402,9 @@ cursor: pointer;
   font-weight: 400;
 }
 
+.item pprice{
+  font-size: 30px;
+}
 .menu-item p {
   margin: 0;
   padding: 0;
@@ -568,12 +414,36 @@ cursor: pointer;
 
 
 .buttons{
-  width: 100px;
-  height: 20px;
+  width: 150px;
+  height: 50px;
   float: right;
   margin-top: -120px;
+
 }
 
+.buttons input{
+  width: 40px;
+  height: 70px;
+  font-size: 50px;
+  position:relative;
+  right: 50px;
+
+}
+.plusButtons{
+  width: 30px;
+  height: auto;
+  position:relative;
+  right: 50px;
+}
+
+.minusButtons{
+  width: 30px;
+  height: auto;
+ position:relative;
+  right: 50px;
+
+
+}
 /* burgers */
 
 #burgers div{
@@ -622,15 +492,7 @@ cursor: pointer;
   border-bottom: 5px solid #fff;
 }
 
-.plusButtons{
-  width: 15px;
-  height: auto;
-}
-.minusButtons{
-  width: 15px;
-  height: auto;
 
-}
 
 
 
