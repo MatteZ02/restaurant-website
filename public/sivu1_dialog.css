@@ -40,8 +40,9 @@ button {
     box-shadow: 0 0 #0000, 0 0 #0000, 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     padding: 1.6rem;
     max-width: 400px;
-    position: absolute;
+    position: fixed;
     max-height: 900px;
+    z-index: 80;
     /* position: -webkit-sticky;
     position: sticky;
     bottom: 10em;*/
@@ -144,12 +145,12 @@ button {
     background-color: white;
     border: none !important;
     border-radius: 20px;
-    box-shadow: 0 0 #0000, 0 0 #0000, 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     padding: 0.6rem;
     max-width: 700px;
-    height: 42em;
+    height: auto;
     top: 20%;
     left: 40%;
+
   }
 
   #register.flex{
@@ -174,7 +175,7 @@ button {
   .errordialog{
     position: fixed;
     top: 10%;
-    z-index: 100;
+    z-index: 1000;
     background-color: #dc8383;
     color: #fff;
   }
@@ -188,7 +189,7 @@ button {
     top: 85%;
     left: 55%;
     z-index: 100;
-    background-color: rgb(127,110,255);;
+    background-color: #894AFF;
     color: #fff;
     text-decoration: none;
   }

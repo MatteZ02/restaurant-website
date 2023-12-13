@@ -21,9 +21,6 @@ body.dark  .two { background-color: #474747;}
 body.dark  .three { background-color: #474747;}
 body.dark  .four { background-color: #474747;}
 
-
-
-
 .checkbox {
   opacity: 0;
   margin: 0;
@@ -81,6 +78,10 @@ h1{
 
   color: #000;
   font-size: 15px;
+}
+
+#navicart{
+  margin-top: -5px;
 }
 
 /* Header/Blog Title */
@@ -406,9 +407,9 @@ display: none;
   margin-top: 0;
   padding: 0;
   float: left;
-  margin: -5px;
   width: 25px;
   height: 30px;
+  margin-top: 10px;
 }
 
 #cart:hover {opacity: 0.6}
@@ -507,8 +508,9 @@ display: none;
     height:20px;
   }
 
-element{
-  border-radius: 30px;
+#map{
+  border-radius: 30px !important;
+  z-index: 2 !important;
 }
 
 
@@ -582,11 +584,12 @@ element{
 
 @media screen and (max-width: 900px) {
   #cart {
-
+    margin-top: -5px;
     margin-bottom: 10px;
     margin-left: -20px;
   }
 }
+
 
 @media screen and (max-width: 900px) {
   #fixed {

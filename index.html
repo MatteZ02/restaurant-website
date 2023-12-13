@@ -11,7 +11,7 @@
     <script src="../frontend/src/sivu1.js" defer></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <title>Document</title>
+    <title>mainpage</title>
 </head>
   <body>
     <div id="fixed">
@@ -27,15 +27,15 @@
       <a class="active" id="logotaus" href="/"><h1 id="logo_text"><img id="nav_logo" src="public/media/kuvat/hessupurgerTI.png" alt="mainlogo"></h1></a>
       <a href="/" class="navi" >Home</a>
       <a href="menu/" class="navi">Menu</a>
-      <a href="#login" class="navi"><button id="open_dialog"><i class="material-icons">account_circle</i></button></a>
-      <a href="cart/"><button id="cart" ><img class="navi" src="public/media/svg/cart.svg" alt="cart"></button> </a>
+      <a href="#login" class="navi"><i id="open_dialog" class="material-icons">account_circle</i></a>
+      <a href="cart/" id="cart"><img class="navi" id="navicart" src="public/media/svg/cart.svg" alt="cart"> </a>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()" >
         <i class="fa fa-bars"></i>
       </a>
     </div>
     </div>
   <div class="header">
-    <a href="menu/"><button class="button-R">Order!</button></a>
+    <a href="menu/" class="button-R">Order!</a>
     <div class="textOverlay">
       <img id="header_logo" src="public/media/kuvat/hessupurgerT.png" alt="logo">
     </div>
@@ -64,16 +64,15 @@
     <p class="text">la-su 11-20</p>
   </div>
   <div class="footer">
-    <h2></h2>
   </div>
 <!--Dialog-->
-<dialog aria-labelledby="dialog_title" aria-describedby="dialog_description" id="login-modal">
+<dialog  id="login-modal">
   <h2 id="dialog_title" class="h2">sign in</h2>
   <p>Minimum 3 characters</p>
   <!--form-->
   <form class="form-sub" action="POST">
     <div class="form-sub">
-      <label for="name">Username </label>
+      <label for="name" >Username </label>
       <input
       type="text"
       name="username" id="username"
@@ -102,6 +101,28 @@
   <button id="open_dialog2">register!</button>
   </dialog>
   <!--Dialog-->
+
+  <!--Dialog error-->
+
+     <dialog open  class="errordialog">
+      <p>error infomation here!</p>
+      <form method="dialog">
+        <button>OK</button>
+      </form>
+    </dialog>
+
+  <!--Dialog error-->
+
+
+  <!--Dialog cart-->
+
+       <dialog open  class="cartdialog">
+        <form method="dialog">
+          <a href="../cart/" class="cartB">X in cart</a>
+        </form>
+      </dialog>
+
+  <!--Dialog error-->
 
 
 <script>
