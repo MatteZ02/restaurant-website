@@ -494,8 +494,6 @@ input{
 
 
 
-
-
 @media screen and (max-width: 1692px) {
   .wrapper {
     grid-template-columns: repeat(2, 1fr);
