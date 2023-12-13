@@ -155,7 +155,10 @@ const f = async () => {
     if (!cartDialog) return;
     const cartDialogBtn = cartDialog.getElementsByClassName("cartB")[0] as HTMLLinkElement;
     if (!cartDialogBtn) return;
-    cartDialogBtn.innerText = `${cart.items.length} items in cart`;
+    cartDialogBtn.innerText = `${cart.items.reduce(
+        (acc, item) => acc + item.quantity,
+        0
+    )} items in cart`;
     if (cart.items.length > 0) cartDialog.showModal();
     else closeDialog(cartDialog);
 };
