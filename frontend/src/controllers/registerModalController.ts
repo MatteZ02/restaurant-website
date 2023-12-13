@@ -1,4 +1,5 @@
 import RestaurantApiWrapper from "../api";
+import displayErrorModal from "../functions/displayErrorModal";
 import { closeDialog, openDialog } from "../util/dialog";
 import { noop } from "../util/utils";
 
@@ -35,7 +36,7 @@ const registerModalController = (modal: HTMLDialogElement) => {
 
             const user = await restaurantApiWrapper.postUser(userData).catch(noop);
             if (!user) {
-                alert("Registration failed"); // TODO: Proper registration error display
+                displayErrorModal("That username or email is already taken.");
                 return;
             }
 

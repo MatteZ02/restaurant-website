@@ -159,7 +159,6 @@ h1{
   background-image: url("");
   background-size: 300px;
   min-width: 300px;
-
 }
 
 /* Clear floats after the columns */
@@ -297,6 +296,7 @@ display: none;
   margin: -5px;
   width: 25px;
   height: 30px;
+
 }
 
 #cart:hover {opacity: 0.6}

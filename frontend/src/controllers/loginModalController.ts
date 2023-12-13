@@ -1,6 +1,7 @@
 import { closeDialog, openDialog } from "../util/dialog";
 import RestaurantApiWrapper from "../api";
 import { noop } from "../util/utils";
+import displayErrorModal from "../functions/displayErrorModal";
 
 const restaurantApiWrapper = new RestaurantApiWrapper();
 
@@ -15,7 +16,7 @@ const loginModalController = (modal: HTMLDialogElement, redir?: string) => {
 
         const res = await restaurantApiWrapper.login(username.value, password.value).catch(noop);
         if (!res) {
-            alert("Login failed"); // TODO: Proper login error display
+            displayErrorModal("Invalid username or password");
             return;
         }
         localStorage.setItem("token", res.token);

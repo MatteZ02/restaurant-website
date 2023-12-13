@@ -2,6 +2,7 @@ import RestaurantApiWrapper from "./api";
 import loginModalController from "./controllers/loginModalController";
 import registerModalController from "./controllers/registerModalController";
 import { closeDialog, openDialog } from "./util/dialog";
+import { noop } from "./util/utils";
 
 const restaurantApiWrapper = new RestaurantApiWrapper();
 
@@ -146,5 +147,20 @@ if (registerBtn)
         registerModalController(registerModal);
     });
 
+const f = async () => {
+    const cart = await restaurantApiWrapper.getCart().catch(noop);
+    if (!cart) return;
+    if (cart.items.length === 0) return;
+    const cartDialog = document.getElementsByClassName("cartdialog")[0] as HTMLDialogElement;
+    if (!cartDialog) return;
+    const cartDialogBtn = cartDialog.getElementsByClassName("cartB")[0] as HTMLLinkElement;
+    if (!cartDialogBtn) return;
+    cartDialogBtn.innerText = `${cart.items.reduce(
+        (acc, item) => acc + item.quantity,
+        0
+    )} items in cart`;
+    if (cart.items.length > 0) cartDialog.showModal();
+    else closeDialog(cartDialog);
+};
 
-
+f();
