@@ -5,6 +5,11 @@ import { closeDialog, openDialog } from "./util/dialog";
 
 const restaurantApiWrapper = new RestaurantApiWrapper();
 
+const checkbox = document.getElementById("checkbox");
+checkbox?.addEventListener("change", () => {
+    document.body.classList.toggle("dark");
+});
+
 const params = new URLSearchParams(window.location.search);
 const login = params.get("login");
 const redirect = params.get("redirect");
