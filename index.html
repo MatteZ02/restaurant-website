@@ -14,6 +14,7 @@
     <title>Document</title>
 </head>
   <body>
+    <div id="fixed">
     <div class="support">
       <input  type="checkbox" class="checkbox" id="checkbox">
       <label for="checkbox" class="checkbox-label">
@@ -23,7 +24,7 @@
       </label>
     </div>
     <div class="topnav" id="myTopnav">
-      <a class="active" id="logotaus" href="/"><h1 id="logo_text">Hessun Burger</h1></a>
+      <a class="active" id="logotaus" href="/"><h1 id="logo_text"><img id="nav_logo" src="public/media/kuvat/hessupurgerTI.png" alt="mainlogo"></h1></a>
       <a href="/" class="navi" >Home</a>
       <a href="menu/" class="navi">Menu</a>
       <a href="#login" class="navi"><button id="open_dialog"><i class="material-icons">account_circle</i></button></a>
@@ -32,15 +33,15 @@
         <i class="fa fa-bars"></i>
       </a>
     </div>
-  <div class="header">
-    <div class="textOverlay">
-      <h1>Hessun Burger</h1>
-      <a href="menu/"> <button class="button-R">Tilaa !</button></a>
     </div>
-    <img id="burger_hero" src="public/media/kuvat/burger.png" alt="burgerhero">
+  <div class="header">
+    <a href="menu/"><button class="button-R">Order!</button></a>
+    <div class="textOverlay">
+      <img id="header_logo" src="public/media/kuvat/hessupurgerT.png" alt="logo">
+    </div>
   </div>
 <div class="sales">
-  <h2>Suosituin burgeri</h2>
+  <h2>recommendations</h2>
   <p class="salesP">Liha burger + </p>
   <p class="salesP">coca-cola</p>
 </div>
@@ -54,11 +55,11 @@
   <div class="four">
   </div>
 </div>
-<div id="vali"></div>
+
 <div class="column" id="map"></div>
   <div class="column1">
-    <h2 class="text1">Ravintola sijainti</h2>
-    <p>Aukioloajat:</p>
+    <h2 class="text1">Restaurant address</h2>
+    <p class="text">Aukioloajat:</p>
     <p class="text">ma-pe 10-21</p>
     <p class="text">la-su 11-20</p>
   </div>

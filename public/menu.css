@@ -1,6 +1,7 @@
 
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -15,12 +16,27 @@ body.dark  .gap_text {color: #fff;}
 body.dark  .text {color: #ddd;}
 body.dark  .text1 {color: #ddd;}
 body.dark  .navi {color: #ddd;}
+body.dark  #meals_title {color: rgb(127,110,255);}
+body.dark  #menu {color: #ddd;}
+body.dark  .item {background-color: #7F7F7F;}
+body.dark  #drinks div .buttons { border-bottom: 5px solid #111;}
+body.dark  #sides div .buttons { border-bottom: 5px solid #111;}
+body.dark  #burgers div .buttons { border-bottom: 5px solid #111;}
+body.dark  #drinks div .item { border-bottom: 5px solid #7F7F7F;}
+body.dark  #sides div .item { border-bottom: 5px solid #7F7F7F;}
+body.dark  #burgers div .item { border-bottom: 5px solid #7F7F7F;}
+body.dark  .footer { background-color: #111;}
+
+
+#nav_logo{
+  width: 160px;
+  height: auto;
+  }
 
 .checkbox {
   opacity: 0;
   margin: 0;
   position: absolute;
-
 }
 
 .checkbox-label {
@@ -192,6 +208,7 @@ h1{
   display: block;
   font-weight: 400;
   font-family: 'Rubik Bubbles', serif;
+  z-index: 10;
 }
 
 .herotext1{
@@ -233,12 +250,18 @@ h1{
 
 /* top nav starts */
 .topnav {
-overflow: hidden;
-background-color: #ddd;
-min-width: 250px;
-font-family: "Sofia Sans Condensed", sans-serif;
-font-weight: 600;
-}
+  overflow: hidden;
+  background-color: #ddd;
+  min-width: 250px;
+  font-family: "Sofia Sans Condensed", sans-serif;
+  font-weight: 600;
+  }
+
+  #fixed{
+  z-index: 100;
+  position: fixed;
+  width: 65%;
+  }
 
 .navtext{
   margin-top: 10px;
@@ -283,6 +306,7 @@ display: none;
   border-bottom: 1px solid rgba(59, 59, 59, 0.30);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, rgba(0, 0, 0, 0.10) 100%);
   padding: 10px;
+  padding-top: 20px;
 }
 
 .gap_text{
@@ -342,6 +366,8 @@ section #burgers{
 }
 #meals_title{
 font-size: 40px;
+color: #894495;
+font-family: 'Sofia Sans Condensed', sans-serif;
 }
 #burger_title{
 font-size: 40px;
@@ -545,7 +571,7 @@ cursor: pointer;
   width: 100px;
   height: 20px;
   float: right;
-  margin-top: -100px;
+  margin-top: -120px;
 }
 
 /* burgers */
@@ -594,6 +620,16 @@ cursor: pointer;
 
 #drinks div .buttons{
   border-bottom: 5px solid #fff;
+}
+
+.plusButtons{
+  width: 15px;
+  height: auto;
+}
+.minusButtons{
+  width: 15px;
+  height: auto;
+
 }
 
 
@@ -703,6 +739,13 @@ cursor: pointer;
   #text {
     width: 100%;
     height: 100%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  #fixed {
+    width: 100%;
+
   }
 }
 

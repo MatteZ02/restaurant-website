@@ -9,18 +9,20 @@ import {
 } from "../core/models/restaurantModel";
 import Request from "../types/Request";
 import { noop } from "../util/util";
+import { debug } from "..";
 
 const getRestaurant = async (req: Request, res: Response, next: NextFunction) => {
+    debug.log("getRestaurant");
     const errors = validationResult(req);
     if (!errors.isEmpty()) return next(new ApiError(400, "Invalid restaurant data"));
 
     const restaurants = await getRestaurants().catch(noop);
-
     if (!restaurants) return next(new ApiError(500, "Failed to obtain restaurants"));
     res.status(200).json(restaurants);
 };
 
 const postRestaurant = async (req: Request, res: Response, next: NextFunction) => {
+    debug.log("postRestaurant");
     const errors = validationResult(req);
     if (!errors.isEmpty()) return next(new ApiError(400, "Invalid restaurant data"));
 
@@ -34,6 +36,7 @@ const postRestaurant = async (req: Request, res: Response, next: NextFunction) =
 };
 
 const putRestaurant = async (req: Request, res: Response, next: NextFunction) => {
+    debug.log("putRestaurant");
     const errors = validationResult(req);
     if (!errors.isEmpty()) return next(new ApiError(400, "Invalid restaurant data"));
 
@@ -47,6 +50,7 @@ const putRestaurant = async (req: Request, res: Response, next: NextFunction) =>
 };
 
 const deleteRestaurant = async (req: Request, res: Response, next: NextFunction) => {
+    debug.log("deleteRestaurant");
     const errors = validationResult(req);
     if (!errors.isEmpty()) return next(new ApiError(400, "Invalid restaurant data"));
 

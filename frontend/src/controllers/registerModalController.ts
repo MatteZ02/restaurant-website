@@ -1,5 +1,6 @@
 import RestaurantApiWrapper from "../api";
 import { closeDialog, openDialog } from "../util/dialog";
+import { noop } from "../util/utils";
 
 const restaurantApiWrapper = new RestaurantApiWrapper();
 
@@ -32,9 +33,11 @@ const registerModalController = (modal: HTMLDialogElement) => {
 
             console.log(userData);
 
-            const user = await restaurantApiWrapper.postUser(userData);
-
-            console.log(user);
+            const user = await restaurantApiWrapper.postUser(userData).catch(noop);
+            if (!user) {
+                alert("Registration failed"); // TODO: Proper registration error display
+                return;
+            }
 
             closeDialog(modal);
         });

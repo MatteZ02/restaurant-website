@@ -7,7 +7,6 @@ body {
   font-family: 'Sofia Sans Condensed', sans-serif;
   padding: 0;
   margin: auto;
-
 }
 
 body.dark  {background-color: #111;}
@@ -16,12 +15,19 @@ body.dark  .gap_text {color: #fff;}
 body.dark  .text {color: #ddd;}
 body.dark  .text1 {color: #ddd;}
 body.dark  .navi {color: #ddd;}
+body.dark  .footer { background-color: #111;}
+body.dark  .one { background-color: #474747;}
+body.dark  .two { background-color: #474747;}
+body.dark  .three { background-color: #474747;}
+body.dark  .four { background-color: #474747;}
+
+
+
 
 .checkbox {
   opacity: 0;
   margin: 0;
   position: absolute;
-
 }
 
 .checkbox-label {
@@ -55,13 +61,11 @@ body.dark  .navi {color: #ddd;}
   margin: 2px;
   font-size:15px;
   color:#f3c57b;
-
 }
 
 .checkbox:checked + .checkbox-label .ball {
   transform: translateX(15px);
 }
-
 .support {
   margin: 0%;
 	position: absolute;
@@ -85,20 +89,36 @@ h1{
   background: linear-gradient(0deg, rgba(127,110,255,0) 0%, rgba(0,0,0,1) 100%);
   background-position: 100% 100%;
   background-size: 100%;
-  height: 600px;
+  height: 720px;
   border-bottom-left-radius: 45px;
   border-bottom-right-radius: 45px;
   padding: 0;
   background-repeat: no-repeat;
   min-width: 250px;
   background-position: right;
-  background-size: cover;
+  background-size: contain;
   position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: baseline;
+  background-image: url(../public/media/kuvat/herob3.jpg);
+  background-size: cover;
+  background-position: bottom;
+
 }
+
+#header_logo{
+  margin-left: -20px;
+width: 80%;
+height: auto;
+}
+
+#nav_logo{
+width: 160px;
+height: auto;
+}
+
 
 #burger_hero{
   width: 250px;
@@ -198,18 +218,6 @@ h1{
   padding: 30px;
   color: #111;
 }
-.textOverlay{
-  color: #ddd;
-  margin-left: 40px;
-  display: block;
-  display: flex;
-  flex-direction:column;
-  align-items:baseline;
-  justify-content: center;
-  display: block;
-  font-weight: 400;
-  font-family: 'Sofia Sans Condensed', sans-serif;
-}
 
 .herotext1{
   margin-top:0;
@@ -235,6 +243,10 @@ h1{
 }
 
 .button-R {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 100px;
   align-items: center;
   appearance: none;
   background-clip: padding-box;
@@ -248,7 +260,7 @@ h1{
   flex-direction: row;
   flex-shrink: 0;
   font-family: 'Sofia Sans Condensed', sans-serif;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 800;
   justify-content: center;
   line-height: 24px;
@@ -357,6 +369,12 @@ font-family: "Sofia Sans Condensed", sans-serif;
 font-weight: 600;
 }
 
+#fixed{
+z-index: 100;
+position: fixed;
+width: 65%;
+}
+
 .navtext{
   margin-top: 10px;
 }
@@ -399,7 +417,7 @@ display: none;
   width: 600px;
   height: 490px;
   background-color: #dadada;
-  background-image: url("../public/media/kuvat/sales.png");
+  background-image: url("../public/media/kuvat/herob.jpg");
   background-size:cover;
   background-repeat: no-repeat;
   background-position:center;
@@ -407,19 +425,19 @@ display: none;
   border-radius: 20px;
   margin-top: 40px;
   margin-left: 100px;
-  color: #ddd;
+  color: #fff;
   padding: 10%;
   font-size: 2rem;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .row{
   width: 60%;
 }
 .salesP{
-  color: #ddd;
+  color: #fff;
   font-size: 2rem;
-  font-weight: 400;
+  font-weight: 600;
 }
 .wrapper {
   display: grid;
@@ -436,7 +454,7 @@ display: none;
   .one {
   grid-column: 1 ;
   grid-row: 1;
-  background-color :#ccc;
+  background-color: #ddd;
   border-radius: 10px;
   background-image: url("../public/media/kuvat/burger_g.png");
   background-size: contain;
@@ -447,7 +465,7 @@ display: none;
   .two {
   grid-column: 2 ;
   grid-row: 1;
-  background-color :#ccc;
+  background-color: #ddd;
   background-image: url("../public/media/kuvat/fries_g.png");
   background-size: contain;
   background-repeat:no-repeat;
@@ -458,7 +476,7 @@ display: none;
   .three {
   grid-column: 1;
   grid-row: 2;
-  background-color :#ccc;
+  background-color: #ddd;
   background-image: url("../public/media/kuvat/drink_g.png");
   background-size: contain;
   background-repeat:no-repeat;
@@ -468,7 +486,7 @@ display: none;
   .four {
   grid-column: 2;
   grid-row: 2;
-  background-color :#ccc;
+  background-color: #ddd;
   background-image: url("../public/media/kuvat/dips_g.png");
   background-size: contain;
   background-repeat:no-repeat;
@@ -487,6 +505,10 @@ display: none;
     margin: 20px;
     height:20px;
   }
+
+element{
+  border-radius: 30px;
+}
 
 
 @media screen and (max-width: 1692px) {
@@ -560,6 +582,13 @@ display: none;
   #cart {
     margin-bottom: 10px;
     margin-left: -20px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  #fixed {
+    width: 100%;
+
   }
 }
 

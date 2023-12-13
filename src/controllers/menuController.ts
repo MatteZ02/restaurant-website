@@ -4,8 +4,10 @@ import { validationResult } from "express-validator";
 import ApiError from "../classes/ApiError";
 import { addMenuItem, deleteMenuItem, getFullMenu, updateMenuItem } from "../core/models/menuModel";
 import { noop } from "../util/util";
+import { debug } from "..";
 
 const getMenu = async (req: Request, res: Response, next: NextFunction) => {
+    debug.log("getMenu");
     const errors = validationResult(req);
     if (!errors.isEmpty()) return next(new ApiError(400, "Invalid menu data"));
 
@@ -16,6 +18,7 @@ const getMenu = async (req: Request, res: Response, next: NextFunction) => {
 };
 
 const postMenu = async (req: Request, res: Response, next: NextFunction) => {
+    debug.log("postMenu");
     const errors = validationResult(req);
     if (!errors.isEmpty()) return next(new ApiError(400, "Invalid menu data"));
 
@@ -29,6 +32,7 @@ const postMenu = async (req: Request, res: Response, next: NextFunction) => {
 };
 
 const putMenu = async (req: Request, res: Response, next: NextFunction) => {
+    debug.log("putMenu");
     const errors = validationResult(req);
     if (!errors.isEmpty()) return next(new ApiError(400, "Invalid menu data"));
 
@@ -42,6 +46,7 @@ const putMenu = async (req: Request, res: Response, next: NextFunction) => {
 };
 
 const deleteMenu = async (req: Request, res: Response, next: NextFunction) => {
+    debug.log("deleteMenu");
     const errors = validationResult(req);
     if (!errors.isEmpty()) return next(new ApiError(400, "Invalid menu data"));
 

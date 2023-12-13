@@ -14,22 +14,25 @@
     <title>Document</title>
 </head>
   <body>
-    <div class="support">
-      <input  type="checkbox" class="checkbox" id="checkbox">
-      <label for="checkbox" class="checkbox-label">
-        <i id="icon_sun" class="material-icons" >wb_sunny</i>
-        <i id="icon_moon" class="material-icons">brightness_3</i>
-        <span class="ball"></span>
-      </label>
+    <div id="fixed">
+      <div class="support">
+        <input  type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="checkbox-label">
+          <i id="icon_sun" class="material-icons" >wb_sunny</i>
+          <i id="icon_moon" class="material-icons">brightness_3</i>
+          <span class="ball"></span>
+        </label>
+      </div>
+      <div class="topnav" id="myTopnav">
+        <a class="active" id="logotaus" href="../"><h1 id="logo_text"><img id="nav_logo" src="../public/media/kuvat/hessupurgerTI.png" alt="mainlogo"></h1></a>
+        <a href="../" class="navi" >Home</a>
+        <a href="../menu/" class="navi">Menu</a>
+        <a href="#login" class="navi"><button id="open_dialog"><i class="material-icons">account_circle</i></button></a>
+        <a href="#cart"><button id="cart"><img class="navi" src="../public/media/svg/cart.svg" alt="cart"></button></a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
+      </div>
     </div>
-    <div class="topnav" id="myTopnav">
-      <a class="active" id="logotaus" href="/"><h1 id="logo_text">Hessun Burger</h1></a>
-      <a href="../" class="navi" >Home</a>
-      <a href="../menu/" class="navi">Menu</a>
-      <a href="#login" class="navi"><button id="open_dialog"><i class="material-icons">account_circle</i></button></a>
-      <a href="#cart"><button id="cart"><img class="navi" src="../public/media/svg/cart.svg" alt="cart"></button></a>
-      <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
-    </div>
+
 <div class="itemcartdiv">
   <a href="../menu/"><img class="itemcartdivimg" src="../public/media/svg/arrow-left.svg" alt="Goback"></a>
   <h1  class="itemcartdivtext">Shopping cart</h1>
@@ -62,7 +65,7 @@
       <label for="name">
         Name
       </label>
-      <input id="name" placeholder="Jenny Rosen" value="Jenny Rosen" required />
+      <input id="name" required />
 
       <label for="card-element">
         Card

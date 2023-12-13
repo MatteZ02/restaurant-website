@@ -4,8 +4,10 @@ import { NextFunction, Response } from "express";
 import Request from "../types/Request";
 import ApiError from "../classes/ApiError";
 import { User } from "restaurantApiTypes";
+import { debug } from "..";
 
 const authenticateToken = (req: Request, res: Response, next: NextFunction) => {
+    debug.log("authenticateToken");
     const authHeader = req.headers["authorization"];
     const token = authHeader && authHeader.split(" ")[1];
 

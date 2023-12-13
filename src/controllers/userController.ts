@@ -6,8 +6,10 @@ import Request from "../types/Request";
 import { genSaltSync, hashSync } from "bcryptjs";
 import Database from "../core/database";
 import { noop } from "../util/util";
+import { debug } from "..";
 
 const getUser = async (req: Request, res: Response, next: NextFunction) => {
+    debug.log("getUser");
     const errors = validationResult(req);
     if (!errors.isEmpty()) return next(new ApiError(400, "Invalid user data"));
 
@@ -21,22 +23,28 @@ const getUser = async (req: Request, res: Response, next: NextFunction) => {
 };
 
 const postUser = async (req: Request, res: Response, next: NextFunction) => {
+    debug.log("postUser");
     const errors = validationResult(req);
     if (!errors.isEmpty()) return next(new ApiError(400, "Invalid user data"));
 
     const user = req.body;
-    const existingUser = await Database.query("SELECT * FROM User WHERE username = ?", [
+    const existingUsername = await Database.query("SELECT * FROM User WHERE username = ?", [
         user.username,
     ]).catch(noop);
-    if (existingUser?.length > 0) return next(new ApiError(400, "Username already exists"));
+    if (existingUsername?.length > 0) return next(new ApiError(400, "Username already exists"));
+    const existingEmail = await Database.query("SELECT * FROM User WHERE email = ?", [
+        user.email,
+    ]).catch(noop);
+    if (existingEmail?.length > 0) return next(new ApiError(400, "Email already exists"));
     const salt = genSaltSync(10);
     user.password = hashSync(user.password, salt);
-    const u = addUser(user);
+    const u = addUser(user).catch(noop);
     if (!u) return next(new ApiError(500, "Error adding user"));
     res.status(201).json(u);
 };
 
 const putUser = async (req: Request, res: Response, next: NextFunction) => {
+    debug.log("putUser");
     const errors = validationResult(req);
     if (!errors.isEmpty()) return next(new ApiError(400, "Invalid user data"));
 
@@ -55,6 +63,7 @@ const putUser = async (req: Request, res: Response, next: NextFunction) => {
 };
 
 const deleteUser = async (req: Request, res: Response, next: NextFunction) => {
+    debug.log("deleteUser");
     const errors = validationResult(req);
     if (!errors.isEmpty()) return next(new ApiError(400, "Invalid user data"));
 

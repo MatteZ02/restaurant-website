@@ -1,17 +1,20 @@
 import RestaurantApiWrapper from "./api";
+import createPaymentIntent from "./functions/createPaymentIntent";
 import { openDialog } from "./util/dialog";
-import { addMessage } from "./util/utils";
+import { noop } from "./util/utils";
 
 const restaurantApiWrapper = new RestaurantApiWrapper();
 
 const f = async () => {
-    const cart = await restaurantApiWrapper.getCart();
+    const cart = await restaurantApiWrapper.getCart().catch(noop);
+    if (!cart) return;
 
     const itemCount = document.getElementById("itemcounttext");
     if (itemCount)
         itemCount.innerText = cart.items.reduce((acc, item) => acc + item.quantity, 0) + " items";
 
     const items = document.getElementById("items");
+    const total = document.getElementById("totalprice");
 
     for (const item of cart.items) {
         const itemElement = document.createElement("div");
@@ -39,22 +42,20 @@ const f = async () => {
 
         deleteButton.addEventListener("click", async () => {
             const updatedCart = await restaurantApiWrapper.deleteCartItem(item.item.id);
+            if (total) total.innerText = updatedCart.total.toFixed(2) + " €";
             if (itemCount)
                 itemCount.innerText =
-                    cart.items.reduce((acc, item) => acc + item.quantity, 0) + " items";
+                    updatedCart.items.reduce((acc, item) => acc + item.quantity, 0) + " items";
             const updatedItem = updatedCart.items.find(
                 cartItem => cartItem.item.id === item.item.id
             );
-            if (!updatedItem) return;
-            if (updatedItem.quantity === 0) {
-                itemElement.remove();
-            }
-            (+item.item.price * item.quantity).toFixed(2) + " €";
+            if (!updatedItem) return itemElement.remove();
+            (+updatedItem.item.price * updatedItem.quantity).toFixed(2) + " €";
+            price.innerText = (+updatedItem.item.price * updatedItem.quantity).toFixed(2) + " €";
             amount.innerText = updatedItem.quantity + " items";
         });
     }
 
-    const total = document.getElementById("totalprice");
     if (total) total.innerText = cart.total.toFixed(2) + " €";
 
     const checkoutButton = document.getElementById("checkout");
@@ -75,52 +76,32 @@ const f = async () => {
         const card = elements.create("card");
         card.mount("#card-element");
 
-        // When the form is submitted...
         const form = document.getElementById("payment-form");
         if (!form) return;
         let submitted = false;
         form.addEventListener("submit", async e => {
             e.preventDefault();
 
-            // Disable double submission of the form
-            if (submitted) {
-                return;
-            }
+            if (submitted) return;
             submitted = true;
             const button = form.querySelector("button");
             if (!button) return;
             button.disabled = true;
 
-            // Make a call to the server to create a new
-            // payment intent and store its client_secret.
-            const { error: backendError, clientSecret } = await fetch("/create-payment-intent", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    currency: "usd",
-                    paymentMethodType: "card",
-                }),
-            }).then(r => r.json());
+            const payment = await createPaymentIntent();
+            if (!payment) return console.log("Error: Failed to create payment intent"); // TODO: Proper error display
+            const { error: backendError, clientSecret } = payment;
 
             if (backendError) {
-                addMessage(backendError.message);
-
-                // reenable the form.
+                console.log(backendError.message);
                 submitted = false;
                 button.disabled = false;
                 return;
             }
 
-            addMessage(`Client secret returned.`);
-
             const nameInput = document.querySelector("#name") as HTMLInputElement;
             if (!nameInput) return;
 
-            // Confirm the card payment given the clientSecret
-            // from the payment intent that was just created on
-            // the server.
             const { error: stripeError, paymentIntent } = await stripe.confirmCardPayment(
                 clientSecret,
                 {
@@ -134,15 +115,13 @@ const f = async () => {
             );
 
             if (stripeError) {
-                addMessage(stripeError.message);
-
-                // reenable the form.
+                console.log(stripeError.message);
                 submitted = false;
                 button.disabled = false;
                 return;
             }
 
-            addMessage(`Payment ${paymentIntent.status}: ${paymentIntent.id}`);
+            console.log(`Payment ${paymentIntent.status}: ${paymentIntent.id}`);
             window.location.href = "/success/";
         });
     });
