@@ -254,6 +254,7 @@ h1{
   min-width: 250px;
   font-family: "Sofia Sans Condensed", sans-serif;
   font-weight: 600;
+  height: auto;
   }
 
   #fixed{

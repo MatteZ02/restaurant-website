@@ -83,6 +83,10 @@ h1{
   font-size: 15px;
 }
 
+#navicart{
+  margin-top: -5px;
+}
+
 /* Header/Blog Title */
 .header {
   background: rgb(127,110,255);
