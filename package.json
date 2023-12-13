@@ -7,7 +7,8 @@
         "build": "cd ./frontend && tsc && vite build",
         "start": "tsc && node .",
         "start:dev": "nodemon",
-        "test": "jest"
+        "test": "jest",
+        "apidoc": "apidoc -i src/ -o docs/"
     },
     "devDependencies": {
         "@types/bcryptjs": "^2.4.6",
@@ -32,6 +33,7 @@
         "vite-plugin-pwa": "^0.16.5"
     },
     "dependencies": {
+        "apidoc": "^1.2.0",
         "bcryptjs": "^2.4.3",
         "body-parser": "^1.20.2",
         "cookie-parser": "^1.4.6",

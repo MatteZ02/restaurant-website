@@ -1,0 +1,13 @@
+{
+    "name": "restaurant-website",
+    "version": "0.1.0",
+    "description": "Restaurant-website",
+    "title": "Restaurant-website",
+    "url" : "http://restaurant-web.northeurope.cloudapp.azure.com/",
+    "order": [
+    ],
+    "template": {
+      "withCompare": true,
+      "withGenerator": true
+    }
+  }
