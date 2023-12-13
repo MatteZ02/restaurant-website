@@ -1,6 +1,18 @@
+import { Cart } from "restaurantApiTypes";
 import RestaurantApiWrapper from "./api";
 import { decrease, increase } from "./functions/counter";
 import { noop } from "./util/utils";
+import { closeDialog } from "./util/dialog";
+
+function updateCartDialog(cart: Cart) {
+    const cartDialog = document.getElementsByClassName("cartdialog")[0] as HTMLDialogElement;
+    if (!cartDialog) return;
+    const cartDialogBtn = cartDialog.getElementsByClassName("cartB")[0] as HTMLLinkElement;
+    if (!cartDialogBtn) return;
+    cartDialogBtn.innerText = `${cart.items.length} items in cart`;
+    if (cart.items.length > 0) cartDialog.showModal();
+    else closeDialog(cartDialog);
+}
 
 const restaurantApiWrapper = new RestaurantApiWrapper();
 
@@ -64,7 +76,7 @@ const f = async () => {
         const buttons = document.createElement("div");
         buttons.classList.add("buttons");
         const minusButton = document.createElement("button");
-        const minusimage= document.createElement("img");
+        const minusimage = document.createElement("img");
         minusimage.classList.add("minusButtons");
         minusimage.src = "../public/media/svg/minus.svg";
         minusimage.alt = "minus";
@@ -79,7 +91,7 @@ const f = async () => {
         input.readOnly = true;
         buttons.appendChild(input);
         const plusButton = document.createElement("button");
-        const plusimage= document.createElement("img");
+        const plusimage = document.createElement("img");
         plusimage.classList.add("plusButtons");
         plusimage.src = "../public/media/svg/plus.svg";
         plusimage.alt = "plus";
@@ -90,12 +102,14 @@ const f = async () => {
             const cart = await restaurantApiWrapper.postCartItem(item).catch(noop);
             if (!cart) return;
             increase(input);
+            updateCartDialog(cart);
         });
 
         minusButton.addEventListener("click", async () => {
             const cart = await restaurantApiWrapper.deleteCartItem(item.id).catch(noop);
             if (!cart) return;
             decrease(input);
+            updateCartDialog(cart);
         });
 
         parentElement.appendChild(buttons);
