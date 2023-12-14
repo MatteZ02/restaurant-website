@@ -8,10 +8,10 @@ const orderStatusToText = (status: number) => {
         case 1:
             return "Your order is awaiting confirmation";
         case 2:
-            return "Your has been accepted by the restaurant";
-        case 3:
-            return "Your order as been delivered";
+            return "Your order has been accepted by the restaurant";
         case 4:
+            return "Your order has been delivered";
+        case 3:
             return "Your order has been rejected. Please contact the restaurant if you believe this is a mistake";
     }
 };
@@ -22,11 +22,11 @@ const f = async () => {
     if (!orderId) return window.location.replace("/");
     const order = await restaurantApiWrapper.getOrderById(+orderId).catch(noop);
     if (!order) return window.location.replace("/");
-    const confirmation = document.getElementById("order-confirmation");
+    const confirmation = document.getElementById("order-status");
     if (confirmation)
         confirmation.innerText = orderStatusToText(order.order_status) ?? "Unknown status";
     const orderNumber = document.getElementById("order_id");
-    if (orderNumber) orderNumber.innerText = `#${order.id}`;
+    if (orderNumber) orderNumber.innerText = `Order #${order.id}`;
     const socket = new WebSocket(config.socketUrl);
     socket.onopen = () => {
         socket.send(JSON.stringify({ orderId }));
@@ -44,8 +44,6 @@ const f = async () => {
     if (!menu) return;
 
     for (const orderItem of order.items) {
-        console.log(orderItem);
-
         const itemElement = document.createElement("div");
         itemElement.classList.add("itemcart");
         const name = document.createElement("div");
