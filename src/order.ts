@@ -43,20 +43,22 @@ const f = async () => {
     const menu = await restaurantApiWrapper.getMenu().catch(noop);
     if (!menu) return;
 
-    for (const item of order.items) {
+    for (const orderItem of order.items) {
+        console.log(orderItem);
+
         const itemElement = document.createElement("div");
         itemElement.classList.add("itemcart");
         const name = document.createElement("div");
         name.classList.add("addeditem");
-        name.innerText = menu.find(menuItem => menuItem.id === item.id)?.name ?? "Unknown";
+        name.innerText = menu.find(menuItem => menuItem.id === orderItem.item)?.name ?? "Unknown";
         itemElement.appendChild(name);
         const price = document.createElement("div");
         price.classList.add("addeditemprice");
-        price.innerText = menu.find(menuItem => menuItem.id === item.id)?.price ?? "Unknown";
+        price.innerText = menu.find(menuItem => menuItem.id === orderItem.item)?.price ?? "Unknown";
         itemElement.appendChild(price);
         const amount = document.createElement("div");
         amount.classList.add("addeditemamount");
-        amount.innerText = item.quantity + " items";
+        amount.innerText = orderItem.quantity + " items";
         itemElement.appendChild(amount);
         orderItems?.appendChild(itemElement);
     }
