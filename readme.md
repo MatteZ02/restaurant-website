@@ -32,4 +32,4 @@ docker run --name restaurant-website --net host -d \
     mattez02/restaurant-website
 ```
 
-You will also have to instal and host (stripe-cli)[https://github.com/stripe/stripe-cli#installation] in order to use the payment api.
+You will also have to install and host [stripe-cli](https://github.com/stripe/stripe-cli#installation) in order to use the payment api.
