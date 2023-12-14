@@ -12,7 +12,7 @@ class Server extends ws.Server {
     constructor() {
         debug.log("Server created");
         super(
-            process.env.NDOE_ENV === "productionf"
+            process.env.NDOE_ENV === "production"
                 ? {
                       server: https
                           .createServer(httpsOptions)

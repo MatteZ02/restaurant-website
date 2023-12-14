@@ -35,7 +35,7 @@ ViteExpress.config({
     mode: (process.env.NODE_ENV ?? "development") as "development" | "production",
 });
 
-if (process.env.NODE_ENV === "productionf") {
+if (process.env.NODE_ENV === "production") {
     https
         .createServer(httpsOptions, app)
         .listen(443, () => debug.info("Server listening on port 443"));
