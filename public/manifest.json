@@ -10,13 +10,13 @@
       {
         "src": "media/kuvat/logoHbig.png",
         "sizes": "268x224",
-        "type": "image/png",
+        "type": "kuvat/png",
         "purpose": "any maskable"
       },
       {
         "src": "media/kuvat/logoHsmall.png",
         "sizes": "193x162",
-        "type": "image/png"
+        "type": "kuvat/png"
       }
     ]
   }
