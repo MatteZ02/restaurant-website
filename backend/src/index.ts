@@ -14,7 +14,6 @@ import Stripe from "stripe";
 import Server from "./core/Server";
 import debux from "debux";
 import https from "https";
-import helmet from "helmet";
 
 const debug = debux();
 debug.info("Initializing server");
@@ -36,7 +35,7 @@ ViteExpress.config({
     mode: (process.env.NODE_ENV ?? "development") as "development" | "production",
 });
 
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === "productionf") {
     https
         .createServer(httpsOptions, app)
         .listen(443, () => debug.info("Server listening on port 443"));
@@ -50,7 +49,6 @@ if (process.env.NODE_ENV === "production") {
     });
 }
 
-app.use(helmet());
 app.use((req: express.Request, res: express.Response, next: express.NextFunction): void =>
     req.originalUrl === "/webhook" ? next() : express.json()(req, res, next)
 );

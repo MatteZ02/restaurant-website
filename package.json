@@ -1,12 +1,11 @@
 {
     "name": "restaurant-website",
     "version": "0.1.0",
-    "main": "build/index.js",
+    "main": "backend/build/index.js",
     "scripts": {
-        "dev": "cd ./frontend && vite",
         "production": "npm run build && npm run start",
-        "build": "cd ./frontend && tsc && vite build",
-        "start": "tsc && node .",
+        "build": "tsc && vite build",
+        "start": "cd backend && tsc && cd ../ && node .",
         "start:dev": "nodemon",
         "test": "jest",
         "apidoc": "apidoc -i src/ -o docs/"
@@ -43,7 +42,6 @@
         "express": "^4.18.2",
         "express-session": "^1.17.3",
         "express-validator": "^7.0.1",
-        "helmet": "^7.1.0",
         "jsonwebtoken": "^9.0.2",
         "mysql2": "^3.6.5",
         "nodemon": "^3.0.1",

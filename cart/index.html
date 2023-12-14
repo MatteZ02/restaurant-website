@@ -1,153 +1,170 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#fff">
-    <link rel="stylesheet" href="../public/cart.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../public/sivu1_dialog.css">
-    <script src="https://js.stripe.com/v3/"></script>
-    <script src="../frontend/src/main.ts" type="module"></script>
-    <script src="../frontend/src/cart.ts" type="module"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="manifest" href="/manifest.json" />
-    <title>cart</title>
-</head>
-  <body>
-    <div id="fixed">
-      <div class="support">
-        <input  type="checkbox" class="checkbox" id="checkbox">
-        <label for="checkbox" class="checkbox-label">
-          <i id="icon_sun" class="material-icons" >wb_sunny</i>
-          <i id="icon_moon" class="material-icons">brightness_3</i>
-          <span class="ball"></span>
-        </label>
-      </div>
-      <div class="topnav" id="myTopnav">
-        <a class="active" id="logotaus" href="../"><h1 id="logo_text"><img id="nav_logo" src="../public/media/kuvat/hessupurgerTI.png" alt="mainlogo"></h1></a>
-        <a href="../" class="navi" >Home</a>
-        <a href="../menu/" class="navi">Menu</a>
-        <a href="#login" class="navi"><i id="open_dialog" class="material-icons">account_circle</i></a>
-        <a href="../cart/" id="cart"><img class="navi" id="navicart" src="../public/media/svg/cart.svg" alt="cart"></a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
-      </div>
-    </div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#fff" />
+        <link rel="stylesheet" href="../public/cart.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link rel="stylesheet" href="../public/sivu1_dialog.css" />
+        <script src="https://js.stripe.com/v3/"></script>
+        <script src="../src/main.ts" type="module"></script>
+        <script src="../src/cart.ts" type="module"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link rel="manifest" href="/manifest.json" />
+        <title>cart</title>
+    </head>
+    <body>
+        <div id="fixed">
+            <div class="support">
+                <input type="checkbox" class="checkbox" id="checkbox" />
+                <label for="checkbox" class="checkbox-label">
+                    <i id="icon_sun" class="material-icons">wb_sunny</i>
+                    <i id="icon_moon" class="material-icons">brightness_3</i>
+                    <span class="ball"></span>
+                </label>
+            </div>
+            <div class="topnav" id="myTopnav">
+                <a class="active" id="logotaus" href="../"
+                    ><h1 id="logo_text">
+                        <img
+                            id="nav_logo"
+                            src="../public/media/kuvat/hessupurgerTI.png"
+                            alt="mainlogo"
+                        /></h1
+                ></a>
+                <a href="../" class="navi">Home</a>
+                <a href="../menu/" class="navi">Menu</a>
+                <a href="#login" class="navi"
+                    ><i id="open_dialog" class="material-icons">account_circle</i></a
+                >
+                <a href="../cart/" id="cart"
+                    ><img class="navi" id="navicart" src="../public/media/svg/cart.svg" alt="cart"
+                /></a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()"
+                    ><i class="fa fa-bars"></i
+                ></a>
+            </div>
+        </div>
 
-<div class="itemcartdiv">
-  <a href="../menu/"><img class="itemcartdivimg" src="../public/media/svg/arrow-left.svg" alt="Goback"></a>
-  <h1  class="itemcartdivtext">Shopping cart</h1>
-  <img class="itemcartdivimg"  src="../public/media/svg/shopping-bag.svg" alt="">
-</div>
+        <div class="itemcartdiv">
+            <a href="../menu/"
+                ><img class="itemcartdivimg" src="../public/media/svg/arrow-left.svg" alt="Goback"
+            /></a>
+            <h1 class="itemcartdivtext">Shopping cart</h1>
+            <img class="itemcartdivimg" src="../public/media/svg/shopping-bag.svg" alt="" />
+        </div>
 
+        <div class="itemcount">
+            <p id="itemcounttext"></p>
+        </div>
 
-<div class="itemcount">
-  <p id="itemcounttext"></p>
-</div>
+        <div id="box"></div>
 
-<div id="box"></div>
+        <div id="items"></div>
 
-<div id="items"></div>
+        <div id="summa">
+            <p class="summap">Total</p>
+            <p class="summap" id="totalprice"></p>
+        </div>
 
-<div id="summa">
-  <p class="summap">Total</p>
-  <p  class="summap" id="totalprice"></p>
-</div>
+        <div id="buy">
+            <button class="button-R" id="checkout">Checkout</button>
+        </div>
 
-<div id="buy">
-  <button class="button-R" id="checkout">Checkout</button>
-</div>
+        <div class="footer">
+            <p class="footerP">puh: 04401010101</p>
+            <p class="footerP">address: Runeberginkatu 23, 00101 Helsinki</p>
+        </div>
+        <!--Dialog for card -->
+        <dialog class="cardDialog">
+            <form id="payment-form">
+                <label for="name"> Name </label>
+                <input id="name" required />
 
-  <div class="footer">
-    <p class="footerP">puh: 04401010101</p>
-    <p class="footerP">address: Runeberginkatu 23, 00101 Helsinki</p>
-  </div>
-<!--Dialog for card -->
-  <dialog class="cardDialog">
-    <form id="payment-form">
-      <label for="name">
-        Name
-      </label>
-      <input id="name" required />
+                <label for="card-element"> Card </label>
+                <div id="card-element">
+                    <!-- Elements will create input elements here -->
+                </div>
 
-      <label for="card-element">
-        Card
-      </label>
-      <div id="card-element">
-        <!-- Elements will create input elements here -->
-      </div>
+                <!-- We'll put the error messages in this element -->
+                <div id="card-errors" role="alert"></div>
 
-      <!-- We'll put the error messages in this element -->
-      <div id="card-errors" role="alert"></div>
+                <button id="submit">Pay</button>
+            </form>
+            <form method="dialog">
+                <button>close</button>
+            </form>
+        </dialog>
 
-      <button id="submit">Pay</button>
-    </form>
-    <form method="dialog">
-      <button>close</button>
-    </form>
-  </dialog>
+        <!--Dialog sign in-->
+        <dialog
+            aria-labelledby="dialog_title"
+            aria-describedby="dialog_description"
+            id="login-modal"
+        >
+            <h2 id="dialog_title" class="h2">sign in</h2>
+            <p>Minimum 3 characters</p>
+            <!--form-->
+            <form class="form-sub" action="POST">
+                <div class="form-sub">
+                    <label for="name">Username</label>
+                    <input
+                        type="text"
+                        name="username"
+                        id="username"
+                        autocomplete="username"
+                        required
+                        minlength="3"
+                    />
+                </div>
+                <div class="form-sub">
+                    <label for="password">Password:</label>
+                    <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        required
+                        required
+                        minlength="3"
+                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}"
+                    />
+                </div>
+                <!--</div>-->
+            </form>
+            <!--form-->
 
+            <div class="flex flex-space-between">
+                <button id="close_dialog">Close</button>
+                <button type="submit" value="lähetä!" id="submit">Confirm</button>
+            </div>
+            <button id="open_dialog2">register!</button>
+        </dialog>
+        <!--Dialog-->
 
+        <!--Dialog error-->
 
-<!--Dialog sign in-->
-<dialog aria-labelledby="dialog_title" aria-describedby="dialog_description" id="login-modal">
-  <h2 id="dialog_title" class="h2">sign in</h2>
-  <p>Minimum 3 characters</p>
-  <!--form-->
-  <form class="form-sub" action="POST">
-    <div class="form-sub">
-      <label for="name">Username</label>
-      <input
-      type="text"
-      name="username" id="username"
-      autocomplete="username"
-      required minlength="3"
-      />
-    </div>
-    <div class="form-sub">
-      <label for="password">Password:</label>
-      <input
-      type="password"
-      name="password"
-      id="password" required
-      required minlength="3"
-      pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}"
-      />
-    </div>
-    <!--</div>-->
-  </form>
-  <!--form-->
+        <dialog class="errordialog">
+            <p>error infomation here!</p>
+            <form method="dialog">
+                <button>OK</button>
+            </form>
+        </dialog>
 
-  <div class="flex flex-space-between">
-    <button id="close_dialog">Close</button>
-    <button type="submit" value="lähetä!" id="submit" >Confirm</button>
-  </div>
-  <button id="open_dialog2">register!</button>
-  </dialog>
-  <!--Dialog-->
+        <!--Dialog error-->
 
-  <!--Dialog error-->
-
-    <dialog class="errordialog">
-      <p>error infomation here!</p>
-      <form method="dialog">
-        <button>OK</button>
-      </form>
-    </dialog>
-
-  <!--Dialog error-->
-
-
-  <script>
-    function myFunction() {
-      var x = document.getElementById("myTopnav");
-      if (x.className === "topnav") {
-        x.className += " responsive";
-      } else {
-        x.className = "topnav";
-      }
-    }
-    </script>
-  </body>
-  </html>
-
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myTopnav");
+                if (x.className === "topnav") {
+                    x.className += " responsive";
+                } else {
+                    x.className = "topnav";
+                }
+            }
+        </script>
+    </body>
+</html>

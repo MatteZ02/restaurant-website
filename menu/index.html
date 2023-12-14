@@ -1,111 +1,158 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#fff">
-  <link rel="stylesheet" href="../public/menu.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-  <link rel="stylesheet" href="../public/sivu1_dialog.css" />
-  <script src="../frontend/src/main.ts" type="module"></script>
-  <script src="../frontend/src/menu.ts" type="module"></script>
-  <link rel="manifest" href="/manifest.json" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <title>menu</title>
-  </head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#fff" />
+        <link rel="stylesheet" href="../public/menu.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link rel="stylesheet" href="../public/sivu1_dialog.css" />
+        <script src="../src/main.ts" type="module"></script>
+        <script src="../src/menu.ts" type="module"></script>
+        <link rel="manifest" href="/manifest.json" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <title>menu</title>
+    </head>
     <body>
-      <div id="fixed">
-        <div class="support">
-          <input type="checkbox" class="checkbox" id="checkbox" />
-          <label for="checkbox" class="checkbox-label">
-              <i id="icon_sun" class="material-icons">wb_sunny</i>
-              <i id="icon_moon" class="material-icons">brightness_3</i>
-              <span class="ball"></span>
-          </label>
-      </div>
-      <div class="topnav" id="myTopnav">
-          <a class="active" id="logotaus" href="../"><h1 id="logo_text"><img id="nav_logo" src="../public/media/kuvat/hessupurgerTI.png" alt="mainlogo"></h1></a>
-          <a href="../" class="navi">Home</a>
-          <a href="../menu/" class="navi">Menu</a>
-          <a href="#login" class="navi"><i id="open_dialog" class="material-icons">account_circle</i></a>
-          <a href="../cart/" id="cart"><img class="navi" id="navicart" src="../public/media/svg/cart.svg" alt="cart"></a>
-          <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
-      </div>
-      </div>
+        <div id="fixed">
+            <div class="support">
+                <input type="checkbox" class="checkbox" id="checkbox" />
+                <label for="checkbox" class="checkbox-label">
+                    <i id="icon_sun" class="material-icons">wb_sunny</i>
+                    <i id="icon_moon" class="material-icons">brightness_3</i>
+                    <span class="ball"></span>
+                </label>
+            </div>
+            <div class="topnav" id="myTopnav">
+                <a class="active" id="logotaus" href="../"
+                    ><h1 id="logo_text">
+                        <img
+                            id="nav_logo"
+                            src="../public/media/kuvat/hessupurgerTI.png"
+                            alt="mainlogo"
+                        /></h1
+                ></a>
+                <a href="../" class="navi">Home</a>
+                <a href="../menu/" class="navi">Menu</a>
+                <a href="#login" class="navi"
+                    ><i id="open_dialog" class="material-icons">account_circle</i></a
+                >
+                <a href="../cart/" id="cart"
+                    ><img class="navi" id="navicart" src="../public/media/svg/cart.svg" alt="cart"
+                /></a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()"
+                    ><i class="fa fa-bars"></i
+                ></a>
+            </div>
+        </div>
 
         <div class="gap">
             <p class="gap_text">categories</p>
             <div>
-                <a href="#burgers"><img class="boxgategory" id="burger_g" src="../public/media/svg//boxgategory.svg" alt="box"/></a>
-                <a href="#drinks"><img class="boxgategory" id="drinks_g" src="../public/media/svg//boxgategory.svg" alt="box" /></a>
-                <a href="#sides"><img class="boxgategory" id="fries_g"  src="../public/media/svg//boxgategory.svg" alt="box" /></a>
-                <a href="#dips"><img class="boxgategory" id="dips_g" src="../public/media/svg//boxgategory.svg" alt="box" /></a>
+                <a href="#burgers"
+                    ><img
+                        class="boxgategory"
+                        id="burger_g"
+                        src="../public/media/svg//boxgategory.svg"
+                        alt="box"
+                /></a>
+                <a href="#drinks"
+                    ><img
+                        class="boxgategory"
+                        id="drinks_g"
+                        src="../public/media/svg//boxgategory.svg"
+                        alt="box"
+                /></a>
+                <a href="#sides"
+                    ><img
+                        class="boxgategory"
+                        id="fries_g"
+                        src="../public/media/svg//boxgategory.svg"
+                        alt="box"
+                /></a>
+                <a href="#dips"
+                    ><img
+                        class="boxgategory"
+                        id="dips_g"
+                        src="../public/media/svg//boxgategory.svg"
+                        alt="box"
+                /></a>
             </div>
         </div>
 
         <h1 id="meals_title">Menu</h1>
         <div id="menu"></div>
         <div class="footer">
-          <p class="footerP">puh: 04401010101</p>
-          <p class="footerP">address: Runeberginkatu 23, 00101 Helsinki</p>
+            <p class="footerP">puh: 04401010101</p>
+            <p class="footerP">address: Runeberginkatu 23, 00101 Helsinki</p>
         </div>
-<!--Dialog-->
-<dialog aria-labelledby="dialog_title" aria-describedby="dialog_description" id="login-modal">
-  <h2 id="dialog_title" class="h2">sign in</h2>
-  <p>Minimum 3 characters</p>
-  <!--form-->
-  <form class="form-sub" action="POST">
-    <div class="form-sub">
-      <label for="name">Username </label>
-      <input
-      type="text"
-      name="username" id="username"
-      autocomplete="username"
-      required minlength="3"
-      />
-    </div>
-    <div class="form-sub">
-      <label for="password">Password:</label>
-      <input
-      type="password"
-      name="password"
-      id="password" required
-      required minlength="3"
-      pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}"
-      />
-    </div>
-    <!--</div>-->
-  </form>
-  <!--form-->
+        <!--Dialog-->
+        <dialog
+            aria-labelledby="dialog_title"
+            aria-describedby="dialog_description"
+            id="login-modal"
+        >
+            <h2 id="dialog_title" class="h2">sign in</h2>
+            <p>Minimum 3 characters</p>
+            <!--form-->
+            <form class="form-sub" action="POST">
+                <div class="form-sub">
+                    <label for="name">Username </label>
+                    <input
+                        type="text"
+                        name="username"
+                        id="username"
+                        autocomplete="username"
+                        required
+                        minlength="3"
+                    />
+                </div>
+                <div class="form-sub">
+                    <label for="password">Password:</label>
+                    <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        required
+                        required
+                        minlength="3"
+                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}"
+                    />
+                </div>
+                <!--</div>-->
+            </form>
+            <!--form-->
 
-  <div class="flex flex-space-between">
-    <button id="close_dialog">Close</button>
-    <button type="submit" value="lähetä!" id="submit" >Confirm</button>
-  </div>
-  <button id="open_dialog2">register!</button>
-  </dialog>
-  <!--Dialog-->
-   <!--Dialog error-->
+            <div class="flex flex-space-between">
+                <button id="close_dialog">Close</button>
+                <button type="submit" value="lähetä!" id="submit">Confirm</button>
+            </div>
+            <button id="open_dialog2">register!</button>
+        </dialog>
+        <!--Dialog-->
+        <!--Dialog error-->
 
-   <dialog class="errordialog">
-    <p>error infomation here!</p>
-    <form method="dialog">
-      <button>OK</button>
-    </form>
-  </dialog>
+        <dialog class="errordialog">
+            <p>error infomation here!</p>
+            <form method="dialog">
+                <button>OK</button>
+            </form>
+        </dialog>
 
-  <!--Dialog error-->
+        <!--Dialog error-->
 
+        <!--Dialog cart-->
 
-     <!--Dialog cart-->
+        <dialog class="cartdialog">
+            <form method="dialog">
+                <a href="../cart/" class="cartB">X in cart</a>
+            </form>
+        </dialog>
 
-     <dialog class="cartdialog">
-      <form method="dialog">
-        <a href="../cart/" class="cartB">X in cart</a>
-      </form>
-    </dialog>
-
-    <!--Dialog error-->
+        <!--Dialog error-->
 
         <script>
             function myFunction() {

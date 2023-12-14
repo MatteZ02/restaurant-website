@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#fff">
-    <title>Admin page</title>
-    <link rel="stylesheet" href="/admin.css" />
-    <script src="../frontend/src/admin.ts" type="module"></script>
-    <link rel="manifest" href="/manifest.json" />
-  </head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#fff" />
+        <title>Admin page</title>
+        <link rel="stylesheet" href="/admin.css" />
+        <script src="../src/admin.ts" type="module"></script>
+        <link rel="manifest" href="/manifest.json" />
+    </head>
     <body>
         <div class="wrapper">
             <div class="one-third">
@@ -22,10 +22,9 @@
                 <input type="text" id="search-user" />
                 <button id="search">Search</button>
             </div>
-            <div class="one-third" >
+            <div class="one-third">
                 <h2>Active orders</h2>
-                <div id="orders">
-                </div>
+                <div id="orders"></div>
             </div>
         </div>
 
@@ -44,7 +43,7 @@
                     <option value="2">Sides</option>
                     <option value="3">Drinks</option>
                 </select>
-                <button type="submit" id="submit-menu-item" >Add</button>
+                <button type="submit" id="submit-menu-item">Add</button>
             </form>
         </dialog>
         <dialog id="user-modal">
@@ -71,6 +70,6 @@
                 <button type="submit" id="submit-user">Update</button>
                 <button id="delete-user">Delete</button>
             </form>
-          </dialog>
-</body>
+        </dialog>
+    </body>
 </html>
