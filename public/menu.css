@@ -459,7 +459,7 @@ input {
 }
 
 #burgers div .minusButtons {
-    border-bottom: 5px solid #fff;
+    border-bottom: none;
 }
 #sides div .minusButtons {
     border-bottom: 5px solid #fff;
