@@ -7,9 +7,14 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 main: resolve(__dirname, "index.html"),
-                nested: resolve(__dirname, "test/index.html"),
+                admin: resolve(__dirname, "admin/index.html"),
+                menu: resolve(__dirname, "menu/index.html"),
+                cart: resolve(__dirname, "cart/index.html"),
+                order: resolve(__dirname, "order/index.html"),
+                docs: resolve(__dirname, "docs/index.html"),
             },
         },
+        outDir: "dist",
     },
     plugins: [
         VitePWA({

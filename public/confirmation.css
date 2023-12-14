@@ -108,29 +108,6 @@ h1{
 }
 
 /* Header/Blog Title */
-.header {
-  background: rgb(127,110,255);
-  background: linear-gradient(0deg, rgba(127,110,255,0) 0%, rgba(0,0,0,1) 100%);
-  background-position: 100% 100%;
-  background-size: 100%;
-  height: 720px;
-  border-bottom-left-radius: 45px;
-  border-bottom-right-radius: 45px;
-  padding: 0;
-  background-repeat: no-repeat;
-  min-width: 250px;
-  background-position: right;
-  background-size: contain;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: baseline;
-  background-image: url(../public/media/kuvat/herob3.jpg);
-  background-size: cover;
-  background-position: bottom;
-
-}
 
 #header_logo{
 margin-left: -20px;
@@ -373,6 +350,8 @@ position:absolute;
 top:32px;
 left: 35%;
 }
+
+
 
 @media screen and (max-width: 899px) {
 .topnav a:not(:first-child) {display: none;}

@@ -1,11 +1,11 @@
 {
     "name": "restaurant-website",
     "version": "0.1.0",
-    "main": "build/index.js",
+    "main": "backend/build/index.js",
     "scripts": {
-        "dev": "cd ./frontend && vite",
-        "build": "cd ./frontend && tsc && vite build",
-        "start": "tsc && node .",
+        "production": "npm run build && npm run start",
+        "build": "tsc && vite build",
+        "start": "cd backend && tsc && cd ../ && node .",
         "start:dev": "nodemon",
         "test": "jest",
         "apidoc": "apidoc -i src/ -o docs/"

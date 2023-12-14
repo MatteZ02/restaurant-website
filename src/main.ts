@@ -1,7 +1,7 @@
 import RestaurantApiWrapper from "./api";
 import loginModalController from "./controllers/loginModalController";
 import registerModalController from "./controllers/registerModalController";
-import { closeDialog, openDialog } from "./util/dialog";
+import { closeDialog } from "./util/dialog";
 import { noop } from "./util/utils";
 
 const restaurantApiWrapper = new RestaurantApiWrapper();
@@ -159,8 +159,8 @@ const f = async () => {
         (acc, item) => acc + item.quantity,
         0
     )} items in cart`;
-    if (cart.items.length > 0) cartDialog.showModal();
-    else closeDialog(cartDialog);
+    if (cart.items.length > 0) cartDialog.open = true;
+    else cartDialog.open = false;
 };
 
 f();

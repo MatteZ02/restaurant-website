@@ -1,155 +1,174 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="public/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="public/sivu1_dialog.css">
-    <script src="../frontend/src/main.ts" type="module"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="manifest" href="/manifest.json" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <title>mainpage</title>
-</head>
-  <body>
-    <div id="fixed">
-    <div class="support">
-      <input  type="checkbox" class="checkbox" id="checkbox">
-      <label for="checkbox" class="checkbox-label">
-        <i id="icon_sun" class="material-icons" >wb_sunny</i>
-        <i id="icon_moon" class="material-icons">brightness_3</i>
-        <span class="ball"></span>
-      </label>
-    </div>
-    <div class="topnav" id="myTopnav">
-      <a class="active" id="logotaus" href="/"><h1 id="logo_text"><img id="nav_logo" src="public/media/kuvat/hessupurgerTI.png" alt="mainlogo"></h1></a>
-      <a href="/" class="navi" >Home</a>
-      <a href="menu/" class="navi">Menu</a>
-      <a href="#login" class="navi"><i id="open_dialog" class="material-icons">account_circle</i></a>
-      <a href="cart/" id="cart"><img class="navi" id="navicart" src="public/media/svg/cart.svg" alt="cart"> </a>
-      <a href="javascript:void(0);" class="icon" onclick="myFunction()" >
-        <i class="fa fa-bars"></i>
-      </a>
-    </div>
-    </div>
-  <div class="header">
-    <a href="menu/" class="button-R">Order!</a>
-    <div class="textOverlay">
-      <img id="header_logo" src="public/media/kuvat/hessupurgerT.png" alt="logo">
-    </div>
-  </div>
-<div class="sales">
-  <h2>recommendations</h2>
-  <p class="salesP">Liha burger + </p>
-  <p class="salesP">coca-cola</p>
-</div>
-<div class="wrapper">
-  <div class="one">
-  </div>
-  <div class="two">
-  </div>
-  <div class="three">
-  </div>
-  <div class="four">
-  </div>
-</div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#fff" />
+        <link rel="stylesheet" href="public/index.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link rel="stylesheet" href="public/sivu1_dialog.css" />
+        <script src="./src/main.ts" type="module"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link rel="manifest" href="/manifest.json" />
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+            integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+            crossorigin=""
+        />
+        <script
+            src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""
+        ></script>
+        <title>mainpage</title>
+    </head>
+    <body>
+        <div id="fixed">
+            <div class="support">
+                <input type="checkbox" class="checkbox" id="checkbox" />
+                <label for="checkbox" class="checkbox-label">
+                    <i id="icon_sun" class="material-icons">wb_sunny</i>
+                    <i id="icon_moon" class="material-icons">brightness_3</i>
+                    <span class="ball"></span>
+                </label>
+            </div>
+            <div class="topnav" id="myTopnav">
+                <a class="active" id="logotaus" href="/"
+                    ><h1 id="logo_text">
+                        <img
+                            id="nav_logo"
+                            src="public/media/kuvat/hessupurgerTI.png"
+                            alt="mainlogo"
+                        /></h1
+                ></a>
+                <a href="/" class="navi">Home</a>
+                <a href="menu/" class="navi">Menu</a>
+                <a href="#login" class="navi"
+                    ><i id="open_dialog" class="material-icons">account_circle</i></a
+                >
+                <a href="cart/" id="cart"
+                    ><img class="navi" id="navicart" src="public/media/svg/cart.svg" alt="cart" />
+                </a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div class="header">
+            <a href="menu/" class="button-R">Order!</a>
+            <div class="textOverlay">
+                <img id="header_logo" src="public/media/kuvat/hessupurgerT.png" alt="logo" />
+            </div>
+        </div>
+        <div class="sales">
+            <h2>recommendations</h2>
+            <p class="salesP">Liha burger +</p>
+            <p class="salesP">coca-cola</p>
+        </div>
+        <div class="wrapper">
+            <div class="one"></div>
+            <div class="two"></div>
+            <div class="three"></div>
+            <div class="four"></div>
+        </div>
 
-<div class="column" id="map"></div>
-  <div class="column1">
-    <h2 class="text1">Restaurant address</h2>
-    <p class="text">Aukioloajat:</p>
-    <p class="text">ma-pe 10-21</p>
-    <p class="text">la-su 11-20</p>
-  </div>
-  <div class="footer">
-    <p class="footerP">puh: 04401010101</p>
-    <p class="footerP">address: Runeberginkatu 23, 00101 Helsinki</p>
-  </div>
-<!--Dialog-->
-<dialog  id="login-modal">
-  <h2 id="dialog_title" class="h2">sign in</h2>
-  <p>Minimum 3 characters</p>
-  <!--form-->
-  <form class="form-sub" action="POST">
-    <div class="form-sub">
-      <label for="name" >Username </label>
-      <input
-      type="text"
-      name="username" id="username"
-      autocomplete="username"
-      required minlength="3"
-      />
-    </div>
-    <div class="form-sub">
-      <label for="password">Password:</label>
-      <input
-      type="password"
-      name="password"
-      id="password" required
-      required minlength="3"
-      pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}"
-      />
-    </div>
-    <!--</div>-->
-  </form>
-  <!--form-->
+        <div class="column" id="map"></div>
+        <div class="column1">
+            <h2 class="text1">Restaurant address</h2>
+            <p>Runeberginkatu 23, 00101 Helsinki</p>
+            <h2 class="text">opening hours:</h2>
+            <p class="text">ma-pe 10-21</p>
+            <p class="text">la-su 11-20</p>
+        </div>
+        <div class="footer">
+            <p class="footerP">puh: 04401010101</p>
+            <p class="footerP">address: Runeberginkatu 23, 00101 Helsinki</p>
+        </div>
+        <!--Dialog-->
+        <dialog id="login-modal">
+            <h2 id="dialog_title" class="h2">sign in</h2>
+            <p>Minimum 3 characters</p>
+            <!--form-->
+            <form class="form-sub" action="POST">
+                <div class="form-sub">
+                    <label for="name">Username </label>
+                    <input
+                        type="text"
+                        name="username"
+                        id="username"
+                        autocomplete="username"
+                        required
+                        minlength="3"
+                    />
+                </div>
+                <div class="form-sub">
+                    <label for="password">Password:</label>
+                    <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        required
+                        required
+                        minlength="3"
+                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}"
+                    />
+                </div>
+                <!--</div>-->
+            </form>
+            <!--form-->
 
-  <div class="flex flex-space-between">
-    <button id="close_dialog">Close</button>
-    <button type="submit" value="lähetä!" id="submit" >Confirm</button>
-  </div>
-  <button id="open_dialog2">register!</button>
-  </dialog>
-  <!--Dialog-->
+            <div class="flex flex-space-between">
+                <button id="close_dialog">Close</button>
+                <button type="submit" value="lähetä!" id="submit">Confirm</button>
+            </div>
+            <button id="open_dialog2">register!</button>
+        </dialog>
+        <!--Dialog-->
 
-  <!--Dialog error-->
+        <!--Dialog error-->
 
-     <dialog  class="errordialog">
-      <p>error infomation here!</p>
-      <form method="dialog">
-        <button>OK</button>
-      </form>
-    </dialog>
+        <dialog class="errordialog">
+            <p>error infomation here!</p>
+            <form method="dialog">
+                <button>OK</button>
+            </form>
+        </dialog>
 
-  <!--Dialog error-->
+        <!--Dialog error-->
 
+        <!--Dialog cart-->
 
-  <!--Dialog cart-->
+        <dialog class="cartdialog">
+            <form method="dialog">
+                <a href="./cart/" class="cartB">X in cart</a>
+            </form>
+        </dialog>
 
-       <dialog class="cartdialog">
-        <form method="dialog">
-          <a href="../cart/" class="cartB">X in cart</a>
-        </form>
-      </dialog>
+        <!--Dialog error-->
 
-  <!--Dialog error-->
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myTopnav");
+                if (x.className === "topnav") {
+                    x.className += " responsive";
+                } else {
+                    x.className = "topnav";
+                }
+            }
 
+            const map = L.map("map").setView([60.16443512082355, 24.93697155799212], 13);
 
-<script>
-    function myFunction() {
-      var x = document.getElementById("myTopnav");
-      if (x.className === "topnav") {
-        x.className += " responsive";
-      } else {
-        x.className = "topnav";
-      }
-    }
+            const tiles = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+                maxZoom: 12,
+                attribution:
+                    '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+            }).addTo(map);
 
-const map = L.map('map').setView([60.16443512082355, 24.93697155799212], 13);
-
-const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 12,
-  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-
-  const marker = L.marker([60.171160488796886, 24.926582988937966]).addTo(map);
-
-</script>
-
-
-
-  </body>
-  </html>
-
+            const marker = L.marker([60.171160488796886, 24.926582988937966]).addTo(map);
+        </script>
+    </body>
+</html>

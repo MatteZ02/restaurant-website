@@ -2,7 +2,7 @@ import express from "express";
 import ViteExpress from "vite-express";
 import cookieParser from "cookie-parser";
 import session from "express-session";
-import config from "./config";
+import config, { httpsOptions } from "./config";
 import router from "./routers/router";
 import authrouter from "./routers/authRouter";
 import menuRouter from "./routers/menuRouter";
@@ -13,6 +13,7 @@ import orderRouter from "./routers/orderRouter.";
 import Stripe from "stripe";
 import Server from "./core/Server";
 import debux from "debux";
+import https from "https";
 
 const debug = debux();
 debug.info("Initializing server");
@@ -30,6 +31,23 @@ const stripe = new Stripe(config.stripe_secret_key as string, {
 const server = new Server();
 
 const app = express();
+ViteExpress.config({
+    mode: (process.env.NODE_ENV ?? "development") as "development" | "production",
+});
+
+if (process.env.NODE_ENV === "production") {
+    https
+        .createServer(httpsOptions, app)
+        .listen(443, () => debug.info("Server listening on port 443"));
+
+    app.use((request, response, next) => {
+        if (!request.secure) {
+            return response.redirect("https://" + request.headers.host + request.url);
+        }
+
+        next();
+    });
+}
 
 app.use((req: express.Request, res: express.Response, next: express.NextFunction): void =>
     req.originalUrl === "/webhook" ? next() : express.json()(req, res, next)
