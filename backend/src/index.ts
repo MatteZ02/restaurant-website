@@ -36,7 +36,7 @@ ViteExpress.config({
     ignorePaths: path =>
         path.startsWith("/api") ||
         path.startsWith("/webhook") ||
-        path.startsWith("/payment/next") ||
+        path.startsWith("/payment") ||
         path.startsWith("/success"),
 });
 
