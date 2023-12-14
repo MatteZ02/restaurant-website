@@ -4,6 +4,7 @@
     "main": "build/index.js",
     "scripts": {
         "dev": "cd ./frontend && vite",
+        "production": "npm run build && npm run start",
         "build": "cd ./frontend && tsc && vite build",
         "start": "tsc && node .",
         "start:dev": "nodemon",
