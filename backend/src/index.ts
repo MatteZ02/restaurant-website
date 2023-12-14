@@ -61,7 +61,6 @@ app.use(
     })
 );
 app.use(cookieParser(config.session_secret));
-app.use(ViteExpress.static());
 
 app.use("/", router);
 app.use("/api/auth", authrouter);
@@ -70,6 +69,8 @@ app.use("/api/cart", cartRouter);
 app.use("/api/order", orderRouter);
 app.use("/api/restaurant", restaurantRouter);
 app.use("/api/user", userRouter);
+
+app.use(ViteExpress.static());
 
 ViteExpress.listen(app, config.port, () => debug.info(`Server listening on port ${config.port}`));
 
