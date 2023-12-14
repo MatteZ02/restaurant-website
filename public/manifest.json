@@ -1,22 +1,24 @@
 {
-    "theme_color": "#fff",
-    "background_color": "#fff",
-    "display": "standalone",
-    "scope": "./",
-    "start_url": "./index.html",
-    "name": "Feastly",
-    "short_name": "Feastly",
-    "icons": [
-      {
-        "src": "media/kuvat/logoHbig.png",
-        "sizes": "268x224",
-        "type": "kuvat/png",
-        "purpose": "any maskable"
-      },
-      {
-        "src": "media/kuvat/logoHsmall.png",
-        "sizes": "193x162",
-        "type": "kuvat/png"
-      }
-    ]
-  }
+  "theme_color": "#fff",
+  "background_color": "#fff",
+  "display": "standalone",
+  "scope": "./",
+  "start_url": "./index.html",
+  "name": "Feastly",
+  "short_name": "Feastly",
+  "icons": [
+    {
+      "src": "/media/svg/Hbig.svg",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/media/svg/Hsmall.svg",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
+
