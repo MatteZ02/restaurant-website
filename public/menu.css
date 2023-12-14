@@ -412,16 +412,12 @@ input{
 .plusButtons{
   width: 20px;
   height: auto;
-  position:relative;
-  right: 50px;
   background-image: url(../public/media/svg/plus.svg);
 }
 
 .minusButtons{
-  width: 20px;
-  height: auto;
-  position:relative;
-  right: 50px;
+  width: 30px;
+  height: 30px;
   background-image: url(../public/media/svg/minus.svg);
 
 
