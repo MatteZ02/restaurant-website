@@ -18,7 +18,7 @@ mariadb-secure-installation
 mysql -u root -p 
 ```
 
-Or host your instance https://mariadb.org/download/
+Or install from https://mariadb.org/download/
 
 Software
 
@@ -44,7 +44,7 @@ docker run --name restaurant-website --net host -d \
 ```
 Or with NodeJS directly `npm run production`
 
-Developlemt
+Development
 With NodeJS
 `npm i`
 and
