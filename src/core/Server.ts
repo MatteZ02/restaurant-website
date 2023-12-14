@@ -11,17 +11,22 @@ class Server extends ws.Server {
     public readonly socketManager = new SocketManager(this.connectionManager);
     constructor() {
         debug.log("Server created");
-        const httpsServer = https
-            .createServer({
-                cert: readFileSync(
-                    "/etc/letsencrypt/live/restaurant-web.northeurope.cloudapp.azure.com/fullchain.pem"
-                ),
-                key: readFileSync(
-                    "/etc/letsencrypt/live/restaurant-web.northeurope.cloudapp.azure.com/privkey.pem"
-                ),
-            })
-            .listen(8080, () => debug.info("Server listening on port 8080"));
-        super({ server: httpsServer });
+        super(
+            process.env.NDOE_ENV === "production"
+                ? {
+                      server: https
+                          .createServer({
+                              cert: readFileSync(
+                                  "/etc/letsencrypt/live/restaurant-web.northeurope.cloudapp.azure.com/fullchain.pem"
+                              ),
+                              key: readFileSync(
+                                  "/etc/letsencrypt/live/restaurant-web.northeurope.cloudapp.azure.com/privkey.pem"
+                              ),
+                          })
+                          .listen(8080, () => debug.info("Server listening on port ")),
+                  }
+                : { port: 8080 }
+        );
         this.on("listening", () => debug.info("WebSocket Server listening on port 8080"));
         this.on("connection", (socket, req) => {
             debug.log(`Received connection from ${req.socket.remoteAddress}`);
