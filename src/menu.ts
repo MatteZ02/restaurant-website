@@ -78,10 +78,8 @@ const f = async () => {
         const buttons = document.createElement("div");
         buttons.classList.add("buttons");
         const minusButton = document.createElement("button");
-        const minusimage = document.createElement("img");
+        const minusimage = document.createElement("div");
         minusimage.classList.add("minusButtons");
-        minusimage.src = "../public/media/svg/minus.svg";
-        minusimage.alt = "minus";
         minusButton.appendChild(minusimage);
         buttons.appendChild(minusButton);
         buttons.appendChild(minusButton);
@@ -93,10 +91,8 @@ const f = async () => {
         input.readOnly = true;
         buttons.appendChild(input);
         const plusButton = document.createElement("button");
-        const plusimage = document.createElement("img");
+        const plusimage = document.createElement("div");
         plusimage.classList.add("plusButtons");
-        plusimage.src = "../public/media/svg/plus.svg";
-        plusimage.alt = "plus";
         plusButton.appendChild(plusimage);
         buttons.appendChild(plusButton);
 
