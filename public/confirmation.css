@@ -327,17 +327,20 @@ height: auto;
 }
 
 #order_status{
+height: 30px;
 margin-top: 50px;
 margin-left: 20px;
 font-size: 20px;
 }
 #order_id{
+  height: 80px;
   margin-top: 50px;
   margin-left: 20px;
   font-size: 20px;
 }
 
-#order_amount{
+#order_items{
+  height: 80px;
   margin-top: 50px;
   margin-left: 20px;
   font-size: 20px;
