@@ -2,7 +2,7 @@ import express from "express";
 import ViteExpress from "vite-express";
 import cookieParser from "cookie-parser";
 import session from "express-session";
-import config from "./config";
+import config, { httpsOptions } from "./config";
 import router from "./routers/router";
 import authrouter from "./routers/authRouter";
 import menuRouter from "./routers/menuRouter";
@@ -14,7 +14,6 @@ import Stripe from "stripe";
 import Server from "./core/Server";
 import debux from "debux";
 import https from "https";
-import { readFileSync } from "fs";
 import helmet from "helmet";
 
 const debug = debux();
@@ -39,17 +38,7 @@ ViteExpress.config({
 
 if (process.env.NODE_ENV === "production") {
     https
-        .createServer(
-            {
-                cert: readFileSync(
-                    "/etc/letsencrypt/live/restaurant-web.northeurope.cloudapp.azure.com/fullchain.pem"
-                ),
-                key: readFileSync(
-                    "/etc/letsencrypt/live/restaurant-web.northeurope.cloudapp.azure.com/privkey.pem"
-                ),
-            },
-            app
-        )
+        .createServer(httpsOptions, app)
         .listen(443, () => debug.info("Server listening on port 443"));
 
     app.use((request, response, next) => {

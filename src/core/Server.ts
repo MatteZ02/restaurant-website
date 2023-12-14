@@ -4,7 +4,7 @@ import Connection from "../classes/Connection";
 import SocketManager from "./managers/SocketManager";
 import ConnectionManager from "./managers/ConnectionManager";
 import { debug } from "..";
-import { readFileSync } from "fs";
+import { httpsOptions } from "../config";
 
 class Server extends ws.Server {
     private readonly connectionManager = new ConnectionManager();
@@ -15,14 +15,7 @@ class Server extends ws.Server {
             process.env.NDOE_ENV === "production"
                 ? {
                       server: https
-                          .createServer({
-                              cert: readFileSync(
-                                  "/etc/letsencrypt/live/restaurant-web.northeurope.cloudapp.azure.com/fullchain.pem"
-                              ),
-                              key: readFileSync(
-                                  "/etc/letsencrypt/live/restaurant-web.northeurope.cloudapp.azure.com/privkey.pem"
-                              ),
-                          })
+                          .createServer(httpsOptions)
                           .listen(8080, () => debug.info("Server listening on port ")),
                   }
                 : { port: 8080 }
