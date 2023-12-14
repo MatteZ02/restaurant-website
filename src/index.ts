@@ -15,6 +15,7 @@ import Server from "./core/Server";
 import debux from "debux";
 import https from "https";
 import { readFileSync } from "fs";
+import helmet from "helmet";
 
 const debug = debux();
 debug.info("Initializing server");
@@ -47,6 +48,7 @@ https
     )
     .listen(443, () => debug.info("Server listening on port 443"));
 
+app.use(helmet());
 app.use((req: express.Request, res: express.Response, next: express.NextFunction): void =>
     req.originalUrl === "/webhook" ? next() : express.json()(req, res, next)
 );
