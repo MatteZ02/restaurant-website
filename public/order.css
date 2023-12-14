@@ -53,6 +53,9 @@ body.dark .addeditemprice {
 body.dark .addeditemamount {
     color: #ddd;
 }
+body.dark .navi {
+    color: #ddd;
+}
 .itemcart {
     width: 100%;
     height: 100px;
