@@ -2,7 +2,6 @@ import { Cart } from "restaurantApiTypes";
 import RestaurantApiWrapper from "./api";
 import { decrease, increase } from "./functions/counter";
 import { noop } from "./util/utils";
-import { closeDialog } from "./util/dialog";
 
 function updateCartDialog(cart: Cart) {
     const cartDialog = document.getElementsByClassName("cartdialog")[0] as HTMLDialogElement;
@@ -13,8 +12,8 @@ function updateCartDialog(cart: Cart) {
         (acc, curr) => acc + curr.quantity,
         0
     )} items in cart`;
-    if (cart.items.length > 0) cartDialog.showModal();
-    else closeDialog(cartDialog);
+    if (cart.items.length > 0) cartDialog.open = true;
+    else cartDialog.open = false;
 }
 
 const restaurantApiWrapper = new RestaurantApiWrapper();
@@ -109,6 +108,7 @@ const f = async () => {
         });
 
         minusButton.addEventListener("click", async () => {
+            if (input.value === "0") return;
             const cart = await restaurantApiWrapper.deleteCartItem(item.id).catch(noop);
             if (!cart) return;
             decrease(input);
