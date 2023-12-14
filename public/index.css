@@ -103,7 +103,7 @@ h1{
   flex-direction: row;
   align-items: center;
   justify-content: baseline;
-  background-image: url(../public/media/kuvat/herob3.jpg);
+  background-image: url(../public/media/kuvat/herob2.png);
   background-size: cover;
   background-position: bottom;
 
@@ -418,7 +418,7 @@ display: none;
   width: 600px;
   height: 490px;
   background-color: #dadada;
-  background-image: url("../public/media/kuvat/herob.jpg");
+  background-image: url("../public/media/kuvat/heroB.png");
   background-size:cover;
   background-repeat: no-repeat;
   background-position:center;
