@@ -25,6 +25,11 @@ docker run --name restaurant-website --net host -d \
     -e DB_PASSWORD= \
     -e PORT=80 \
     -e JWT_SECRET= \
+    -e STRIPE_SECRET_KEY= \
+    -e STRIPE_PUBLISHABLE_KEY= \
+    -e STRIPE_WEBHOOK_SECRET= \
     --restart always \
     mattez02/restaurant-website
 ```
+
+You will also have to instal and host (stripe-cli)[https://github.com/stripe/stripe-cli#installation] in order to use the payment api.
