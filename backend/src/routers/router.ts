@@ -93,7 +93,7 @@ router.post(
 
         const headers = req.headers["stripe-signature"];
         if (!headers) {
-            console.log(`⚠️  Webhook signature verification failed.`);
+            debug.error("No stripe signature");
             res.sendStatus(400);
             return;
         }
@@ -105,7 +105,7 @@ router.post(
                 config.stripe_webhook_secret as string
             );
         } catch (err) {
-            console.log(`⚠️  Webhook signature verification failed.`);
+            debug.error("Error verifying webhook signature");
             res.sendStatus(400);
             return;
         }
@@ -115,12 +115,10 @@ router.post(
 
         if (eventType === "payment_intent.succeeded") {
             const pi: Stripe.PaymentIntent = data.object as Stripe.PaymentIntent;
-            console.log(`🔔  Webhook received: ${pi.object} ${pi.status}!`);
-            console.log("💰 Payment captured!");
+            debug.log(`Webhook received: ${pi.object} ${pi.status}!`);
         } else if (eventType === "payment_intent.payment_failed") {
             const pi: Stripe.PaymentIntent = data.object as Stripe.PaymentIntent;
-            console.log(`🔔  Webhook received: ${pi.object} ${pi.status}!`);
-            console.log("❌ Payment failed.");
+            debug.log(`Webhook received: ${pi.object} ${pi.status}!`);
         }
         res.sendStatus(200);
     }

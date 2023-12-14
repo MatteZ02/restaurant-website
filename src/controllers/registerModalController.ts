@@ -20,8 +20,6 @@ const registerModalController = (modal: HTMLDialogElement) => {
             const address =
                 (document.getElementById("address") as HTMLInputElement).value || undefined;
 
-            console.log(username, firstname, lastname, password, email, phone, address);
-
             const userData = {
                 username,
                 first_name: firstname,
@@ -31,8 +29,6 @@ const registerModalController = (modal: HTMLDialogElement) => {
                 phone,
                 address,
             };
-
-            console.log(userData);
 
             const user = await restaurantApiWrapper.postUser(userData).catch(noop);
             if (!user) {
