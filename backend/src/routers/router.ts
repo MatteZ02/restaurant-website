@@ -140,7 +140,6 @@ router.get("/success", async (req: Request, res: Response, next: NextFunction) =
         "Content-type": "application/json",
     });
     if (!o) return res.redirect("/cart/");
-    console.log(o);
 
     res.redirect(`/order/${o.id}`);
 });
