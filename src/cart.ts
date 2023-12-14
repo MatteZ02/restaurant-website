@@ -121,7 +121,7 @@ const f = async () => {
             }
 
             console.log(`Payment ${paymentIntent.status}: ${paymentIntent.id}`);
-            window.location.href = "/success";
+            window.location.href = `/payment/next?payment_intent=${paymentIntent.id}`;
         });
     });
 };
