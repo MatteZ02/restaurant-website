@@ -410,11 +410,12 @@ input{
 
 }
 .plusButtons{
-  width: 20px;
+  width: 30px;
   height: 30px;
   background-repeat: no-repeat ;
   background-size: contain;
   background-image: url(../public/media/svg/plus.svg);
+  right: 50px;
 }
 
 .minusButtons{
@@ -423,6 +424,9 @@ input{
   background-repeat: no-repeat ;
   background-size: contain;
   background-image: url(../public/media/svg/minus.svg);
+  right: 50px;
+
+
 }
 /* burgers */
 
