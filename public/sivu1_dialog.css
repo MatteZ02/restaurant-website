@@ -6,7 +6,7 @@ button {
     height: 30px;
     border-radius: calc(3px * var(--ratio));
     border: none;
-    letter-spacing: ccalc(3 * var(--leading, 0.025em));
+    letter-spacing: calc(3 * var(--leading, 0.025em));
     font-family: inherit;
     color: var(--grey-color);
     background-color: var(--light-color-bg);
