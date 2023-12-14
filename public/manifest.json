@@ -1,0 +1,22 @@
+{
+    "theme_color": "#fff",
+    "background_color": "#fff",
+    "display": "standalone",
+    "scope": "./",
+    "start_url": "./index.html",
+    "name": "Feastly",
+    "short_name": "Feastly",
+    "icons": [
+      {
+        "src": "media/kuvat/logoHbig.png",
+        "sizes": "79x88",
+        "type": "image/png",
+        "purpose": "any maskable"
+      },
+      {
+        "src": "media/kuvat/logoHsmall.png",
+        "sizes": "47x52",
+        "type": "image/png"
+      }
+    ]
+  }
