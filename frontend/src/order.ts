@@ -10,10 +10,9 @@ const f = async () => {
     if (!orderId) return window.location.replace("/");
     const order = await restaurantApiWrapper.getOrderById(+orderId).catch(noop);
     if (!order) return window.location.replace("/");
-    const confirmationHeader = document.getElementById("order-confirmation");
+    const confirmationHeader = document.getElementById("confirmed_box");
     if (confirmationHeader)
         confirmationHeader.innerText = `Order status: ${getOrderStatus(order.order_status)}`;
-
     const socket = new WebSocket(config.socketUrl);
     socket.onopen = () => {
         socket.send(JSON.stringify({ orderId }));
