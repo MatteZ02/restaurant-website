@@ -5,10 +5,14 @@ dotenv.config({ path: "../../.env" });
 
 const httpsOptions = {
     cert: readFileSync(
-        "/etc/letsencrypt/live/restaurant-web.northeurope.cloudapp.azure.com/fullchain.pem"
+        process.env.NODE_ENV === "production"
+            ? "/etc/letsencrypt/live/restaurant-web.northeurope.cloudapp.azure.com/fullchain.pem"
+            : ""
     ),
     key: readFileSync(
-        "/etc/letsencrypt/live/restaurant-web.northeurope.cloudapp.azure.com/privkey.pem"
+        process.env.NODE_ENV === "production"
+            ? "/etc/letsencrypt/live/restaurant-web.northeurope.cloudapp.azure.com/privkey.pem"
+            : ""
     ),
 };
 
