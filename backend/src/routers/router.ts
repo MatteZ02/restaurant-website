@@ -127,6 +127,7 @@ router.post(
 router.get("/success", async (req: Request, res: Response, next: NextFunction) => {
     debug.log("get /success");
     const { payment_intent_client_secret } = req.query;
+    if (!payment_intent_client_secret) return res.redirect("/cart/");
     const cart = req.session.cart;
     if (!cart) return res.redirect("/cart/");
     const order = {
