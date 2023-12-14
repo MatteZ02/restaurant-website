@@ -16,7 +16,7 @@ class Server extends ws.Server {
                 ? {
                       server: https
                           .createServer(httpsOptions)
-                          .listen(8080, () => debug.info("Server listening on port ")),
+                          .listen(8080, () => debug.info("Server listening on port 8080 (HTTPS)")),
                   }
                 : { port: 8080 }
         );
