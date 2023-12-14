@@ -13,6 +13,8 @@ import orderRouter from "./routers/orderRouter.";
 import Stripe from "stripe";
 import Server from "./core/Server";
 import debux from "debux";
+import https from "https";
+import { readFileSync } from "fs";
 
 const debug = debux();
 debug.info("Initializing server");
@@ -30,6 +32,20 @@ const stripe = new Stripe(config.stripe_secret_key as string, {
 const server = new Server();
 
 const app = express();
+
+https
+    .createServer(
+        {
+            cert: readFileSync(
+                "/etc/letsencrypt/live/restaurant-web.northeurope.cloudapp.azure.com/fullchain.pem"
+            ),
+            key: readFileSync(
+                "/etc/letsencrypt/live/restaurant-web.northeurope.cloudapp.azure.com/privkey.pem"
+            ),
+        },
+        app
+    )
+    .listen(443, () => debug.info("Server listening on port 443"));
 
 app.use((req: express.Request, res: express.Response, next: express.NextFunction): void =>
     req.originalUrl === "/webhook" ? next() : express.json()(req, res, next)
