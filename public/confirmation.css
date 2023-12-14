@@ -372,6 +372,8 @@ top:32px;
 left: 35%;
 }
 
+
+
 @media screen and (max-width: 899px) {
 .topnav a:not(:first-child) {display: none;}
 .topnav a.icon {

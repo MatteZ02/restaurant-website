@@ -9,13 +9,13 @@
     "icons": [
       {
         "src": "media/kuvat/logoHbig.png",
-        "sizes": "79x88",
+        "sizes": "268x224",
         "type": "image/png",
         "purpose": "any maskable"
       },
       {
         "src": "media/kuvat/logoHsmall.png",
-        "sizes": "47x52",
+        "sizes": "193x162",
         "type": "image/png"
       }
     ]
