@@ -26,6 +26,7 @@ body.dark  #drinks div .item { border-bottom: 5px solid #7F7F7F;}
 body.dark  #sides div .item { border-bottom: 5px solid #7F7F7F;}
 body.dark  #burgers div .item { border-bottom: 5px solid #7F7F7F;}
 body.dark  .footer { background-color: #111;}
+body.dark  .footerP {color: #ddd;}
 
 
 #nav_logo{

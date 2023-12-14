@@ -15,6 +15,8 @@ body.dark  .topnav {background-color: #111;}
 body.dark  .gap_text {color: #fff;}
 body.dark  .text {color: #ddd;}
 body.dark  .text1 {color: #ddd;}
+body.dark .footer { background-color: #111;}
+body.dark  .footerP {color: #ddd;}
 
 .checkbox {
   opacity: 0;

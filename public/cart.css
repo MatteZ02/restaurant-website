@@ -26,6 +26,7 @@ body.dark #buy {background-color: #343434;}
 body.dark .itemcart {border-bottom: 3px solid #bdbdbd;}
 body.dark .itemcount {background-color: #343434;}
 body.dark .footer { background-color: #111;}
+body.dark  .footerP {color: #ddd;}
 
 .checkbox {
     opacity: 0;
