@@ -6,6 +6,7 @@ const restaurantApiWrapper = new RestaurantApiWrapper();
 
 const editMenuItem = async (id: number, menuItem: Partial<MenuItem>) => {
     const res = await restaurantApiWrapper.putMenuItem(menuItem, id).catch(noop);
+    return res;
 };
 
 export default editMenuItem;

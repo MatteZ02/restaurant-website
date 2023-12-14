@@ -1,4 +1,4 @@
-import { Restaurant as ApiRestaurant, Order } from "restaurantApiTypes";
+import { Restaurant as ApiRestaurant } from "restaurantApiTypes";
 import requestHandler from "../core/requestHandler";
 
 class Restaurant implements ApiRestaurant {
@@ -38,32 +38,6 @@ class Restaurant implements ApiRestaurant {
             .catch(err => {
                 throw new Error(err.message);
             });
-        return req.data;
-    }
-
-    public async getOrders(token: string): Promise<ApiRestaurant> {
-        const req = await requestHandler
-            .get<{
-                message: string;
-                data: ApiRestaurant;
-            }>(`restaurant/${this.id}/order`, {
-                "Content-type": "application/json",
-                Authorization: `Bearer ${token}`,
-            })
-            .catch(err => {
-                throw new Error(err.message);
-            });
-        return req.data;
-    }
-
-    public async postOrder(data: Order) {
-        const req = await requestHandler.post<{ data: Order }>(
-            `restaurant/${this.id}/order`,
-            data,
-            {
-                "Content-type": "application/json",
-            }
-        );
         return req.data;
     }
 }

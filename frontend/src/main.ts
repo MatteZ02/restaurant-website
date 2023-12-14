@@ -1,7 +1,7 @@
 import RestaurantApiWrapper from "./api";
 import loginModalController from "./controllers/loginModalController";
 import registerModalController from "./controllers/registerModalController";
-import { closeDialog, openDialog } from "./util/dialog";
+import { closeDialog } from "./util/dialog";
 import { noop } from "./util/utils";
 
 const restaurantApiWrapper = new RestaurantApiWrapper();

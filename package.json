@@ -4,6 +4,7 @@
     "main": "build/index.js",
     "scripts": {
         "dev": "cd ./frontend && vite",
+        "production": "npm run build && npm run start",
         "build": "cd ./frontend && tsc && vite build",
         "start": "tsc && node .",
         "start:dev": "nodemon",
@@ -42,6 +43,7 @@
         "express": "^4.18.2",
         "express-session": "^1.17.3",
         "express-validator": "^7.0.1",
+        "helmet": "^7.1.0",
         "jsonwebtoken": "^9.0.2",
         "mysql2": "^3.6.5",
         "nodemon": "^3.0.1",

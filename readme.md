@@ -28,6 +28,9 @@ docker run --name restaurant-website --net host -d \
     -e STRIPE_SECRET_KEY= \
     -e STRIPE_PUBLISHABLE_KEY= \
     -e STRIPE_WEBHOOK_SECRET= \
+    -e NODE_ENV=production \
+    -v '/etc/letsencrypt/archive/restaurant-web.northeurope.cloudapp.azure.com/fullchain3.pem:/etc/letsencrypt/live/restaurant-web.northeurope.cloudapp.azure.com/fullchain.pem:ro' \
+    -v '/etc/letsencrypt/archive/restaurant-web.northeurope.cloudapp.azure.com/privkey3.pem:/etc/letsencrypt/live/restaurant-web.northeurope.cloudapp.azure.com/privkey.pem:ro' \
     --restart always \
     mattez02/restaurant-website
 ```
