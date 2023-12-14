@@ -104,7 +104,6 @@ h1{
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: baseline;
   background-image: url(../public/media/kuvat/herob2.png);
   background-size: cover;
   background-position: bottom;
@@ -208,7 +207,6 @@ height: auto;
   padding-left: 10px;
   margin-right: 20px;
   max-width: 800px;
-  font-family: Rubik Bubbles, ;
   font-size: 30px;
   color: #000;
 }
@@ -474,9 +472,9 @@ display: none;
   background-size: contain;
   background-repeat:no-repeat;
   background-position:center ;
-  box-shadow: 50%;
   border-radius: 10px;
   }
+
   .three {
   grid-column: 1;
   grid-row: 2;
