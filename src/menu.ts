@@ -82,13 +82,11 @@ const f = async () => {
         minusimage.classList.add("minusButtons");
         minusButton.appendChild(minusimage);
         buttons.appendChild(minusButton);
-        buttons.appendChild(minusButton);
         const input = document.createElement("input");
         input.type = "text";
         input.value = cartItem ? cartItem.quantity.toString() : "0";
         input.maxLength = 2;
         input.size = 2;
-        input.readOnly = true;
         buttons.appendChild(input);
         const plusButton = document.createElement("button");
         const plusimage = document.createElement("div");

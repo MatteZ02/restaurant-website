@@ -33,10 +33,8 @@ const f = async () => {
         amount.innerText = item.quantity + " items";
         itemElement.appendChild(amount);
         const deleteButton = document.createElement("button");
-        const deleteImage = document.createElement("img");
+        const deleteImage = document.createElement("div");
         deleteImage.classList.add("deleteitem");
-        deleteImage.src = "../public/media/svg/Delete-button.svg";
-        deleteImage.alt = "deleteitem";
         deleteButton.appendChild(deleteImage);
         itemElement.appendChild(deleteButton);
         items?.appendChild(itemElement);
