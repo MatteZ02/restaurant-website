@@ -518,18 +518,6 @@ input{
   }
 
 
-@media screen and (max-width: 1692px) {
-  .sales {
-    width: 100%;
-    height: 490px;
-    float: none;
-    border-radius: 20px;
-    margin-left: 0;
-
-  }
-}
-
-
 @media screen and (max-width: 899px) {
 .topnav a:not(:first-child) {display: none;}
 .topnav a.icon {
