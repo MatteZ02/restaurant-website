@@ -66,6 +66,17 @@ body.dark  .text1 {color: #ddd;}
 	position: absolute;
   margin: 5px;
 }
+#logo{
+  width: 89px;
+  margin-top: 7px;
+ }
+
+ #logotaus{
+   background-color: white;
+   border-bottom-right-radius: 20px;
+   min-width: 200px;
+   height: 58px;
+ }
 
 h1{
   font-family: 'Sofia Sans Condensed', sans-serif;
@@ -77,13 +88,6 @@ h1{
   color: #000;
   font-size: 15px;
 }
-
-
-
-
-
-
-
 
 #logo{
  width: 89px;
@@ -97,13 +101,162 @@ h1{
   height: 58px;
 }
 
+#navicart{
+  margin-top: -5px;
+}
 
+/* Header/Blog Title */
+.header {
+  background: rgb(127,110,255);
+  background: linear-gradient(0deg, rgba(127,110,255,0) 0%, rgba(0,0,0,1) 100%);
+  background-position: 100% 100%;
+  background-size: 100%;
+  height: 720px;
+  border-bottom-left-radius: 45px;
+  border-bottom-right-radius: 45px;
+  padding: 0;
+  background-repeat: no-repeat;
+  min-width: 250px;
+  background-position: right;
+  background-size: contain;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: baseline;
+  background-image: url(../public/media/kuvat/herob3.jpg);
+  background-size: cover;
+  background-position: bottom;
 
-/* Clear floats after the columns */
+}
+
+#header_logo{
+margin-left: -20px;
+width: 80%;
+height: auto;
+}
+
+#nav_logo{
+width: 160px;
+height: auto;
+}
+
+.button-R {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 100px;
+  align-items: center;
+  appearance: none;
+  background-clip: padding-box;
+  background-color: initial;
+  background-image: none;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  flex-direction: row;
+  flex-shrink: 0;
+  font-family: 'Sofia Sans Condensed', sans-serif;
+  font-size: 25px;
+  font-weight: 800;
+  justify-content: center;
+  line-height: 24px;
+  margin: 0;
+  min-height: 64px;
+  outline: none;
+  overflow: visible;
+  padding: 19px 26px;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  width: auto;
+  word-break: keep-all;
+  z-index: 0;
+}
+
+@media (min-width: 768px) {
+  .bbutton-R {
+    padding: 19px 32px;
+  }
+}
+
+.button-R:before,
+.button-R:after {
+  border-radius: 80px;
+}
+
+.button-R:before {
+  background-color: #9f6bff;
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -2;
+}
+
+.button-R:after {
+  background-color: initial;
+  background-image: linear-gradient(92.83deg, #894AFF 0, #894AFF 100%);
+  bottom: 4px;
+  content: "";
+  display: block;
+  left: 4px;
+  overflow: hidden;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  transition: all 100ms ease-out;
+  z-index: -1;
+}
+
+.button-R:hover:not(:disabled):after {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  transition-timing-function: ease-in;
+}
+
+.button-R:active:not(:disabled) {
+  color: #ccc;
+}
+
+.button-R:active:not(:disabled):after {
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), linear-gradient(92.83deg, #894AFF 0, #894AFF  100%);
+  bottom: 4px;
+  left: 4px;
+  right: 4px;
+  top: 4px;
+}
+
+.button-R:disabled {
+  cursor: default;
+  opacity: .24;
+}
+
+/* Clearfix (clear floats)*/
 .row::after {
   content: "";
-  display: table;
   clear: both;
+  display: table;
+}
+
+#login{
+  margin-top: 0px;
+  width: 20px;
+  height: auto;
 }
 
 /* Footer */
@@ -114,77 +267,108 @@ h1{
   min-width: 300px;
 }
 
-
-#login{
-  margin-top: 0px;
-  width: 20px;
-  height: auto;
-}
-
 /* top nav starts */
 .topnav {
-overflow: hidden;
-background-color: #ddd;
-min-width: 250px;
-font-family: "Sofia Sans Condensed", sans-serif;
-font-weight: 600;
-}
+  overflow: hidden;
+  background-color: #ddd;
+  min-width: 250px;
+  font-family: "Sofia Sans Condensed", sans-serif;
+  font-weight: 600;
+  }
 
-.navtext{
-  margin-top: 10px;
-}
+  #fixed{
+  z-index: 100;
+  position: fixed;
+  width: 65%;
+  }
 
-.topnav a {
-float: left;
-display: block;
-color: #4C3F59;
-text-align: center;
-padding: 14px 16px;
-text-decoration: none;
-font-size: 17px;
-}
+  .navtext{
+    margin-top: 10px;
+  }
 
-
-.topnav a:hover {
-color: #ccc;
-}
-
-.topnav a.active {
-color: white;
-}
-
-.topnav .icon {
-display: none;
-}
-
-#cart{
-  margin-top: 0;
-  padding: 0;
+  .topnav a {
   float: left;
-  width: 25px;
-  height: 30px;
-  margin-top: 10px;
-}
+  display: block;
+  color: #4C3F59;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  }
 
-#cart:hover {opacity: 0.6}
 
-#confirmed_box{
-  height: 200px;
+  .topnav a:hover {
+  color: #ccc;
+  }
+
+  .topnav a.active {
+  color: white;
+  }
+
+  .topnav .icon {
+  display: none;
+  }
+
+  #cart{
+    margin-top: 0;
+    padding: 0;
+    float: left;
+    width: 25px;
+    height: 30px;
+    margin-top: 10px;
+  }
+
+  #cart:hover {opacity: 0.6}
+
+  #background_confirmation
+  {
+  background-image: url("/public/media/kuvat/shopping-bags.jpg");
+  height: 400px;
   width: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 25px;
+  }
+
+.confirmed_box{
+  height: 300px;
+  width: 300px;
   display: flex;
   flex-wrap: nowrap;
+  flex-direction: column;
   margin-top: 50px;
   margin-left: 30%;
-  border: 2px solid #4C3F59;
-
-
-}
-#confirmed_box h1{
-margin-top: 1px;
-
-
+  position:absolute;
+  border-radius: 25px;
+  left:60px;
+  background-color: rgba(0,0,0,0.25);
 }
 
+#order_status{
+margin-top: 50px;
+margin-left: 20px;
+font-size: 20px;
+}
+#order_id{
+  margin-top: 50px;
+  margin-left: 20px;
+  font-size: 20px;
+}
+
+#order_amount{
+  margin-top: 50px;
+  margin-left: 20px;
+  font-size: 20px;
+}
+
+#confirmation_title{
+
+color:#894AFF;
+position:absolute;
+top:32px;
+left: 35%;
+}
 
 @media screen and (max-width: 899px) {
 .topnav a:not(:first-child) {display: none;}
