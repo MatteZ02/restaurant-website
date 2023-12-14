@@ -462,20 +462,20 @@ input {
     border-bottom: none;
 }
 #sides div .minusButtons {
-    border-bottom: 5px solid #fff;
+    border-bottom: none;
 }
 #drinks div .minusButtons {
-    border-bottom: 5px solid #fff;
+    border-bottom: none;
 }
 
 #burgers div .plusButtons {
-    border-bottom: 5px solid #fff;
+    border-bottom: none;
 }
 #sides div .plusButtons {
-    border-bottom: 5px solid #fff;
+    border-bottom: none;
 }
 #drinks div .plusButtons {
-    border-bottom: 5px solid #fff;
+    border-bottom: none;
 }
 /* burgers */
 
