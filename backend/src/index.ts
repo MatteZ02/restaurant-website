@@ -33,11 +33,17 @@ const server = new Server();
 const app = express();
 ViteExpress.config({
     mode: (process.env.NODE_ENV ?? "development") as "development" | "production",
-    ignorePaths: path =>
-        path.startsWith("/api") ||
-        path.startsWith("/webhook") ||
-        path.startsWith("/payment") ||
-        path.startsWith("/success"),
+    ignorePaths: path => {
+        console.log(path);
+        const e =
+            path.startsWith("/api") ||
+            path.startsWith("/webhook") ||
+            path.startsWith("/payment") ||
+            path.startsWith("/success");
+        console.log(e);
+
+        return e;
+    },
 });
 
 if (process.env.NODE_ENV === "production") {
